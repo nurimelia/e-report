@@ -1,0 +1,77 @@
+\hypertarget{protocol_item_detail_view_controller_delegate-p}{\section{$<$Item\-Detail\-View\-Controller\-Delegate$>$ Protocol Reference}
+\label{protocol_item_detail_view_controller_delegate-p}\index{$<$\-Item\-Detail\-View\-Controller\-Delegate$>$@{$<$\-Item\-Detail\-View\-Controller\-Delegate$>$}}
+}
+
+
+We pass the creted information to listviewcontrolelr using delegate method.  
+
+
+
+
+{\ttfamily \#import $<$Item\-Detail\-View\-Controller.\-h$>$}
+
+Inheritance diagram for $<$Item\-Detail\-View\-Controller\-Delegate$>$\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{protocol_item_detail_view_controller_delegate-p}
+\end{center}
+\end{figure}
+\subsection*{Instance Methods}
+\begin{DoxyCompactItemize}
+\item 
+(void) -\/ \hyperlink{protocol_item_detail_view_controller_delegate-p_aff7149953ffd00cf72ca89940f27cc7b}{item\-Detail\-View\-Controller\-Did\-Cancel\-:}
+\begin{DoxyCompactList}\small\item\em This method declares when user tap on the cancel button, it will dismiss the item detail view controller presenting without saving the data. \end{DoxyCompactList}\item 
+(void) -\/ \hyperlink{protocol_item_detail_view_controller_delegate-p_a93a61edd4ec13014f719f8d521d6cfa1}{item\-Detail\-View\-Controller\-:did\-Finish\-Adding\-Item\-:}
+\begin{DoxyCompactList}\small\item\em This method pass the relevant \char`\"{}added\char`\"{} information such as category name, icon to listview controller. \end{DoxyCompactList}\item 
+(void) -\/ \hyperlink{protocol_item_detail_view_controller_delegate-p_ab8158fefde9bdac1d4ad585a8a9b592a}{item\-Detail\-View\-Controller\-:did\-Finish\-Editing\-Item\-:}
+\begin{DoxyCompactList}\small\item\em This method pass the relevant \char`\"{}edited\char`\"{} information such as category name, icon to listview controller. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+We pass the creted information to listviewcontrolelr using delegate method. 
+
+Definition at line 31 of file Item\-Detail\-View\-Controller.\-h.
+
+
+
+\subsection{Method Documentation}
+\hypertarget{protocol_item_detail_view_controller_delegate-p_a93a61edd4ec13014f719f8d521d6cfa1}{\index{Item\-Detail\-View\-Controller\-Delegate-\/p@{Item\-Detail\-View\-Controller\-Delegate-\/p}!item\-Detail\-View\-Controller\-:did\-Finish\-Adding\-Item\-:@{item\-Detail\-View\-Controller\-:did\-Finish\-Adding\-Item\-:}}
+\index{item\-Detail\-View\-Controller\-:did\-Finish\-Adding\-Item\-:@{item\-Detail\-View\-Controller\-:did\-Finish\-Adding\-Item\-:}!ItemDetailViewControllerDelegate-p@{Item\-Detail\-View\-Controller\-Delegate-\/p}}
+\subsubsection[{item\-Detail\-View\-Controller\-:did\-Finish\-Adding\-Item\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) item\-Detail\-View\-Controller\-: 
+\begin{DoxyParamCaption}
+\item[{({\bf Item\-Detail\-View\-Controller} $\ast$)}]{controller}
+\item[{didFinishAddingItem:({\bf Checklist\-Item} $\ast$)}]{item}
+\end{DoxyParamCaption}
+}}\label{protocol_item_detail_view_controller_delegate-p_a93a61edd4ec13014f719f8d521d6cfa1}
+
+
+This method pass the relevant \char`\"{}added\char`\"{} information such as category name, icon to listview controller. 
+
+\hypertarget{protocol_item_detail_view_controller_delegate-p_ab8158fefde9bdac1d4ad585a8a9b592a}{\index{Item\-Detail\-View\-Controller\-Delegate-\/p@{Item\-Detail\-View\-Controller\-Delegate-\/p}!item\-Detail\-View\-Controller\-:did\-Finish\-Editing\-Item\-:@{item\-Detail\-View\-Controller\-:did\-Finish\-Editing\-Item\-:}}
+\index{item\-Detail\-View\-Controller\-:did\-Finish\-Editing\-Item\-:@{item\-Detail\-View\-Controller\-:did\-Finish\-Editing\-Item\-:}!ItemDetailViewControllerDelegate-p@{Item\-Detail\-View\-Controller\-Delegate-\/p}}
+\subsubsection[{item\-Detail\-View\-Controller\-:did\-Finish\-Editing\-Item\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) item\-Detail\-View\-Controller\-: 
+\begin{DoxyParamCaption}
+\item[{({\bf Item\-Detail\-View\-Controller} $\ast$)}]{controller}
+\item[{didFinishEditingItem:({\bf Checklist\-Item} $\ast$)}]{item}
+\end{DoxyParamCaption}
+}}\label{protocol_item_detail_view_controller_delegate-p_ab8158fefde9bdac1d4ad585a8a9b592a}
+
+
+This method pass the relevant \char`\"{}edited\char`\"{} information such as category name, icon to listview controller. 
+
+\hypertarget{protocol_item_detail_view_controller_delegate-p_aff7149953ffd00cf72ca89940f27cc7b}{\index{Item\-Detail\-View\-Controller\-Delegate-\/p@{Item\-Detail\-View\-Controller\-Delegate-\/p}!item\-Detail\-View\-Controller\-Did\-Cancel\-:@{item\-Detail\-View\-Controller\-Did\-Cancel\-:}}
+\index{item\-Detail\-View\-Controller\-Did\-Cancel\-:@{item\-Detail\-View\-Controller\-Did\-Cancel\-:}!ItemDetailViewControllerDelegate-p@{Item\-Detail\-View\-Controller\-Delegate-\/p}}
+\subsubsection[{item\-Detail\-View\-Controller\-Did\-Cancel\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) item\-Detail\-View\-Controller\-Did\-Cancel\-: 
+\begin{DoxyParamCaption}
+\item[{({\bf Item\-Detail\-View\-Controller} $\ast$)}]{controller}
+\end{DoxyParamCaption}
+}}\label{protocol_item_detail_view_controller_delegate-p_aff7149953ffd00cf72ca89940f27cc7b}
+
+
+This method declares when user tap on the cancel button, it will dismiss the item detail view controller presenting without saving the data. 
+
+
+
+The documentation for this protocol was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/\-Users/\-Kalai/\-Desktop/classes/\hyperlink{_item_detail_view_controller_8h}{Item\-Detail\-View\-Controller.\-h}\end{DoxyCompactItemize}

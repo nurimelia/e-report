@@ -1,0 +1,233 @@
+\hypertarget{interface_item_detail_view_controller}{\section{Item\-Detail\-View\-Controller Class Reference}
+\label{interface_item_detail_view_controller}\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}}
+}
+
+
+confirm that textfield, datpicker and actionsheet delegates to self  
+
+
+
+
+{\ttfamily \#import $<$Item\-Detail\-View\-Controller.\-h$>$}
+
+Inheritance diagram for Item\-Detail\-View\-Controller\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.043478cm]{interface_item_detail_view_controller}
+\end{center}
+\end{figure}
+\subsection*{Instance Methods}
+\begin{DoxyCompactItemize}
+\item 
+(I\-B\-Action) -\/ \hyperlink{interface_item_detail_view_controller_ab6d971493be16b96b2df7abf8c910dde}{cancel}
+\begin{DoxyCompactList}\small\item\em create I\-B\-Action methods \end{DoxyCompactList}\item 
+(I\-B\-Action) -\/ \hyperlink{interface_item_detail_view_controller_ad5e59f3b6bf4812c4958f1fe424131da}{done}
+\begin{DoxyCompactList}\small\item\em When user finish adding information and press done button, we update the information in plist and display in cell. \end{DoxyCompactList}\item 
+(I\-B\-Action) -\/ \hyperlink{interface_item_detail_view_controller_a70b1b4a4ad9d3487233b1c296b78f8a5}{frequency\-:}
+\begin{DoxyCompactList}\small\item\em User have an option to tap on the frequecy button and choose the interval from presented picker ction sheet list. \end{DoxyCompactList}\item 
+(I\-B\-Action) -\/ \hyperlink{interface_item_detail_view_controller_a3bfd6fa9e115a4c87d72859071767d9b}{switch\-Changed\-:}
+\begin{DoxyCompactList}\small\item\em we send the message if the user choose to set local notification \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+I\-B\-Outlet U\-I\-Text\-Field $\ast$ \hyperlink{interface_item_detail_view_controller_a178790ef36e700ef0735d92a3fdd5777}{text\-Field}
+\begin{DoxyCompactList}\small\item\em create properties \end{DoxyCompactList}\item 
+I\-B\-Outlet U\-I\-Text\-View $\ast$ \hyperlink{interface_item_detail_view_controller_a80dc487dbab30e853134e8bef4503192}{notes\-Field}
+\item 
+I\-B\-Outlet U\-I\-Text\-Field $\ast$ \hyperlink{interface_item_detail_view_controller_a91462be5eb1862e28a3cea771d2cf7b6}{make\-Field}
+\item 
+I\-B\-Outlet U\-I\-Text\-Field $\ast$ \hyperlink{interface_item_detail_view_controller_a6681c67331d43060aad7c9d35248a646}{number\-Plate\-Field}
+\item 
+I\-B\-Outlet U\-I\-Bar\-Button\-Item $\ast$ \hyperlink{interface_item_detail_view_controller_a51351cd76f2e2c1d0ed3075e191a5f2f}{done\-Bar\-Button}
+\item 
+id\\*
+$<$ \hyperlink{protocol_item_detail_view_controller_delegate-p}{Item\-Detail\-View\-Controller\-Delegate} $>$ \hyperlink{interface_item_detail_view_controller_ae9c5ccea3662c42762ebea34efb210a4}{delegate}
+\item 
+\hyperlink{interface_checklist_item}{Checklist\-Item} $\ast$ \hyperlink{interface_item_detail_view_controller_a0c18d4e6c36c06948dca5a76223896b7}{item\-To\-Edit}
+\item 
+I\-B\-Outlet U\-I\-Switch $\ast$ \hyperlink{interface_item_detail_view_controller_ad52095ddda5617b558ad17a0d812fde2}{switch\-Control}
+\item 
+I\-B\-Outlet U\-I\-Label $\ast$ \hyperlink{interface_item_detail_view_controller_ac5b2da2282bfc3b13d40a0c143c82799}{due\-Date\-Label}
+\item 
+I\-B\-Outlet U\-I\-Label $\ast$ \hyperlink{interface_item_detail_view_controller_aef897ee6e71d9bf075fd3e6693ac1750}{next\-Service\-Date\-Label}
+\item 
+I\-B\-Outlet U\-I\-Label $\ast$ \hyperlink{interface_item_detail_view_controller_ab7f0c8472790cd52c0a9375f10837228}{service\-Frequency\-Field}
+\item 
+\hyperlink{interface_u_i_picker_action_sheet}{U\-I\-Picker\-Action\-Sheet} $\ast$ \hyperlink{interface_item_detail_view_controller_ad96011d0f826d53554f9c0c6c2cc603e}{picker\-Action\-Sheet}
+\item 
+I\-B\-Outlet U\-I\-Image\-View $\ast$ \hyperlink{interface_item_detail_view_controller_ae3b752dab2cb58398896d2885d8f82c4}{image\-Field}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+confirm that textfield, datpicker and actionsheet delegates to self 
+
+Definition at line 56 of file Item\-Detail\-View\-Controller.\-h.
+
+
+
+\subsection{Method Documentation}
+\hypertarget{interface_item_detail_view_controller_ab6d971493be16b96b2df7abf8c910dde}{\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}!cancel@{cancel}}
+\index{cancel@{cancel}!ItemDetailViewController@{Item\-Detail\-View\-Controller}}
+\subsubsection[{cancel}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Action) cancel 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}\label{interface_item_detail_view_controller_ab6d971493be16b96b2df7abf8c910dde}
+
+
+create I\-B\-Action methods 
+
+when user tap cancel, we dismiss the view presented 
+
+Definition at line 164 of file Item\-Detail\-View\-Controller.\-m.
+
+\hypertarget{interface_item_detail_view_controller_ad5e59f3b6bf4812c4958f1fe424131da}{\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}!done@{done}}
+\index{done@{done}!ItemDetailViewController@{Item\-Detail\-View\-Controller}}
+\subsubsection[{done}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Action) done 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}\label{interface_item_detail_view_controller_ad5e59f3b6bf4812c4958f1fe424131da}
+
+
+When user finish adding information and press done button, we update the information in plist and display in cell. 
+
+
+
+Definition at line 171 of file Item\-Detail\-View\-Controller.\-m.
+
+\hypertarget{interface_item_detail_view_controller_a70b1b4a4ad9d3487233b1c296b78f8a5}{\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}!frequency\-:@{frequency\-:}}
+\index{frequency\-:@{frequency\-:}!ItemDetailViewController@{Item\-Detail\-View\-Controller}}
+\subsubsection[{frequency\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Action) frequency\-: 
+\begin{DoxyParamCaption}
+\item[{(id)}]{sender}
+\end{DoxyParamCaption}
+}}\label{interface_item_detail_view_controller_a70b1b4a4ad9d3487233b1c296b78f8a5}
+
+
+User have an option to tap on the frequecy button and choose the interval from presented picker ction sheet list. 
+
+
+
+Definition at line 361 of file Item\-Detail\-View\-Controller.\-m.
+
+\hypertarget{interface_item_detail_view_controller_a3bfd6fa9e115a4c87d72859071767d9b}{\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}!switch\-Changed\-:@{switch\-Changed\-:}}
+\index{switch\-Changed\-:@{switch\-Changed\-:}!ItemDetailViewController@{Item\-Detail\-View\-Controller}}
+\subsubsection[{switch\-Changed\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Action) switch\-Changed\-: 
+\begin{DoxyParamCaption}
+\item[{(U\-I\-Switch $\ast$)}]{sender}
+\end{DoxyParamCaption}
+}}\label{interface_item_detail_view_controller_a3bfd6fa9e115a4c87d72859071767d9b}
+
+
+we send the message if the user choose to set local notification 
+
+
+
+Definition at line 205 of file Item\-Detail\-View\-Controller.\-m.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{interface_item_detail_view_controller_ae9c5ccea3662c42762ebea34efb210a4}{\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}!delegate@{delegate}}
+\index{delegate@{delegate}!ItemDetailViewController@{Item\-Detail\-View\-Controller}}
+\subsubsection[{delegate}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id$<${\bf Item\-Detail\-View\-Controller\-Delegate}$>$) delegate\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [weak]}}}\label{interface_item_detail_view_controller_ae9c5ccea3662c42762ebea34efb210a4}
+
+
+Definition at line 66 of file Item\-Detail\-View\-Controller.\-h.
+
+\hypertarget{interface_item_detail_view_controller_a51351cd76f2e2c1d0ed3075e191a5f2f}{\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}!done\-Bar\-Button@{done\-Bar\-Button}}
+\index{done\-Bar\-Button@{done\-Bar\-Button}!ItemDetailViewController@{Item\-Detail\-View\-Controller}}
+\subsubsection[{done\-Bar\-Button}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Outlet U\-I\-Bar\-Button\-Item$\ast$) done\-Bar\-Button\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}}\label{interface_item_detail_view_controller_a51351cd76f2e2c1d0ed3075e191a5f2f}
+
+
+Definition at line 65 of file Item\-Detail\-View\-Controller.\-h.
+
+\hypertarget{interface_item_detail_view_controller_ac5b2da2282bfc3b13d40a0c143c82799}{\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}!due\-Date\-Label@{due\-Date\-Label}}
+\index{due\-Date\-Label@{due\-Date\-Label}!ItemDetailViewController@{Item\-Detail\-View\-Controller}}
+\subsubsection[{due\-Date\-Label}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Outlet U\-I\-Label$\ast$) due\-Date\-Label\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}}\label{interface_item_detail_view_controller_ac5b2da2282bfc3b13d40a0c143c82799}
+
+
+Definition at line 69 of file Item\-Detail\-View\-Controller.\-h.
+
+\hypertarget{interface_item_detail_view_controller_ae3b752dab2cb58398896d2885d8f82c4}{\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}!image\-Field@{image\-Field}}
+\index{image\-Field@{image\-Field}!ItemDetailViewController@{Item\-Detail\-View\-Controller}}
+\subsubsection[{image\-Field}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Outlet U\-I\-Image\-View$\ast$) image\-Field\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}}\label{interface_item_detail_view_controller_ae3b752dab2cb58398896d2885d8f82c4}
+
+
+Definition at line 73 of file Item\-Detail\-View\-Controller.\-h.
+
+\hypertarget{interface_item_detail_view_controller_a0c18d4e6c36c06948dca5a76223896b7}{\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}!item\-To\-Edit@{item\-To\-Edit}}
+\index{item\-To\-Edit@{item\-To\-Edit}!ItemDetailViewController@{Item\-Detail\-View\-Controller}}
+\subsubsection[{item\-To\-Edit}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf Checklist\-Item}$\ast$) item\-To\-Edit\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}}\label{interface_item_detail_view_controller_a0c18d4e6c36c06948dca5a76223896b7}
+
+
+Definition at line 67 of file Item\-Detail\-View\-Controller.\-h.
+
+\hypertarget{interface_item_detail_view_controller_a91462be5eb1862e28a3cea771d2cf7b6}{\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}!make\-Field@{make\-Field}}
+\index{make\-Field@{make\-Field}!ItemDetailViewController@{Item\-Detail\-View\-Controller}}
+\subsubsection[{make\-Field}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Outlet U\-I\-Text\-Field$\ast$) make\-Field\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}}\label{interface_item_detail_view_controller_a91462be5eb1862e28a3cea771d2cf7b6}
+
+
+Definition at line 63 of file Item\-Detail\-View\-Controller.\-h.
+
+\hypertarget{interface_item_detail_view_controller_aef897ee6e71d9bf075fd3e6693ac1750}{\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}!next\-Service\-Date\-Label@{next\-Service\-Date\-Label}}
+\index{next\-Service\-Date\-Label@{next\-Service\-Date\-Label}!ItemDetailViewController@{Item\-Detail\-View\-Controller}}
+\subsubsection[{next\-Service\-Date\-Label}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Outlet U\-I\-Label$\ast$) next\-Service\-Date\-Label\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}}\label{interface_item_detail_view_controller_aef897ee6e71d9bf075fd3e6693ac1750}
+
+
+Definition at line 70 of file Item\-Detail\-View\-Controller.\-h.
+
+\hypertarget{interface_item_detail_view_controller_a80dc487dbab30e853134e8bef4503192}{\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}!notes\-Field@{notes\-Field}}
+\index{notes\-Field@{notes\-Field}!ItemDetailViewController@{Item\-Detail\-View\-Controller}}
+\subsubsection[{notes\-Field}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Outlet U\-I\-Text\-View$\ast$) notes\-Field\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}}\label{interface_item_detail_view_controller_a80dc487dbab30e853134e8bef4503192}
+
+
+Definition at line 62 of file Item\-Detail\-View\-Controller.\-h.
+
+\hypertarget{interface_item_detail_view_controller_a6681c67331d43060aad7c9d35248a646}{\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}!number\-Plate\-Field@{number\-Plate\-Field}}
+\index{number\-Plate\-Field@{number\-Plate\-Field}!ItemDetailViewController@{Item\-Detail\-View\-Controller}}
+\subsubsection[{number\-Plate\-Field}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Outlet U\-I\-Text\-Field$\ast$) number\-Plate\-Field\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}}\label{interface_item_detail_view_controller_a6681c67331d43060aad7c9d35248a646}
+
+
+Definition at line 64 of file Item\-Detail\-View\-Controller.\-h.
+
+\hypertarget{interface_item_detail_view_controller_ad96011d0f826d53554f9c0c6c2cc603e}{\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}!picker\-Action\-Sheet@{picker\-Action\-Sheet}}
+\index{picker\-Action\-Sheet@{picker\-Action\-Sheet}!ItemDetailViewController@{Item\-Detail\-View\-Controller}}
+\subsubsection[{picker\-Action\-Sheet}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf U\-I\-Picker\-Action\-Sheet}$\ast$) picker\-Action\-Sheet\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}}\label{interface_item_detail_view_controller_ad96011d0f826d53554f9c0c6c2cc603e}
+
+
+Definition at line 72 of file Item\-Detail\-View\-Controller.\-h.
+
+\hypertarget{interface_item_detail_view_controller_ab7f0c8472790cd52c0a9375f10837228}{\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}!service\-Frequency\-Field@{service\-Frequency\-Field}}
+\index{service\-Frequency\-Field@{service\-Frequency\-Field}!ItemDetailViewController@{Item\-Detail\-View\-Controller}}
+\subsubsection[{service\-Frequency\-Field}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Outlet U\-I\-Label$\ast$) service\-Frequency\-Field\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}}\label{interface_item_detail_view_controller_ab7f0c8472790cd52c0a9375f10837228}
+
+
+Definition at line 71 of file Item\-Detail\-View\-Controller.\-h.
+
+\hypertarget{interface_item_detail_view_controller_ad52095ddda5617b558ad17a0d812fde2}{\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}!switch\-Control@{switch\-Control}}
+\index{switch\-Control@{switch\-Control}!ItemDetailViewController@{Item\-Detail\-View\-Controller}}
+\subsubsection[{switch\-Control}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Outlet U\-I\-Switch$\ast$) switch\-Control\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}}\label{interface_item_detail_view_controller_ad52095ddda5617b558ad17a0d812fde2}
+
+
+Definition at line 68 of file Item\-Detail\-View\-Controller.\-h.
+
+\hypertarget{interface_item_detail_view_controller_a178790ef36e700ef0735d92a3fdd5777}{\index{Item\-Detail\-View\-Controller@{Item\-Detail\-View\-Controller}!text\-Field@{text\-Field}}
+\index{text\-Field@{text\-Field}!ItemDetailViewController@{Item\-Detail\-View\-Controller}}
+\subsubsection[{text\-Field}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Outlet U\-I\-Text\-Field$\ast$) text\-Field\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}}\label{interface_item_detail_view_controller_a178790ef36e700ef0735d92a3fdd5777}
+
+
+create properties 
+
+
+
+Definition at line 61 of file Item\-Detail\-View\-Controller.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/\-Users/\-Kalai/\-Desktop/classes/\hyperlink{_item_detail_view_controller_8h}{Item\-Detail\-View\-Controller.\-h}\item 
+/\-Users/\-Kalai/\-Desktop/classes/\hyperlink{_item_detail_view_controller_8m}{Item\-Detail\-View\-Controller.\-m}\end{DoxyCompactItemize}

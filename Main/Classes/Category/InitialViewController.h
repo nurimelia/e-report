@@ -7,15 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 #import "CategoryViewController.h"
 
 
 
-@interface InitialViewController : UIViewController {
+@interface InitialViewController : UIViewController <UIAlertViewDelegate>
+{
     
     CategoryViewController *controller;
 }
-
--(IBAction)done:(UIStoryboardSegue *)seque;
+@property (weak, nonatomic) IBOutlet UITextField *userIDOutlet;
+@property (weak, nonatomic) IBOutlet UITextField *passwordOutlet;
+@property (weak, nonatomic) IBOutlet UIButton *loginButtonOutlet;
 
 @end

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oD8-hu-pQ7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oD8-hu-pQ7">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--Report-->
@@ -588,8 +588,8 @@
                                     <segue destination="8MC-2q-Vya" kind="unwind" unwindAction="done:" id="pxk-ac-rwq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="E-Report" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcf-TP-ysC">
-                                <rect key="frame" x="111" y="121" width="99" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="E-Report" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcf-TP-ysC">
+                                <rect key="frame" x="78" y="121" width="164" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -844,9 +844,6 @@
                                 <rect key="frame" x="49" y="276" width="222" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="username:" destination="ZqC-TM-tdW" eventType="editingDidEnd" id="EB5-aA-5St"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k4o-gG-aqv">
                                 <rect key="frame" x="49" y="317" width="222" height="30"/>
@@ -860,7 +857,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ErZ-Ka-VFk" kind="modal" id="uPT-5W-une"/>
+                                    <segue destination="ErZ-Ka-VFk" kind="modal" identifier="signupSegue" id="uPT-5W-une"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPS-yd-gOz">
@@ -869,6 +866,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginPressed:" destination="ZqC-TM-tdW" eventType="touchUpInside" id="NBW-3N-1DW"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Don't have account yet?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNp-Ur-duB">
                                 <rect key="frame" x="97" y="465" width="128" height="16"/>
@@ -895,7 +895,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="wQf-w0-ISk" kind="modal" identifier="open" id="55R-AG-pA4"/>
+                        <outlet property="loginButtonOutlet" destination="KPS-yd-gOz" id="x3D-fV-5s6"/>
+                        <outlet property="passwordOutlet" destination="k4o-gG-aqv" id="SLo-i8-njx"/>
+                        <outlet property="userIDOutlet" destination="2SK-DB-Gwb" id="la2-cY-3l7"/>
+                        <segue destination="wQf-w0-ISk" kind="modal" identifier="openSegue" id="55R-AG-pA4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6TJ-1n-zoo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -934,7 +937,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="55R-AG-pA4"/>
         <segue reference="F4Z-Ya-IAM"/>
-        <segue reference="83R-ZC-2W0"/>
     </inferredMetricsTieBreakers>
 </document>

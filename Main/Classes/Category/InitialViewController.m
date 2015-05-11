@@ -32,6 +32,14 @@
     
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:gestureRecognizer];
+    
+    
+  /*  _emailField.returnKeyType = UIReturnKeyDone;
+    [_emailField setDelegate:self];
+    _usernameField.returnKeyType = UIReturnKeyDone;
+    [_usernameField setDelegate:self];
+    _passwordField.returnKeyType = UIReturnKeyDone;
+    [_passwordField setDelegate:self];*/
 }
 
 -(void)dismissKeyboard
@@ -82,7 +90,9 @@
             if(user)
             {
                 alertTitle = [NSString stringWithFormat:@"Welcome %@",[user.username capitalizedString]];
-                cancelButton = @"Yayy";
+                cancelButton = @"OK";
+               // _userIDOutlet.text = nil;
+               // _passwordOutlet.text = nil;
                 
                 [self performSegueWithIdentifier:@"openSegue" sender:self];
             }
@@ -119,6 +129,60 @@
     }
 }
 
+//Action listener method when Sign Up button get pressed
+
+- (IBAction)registerUser:(id)sender
+{
+    PFUser *user = [PFUser objectWithClassName:@"e-report"];
+
+    user.username = _usernameField.text;
+    user.password = _passwordField.text;
+    user.email = _emailField.text;
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+    if ([_usernameField.text isEqualToString:@""] || [_passwordField.text isEqualToString:@""] || [_reEnterPasswordField.text isEqualToString:@""] || [_emailField.text isEqualToString:@""]) {
+        NSLog(@"Error, all fields must be filled in");
+        
+        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oooops" message:@"You must complete all fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        
+        [error show];
+    }
+    else {
+        [self checkPasswordsMatch];
+    }
+    }];
+}
+
+- (void) checkPasswordsMatch {
+    if ([_passwordField.text isEqualToString:_reEnterPasswordField.text]){
+        NSLog(@"Passwords match");
+        [self registerNewUser];
+        
+    }else{
+    
+        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oooops" message:@"Your entered passwords do not match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        
+        [error show];
+    }
+}
+
+-(void)registerNewUser {
+    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:_usernameField.text forKey:@"username"];
+    [defaults setObject:_passwordField.text forKey:@"password"];
+    //[defaults setBool:YES forKey:@"registered"];
+    
+    [defaults synchronize];
+    
+    UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Success" message:@"You have registered a new user" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    
+    [success show];
+    
+    [self performSegueWithIdentifier:@"login" sender:self];
+}
+
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 1)
@@ -128,5 +192,13 @@
 - (IBAction)done:(UIStoryboardSegue *)seque { [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)signUp;
+{
+    UIAlertView *helloWorldAlert = [[UIAlertView alloc]
+                                    initWithTitle:@"My First App" message:@"Hello, World!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    
+    // Display the Hello World Message
+    [helloWorldAlert show];
+}
 
 @end

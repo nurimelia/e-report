@@ -10,7 +10,7 @@
 #import "IconPickerViewController.h"
 #import <UIKit/UIKit.h>
 #import "GADBannerView.h"
-
+#import <Parse/Parse.h>
 
 @class CategoryDetailViewController;
 @class Checklist;
@@ -52,6 +52,8 @@ UITextFieldDelegate, IconPickerViewControllerDelegate, UIImagePickerControllerDe
 - (IBAction)cancel;
 
 - (IBAction)done;
+
+//- (IBAction)signUp;
 
 
 @end

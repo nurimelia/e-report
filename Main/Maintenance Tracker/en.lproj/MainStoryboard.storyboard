@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oD8-hu-pQ7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oD8-hu-pQ7">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Report-->
@@ -545,10 +545,10 @@
             </objects>
             <point key="canvasLocation" x="3246" y="43"/>
         </scene>
-        <!--Title-->
+        <!--Initial View Controller-->
         <scene sceneID="x5G-Yt-izd">
             <objects>
-                <viewController id="ErZ-Ka-VFk" sceneMemberID="viewController">
+                <viewController id="ErZ-Ka-VFk" userLabel="Initial View Controller" customClass="InitialViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MYl-dS-UUL"/>
                         <viewControllerLayoutGuide type="bottom" id="wyu-Kl-pCt"/>
@@ -564,21 +564,9 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Szb-Jj-Hkb">
                                 <rect key="frame" x="62" y="209" width="197" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wuo-CG-ER3">
-                                <rect key="frame" x="62" y="247" width="197" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnc-PI-ocd">
-                                <rect key="frame" x="133" y="309" width="71" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31s-O6-e1m">
                                 <rect key="frame" x="8" y="28" width="55" height="30"/>
                                 <state key="normal" title="Cancel">
@@ -594,18 +582,44 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnc-PI-ocd">
+                                <rect key="frame" x="129" y="353" width="81" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="registerUser:" destination="ErZ-Ka-VFk" eventType="touchUpInside" id="76C-Ra-hf5"/>
+                                    <segue destination="ZqC-TM-tdW" kind="modal" identifier="login" modalTransitionStyle="flipHorizontal" id="6Dj-fT-ACk"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="re-enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Ey-6c-vlJ">
+                                <rect key="frame" x="62" y="247" width="197" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wuo-CG-ER3">
+                                <rect key="frame" x="62" y="285" width="197" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="eX8-pO-suH"/>
                     <connections>
+                        <outlet property="emailField" destination="wuo-CG-ER3" id="dvy-mZ-esJ"/>
+                        <outlet property="passwordField" destination="Szb-Jj-Hkb" id="Isl-lL-aMb"/>
+                        <outlet property="reEnterPasswordField" destination="9Ey-6c-vlJ" id="4pr-zP-cQ9"/>
+                        <outlet property="registerBtn" destination="vnc-PI-ocd" id="It8-kj-JzL"/>
+                        <outlet property="usernameField" destination="q0k-NB-eFb" id="61t-6x-qVl"/>
                         <segue destination="8zr-9Q-GFj" kind="unwind" unwindAction="done:" id="Yyo-h7-LhR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRu-Dc-nG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="8MC-2q-Vya" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="45" y="281"/>
+            <point key="canvasLocation" x="45" y="333"/>
         </scene>
         <!--Item-->
         <scene sceneID="X15-Dz-F2E">
@@ -937,7 +951,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="55R-AG-pA4"/>
         <segue reference="F4Z-Ya-IAM"/>
+        <segue reference="55R-AG-pA4"/>
+        <segue reference="6Dj-fT-ACk"/>
     </inferredMetricsTieBreakers>
 </document>

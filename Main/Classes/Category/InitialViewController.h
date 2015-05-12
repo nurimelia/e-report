@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *reEnterPasswordField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 
+- (IBAction)forgotPassword:(id)sender;
 
 - (IBAction)registerUser:(id)sender;
 

@@ -192,13 +192,30 @@
 - (IBAction)done:(UIStoryboardSegue *)seque { [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)signUp;
-{
-    UIAlertView *helloWorldAlert = [[UIAlertView alloc]
-                                    initWithTitle:@"My First App" message:@"Hello, World!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+-(IBAction)forgotPassword:(id)sender {
     
-    // Display the Hello World Message
-    [helloWorldAlert show];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Email Address"
+                                                        message:@"Enter the email for your account:"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"Ok", nil];
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alertView show];
 }
 
+
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex{
+    if(buttonIndex==1){
+        
+        UITextField *emailAddress = [alertView textFieldAtIndex:0];
+        
+        [PFUser requestPasswordResetForEmailInBackground: emailAddress.text];
+        
+        UIAlertView *alertViewSuccess = [[UIAlertView alloc] initWithTitle:@"Success! A reset email was sent to you" message:@""
+                                                                  delegate:self
+                                                         cancelButtonTitle:@"Ok"
+                                                         otherButtonTitles:nil];
+        [alertViewSuccess show];
+    }
+}
 @end

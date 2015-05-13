@@ -91,8 +91,8 @@
             {
                 alertTitle = [NSString stringWithFormat:@"Welcome %@",[user.username capitalizedString]];
                 cancelButton = @"OK";
-               // _userIDOutlet.text = nil;
-               // _passwordOutlet.text = nil;
+                _userIDOutlet.text = nil;
+                _passwordOutlet.text = nil;
                 
                 [self performSegueWithIdentifier:@"openSegue" sender:self];
             }
@@ -133,14 +133,14 @@
 
 - (IBAction)registerUser:(id)sender
 {
-    PFUser *user = [PFUser objectWithClassName:@"e-report"];
+    PFUser *user = [PFUser user];
 
     user.username = _usernameField.text;
     user.password = _passwordField.text;
     user.email = _emailField.text;
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        
+        //if (!error){
     if ([_usernameField.text isEqualToString:@""] || [_passwordField.text isEqualToString:@""] || [_reEnterPasswordField.text isEqualToString:@""] || [_emailField.text isEqualToString:@""]) {
         NSLog(@"Error, all fields must be filled in");
         
@@ -151,6 +151,9 @@
     else {
         [self checkPasswordsMatch];
     }
+   // }else{
+        
+   // }
     }];
 }
 
@@ -172,7 +175,7 @@
     
     [defaults setObject:_usernameField.text forKey:@"username"];
     [defaults setObject:_passwordField.text forKey:@"password"];
-    //[defaults setBool:YES forKey:@"registered"];
+    [defaults setBool:YES forKey:@"registered"];
     
     [defaults synchronize];
     

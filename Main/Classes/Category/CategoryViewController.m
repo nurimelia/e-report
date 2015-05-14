@@ -127,7 +127,7 @@
 
 
 
-/*
+
  
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -143,7 +143,7 @@
     
 }
 
- */
+ 
 
 
 

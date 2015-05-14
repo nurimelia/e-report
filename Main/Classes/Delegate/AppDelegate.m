@@ -47,7 +47,8 @@
     
     self.window.tintColor = [UIColor colorWithRed:0.0 green:0.6 blue:0.298 alpha:1.0];
 
-    
+    //self.window.tintColor = [UIColor CurrentDevice.CheckSiystemVersin (7.0)];
+
     return YES;
 }
 

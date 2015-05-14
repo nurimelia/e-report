@@ -111,6 +111,10 @@
  @abstract The email for the `PFUser`.
  */
 @property (nonatomic, strong) NSString *email;
+/*!
+ @abstract The UserType for the `PFUser`.
+ */
+@property (nonatomic, strong) NSString *UserType;
 
 /*!
  @abstract Signs up the user *synchronously*.

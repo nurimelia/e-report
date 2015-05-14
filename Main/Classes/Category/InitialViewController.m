@@ -138,6 +138,12 @@
     user.username = _usernameField.text;
     user.password = _passwordField.text;
     user.email = _emailField.text;
+    [user setObject:@"Student" forKey:@"UserType"];
+
+    
+    [self.registerBtn setTitle:@"Loading..." forState:UIControlStateNormal];
+    [self.registerBtn setEnabled:NO];
+
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         //if (!error){
@@ -160,7 +166,13 @@
 - (void) checkPasswordsMatch {
     if ([_passwordField.text isEqualToString:_reEnterPasswordField.text]){
         NSLog(@"Passwords match");
-        [self registerNewUser];
+       // [self registerNewUser];
+        
+        UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Success" message:@"You have registered a new user" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        
+        [success show];
+        
+        [self performSegueWithIdentifier:@"login" sender:self];
         
     }else{
     
@@ -170,21 +182,6 @@
     }
 }
 
--(void)registerNewUser {
-    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
-    
-    [defaults setObject:_usernameField.text forKey:@"username"];
-    [defaults setObject:_passwordField.text forKey:@"password"];
-    [defaults setBool:YES forKey:@"registered"];
-    
-    [defaults synchronize];
-    
-    UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Success" message:@"You have registered a new user" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    
-    [success show];
-    
-    [self performSegueWithIdentifier:@"login" sender:self];
-}
 
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {

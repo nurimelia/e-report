@@ -133,14 +133,6 @@
 
 - (IBAction)registerUser:(id)sender
 {
-    PFUser *user = [PFUser user];
-
-    user.username = _usernameField.text;
-    user.password = _passwordField.text;
-    user.email = _emailField.text;
-    
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        //if (!error){
     if ([_usernameField.text isEqualToString:@""] || [_passwordField.text isEqualToString:@""] || [_reEnterPasswordField.text isEqualToString:@""] || [_emailField.text isEqualToString:@""]) {
         NSLog(@"Error, all fields must be filled in");
         
@@ -151,10 +143,6 @@
     else {
         [self checkPasswordsMatch];
     }
-   // }else{
-        
-   // }
-    }];
 }
 
 - (void) checkPasswordsMatch {
@@ -163,7 +151,8 @@
         [self registerNewUser];
         
     }else{
-    
+        _passwordField.text = _reEnterPasswordField.text = @"";
+        
         UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oooops" message:@"Your entered passwords do not match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         
         [error show];
@@ -171,19 +160,35 @@
 }
 
 -(void)registerNewUser {
-    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
+    PFUser *user = [PFUser user];
     
-    [defaults setObject:_usernameField.text forKey:@"username"];
-    [defaults setObject:_passwordField.text forKey:@"password"];
-    [defaults setBool:YES forKey:@"registered"];
+    user.username = _usernameField.text;
+    user.password = _passwordField.text;
+    user.email = _emailField.text;
     
-    [defaults synchronize];
+    [_registerBtn setTitle:@"Registering..." forState:UIControlStateNormal];
+    [_registerBtn setEnabled:NO];
     
-    UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Success" message:@"You have registered a new user" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        if(succeeded)
+        {
+            UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Success" message:@"You have registered a new user" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            
+            [success show];
+        }
+        else
+        {
+            UIAlertView *failed = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@", error.description] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            
+            [failed show];
+        }
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }];
     
-    [success show];
     
-    [self performSegueWithIdentifier:@"login" sender:self];
 }
 
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex

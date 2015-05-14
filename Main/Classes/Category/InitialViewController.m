@@ -26,20 +26,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    //UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithTitle:@"Left" style:UIBarButtonItemStylePlain target:self action:@selector(openVideoController)];
-    //self.navigationItem.leftBarButtonItem = left;
     
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:gestureRecognizer];
-    
-    
-  /*  _emailField.returnKeyType = UIReturnKeyDone;
-    [_emailField setDelegate:self];
-    _usernameField.returnKeyType = UIReturnKeyDone;
-    [_usernameField setDelegate:self];
-    _passwordField.returnKeyType = UIReturnKeyDone;
-    [_passwordField setDelegate:self];*/
+
 }
 
 -(void)dismissKeyboard
@@ -59,7 +49,6 @@
     [self performSegueWithIdentifier:@"open" sender:nil]; //call trim segue
 
 }
-
 
 
 - (void)didReceiveMemoryWarning
@@ -130,9 +119,8 @@
 }
 
 //Action listener method when Sign Up button get pressed
-
-- (IBAction)registerUser:(id)sender
-{
+- (IBAction)registerUser:(id)sender{
+    
     if ([_usernameField.text isEqualToString:@""] || [_passwordField.text isEqualToString:@""] || [_reEnterPasswordField.text isEqualToString:@""] || [_emailField.text isEqualToString:@""]) {
         NSLog(@"Error, all fields must be filled in");
         
@@ -148,15 +136,10 @@
 - (void) checkPasswordsMatch {
     if ([_passwordField.text isEqualToString:_reEnterPasswordField.text]){
         NSLog(@"Passwords match");
-       // [self registerNewUser];
-        
-        UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Success" message:@"You have registered a new user" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        
-        [success show];
-        
-        [self performSegueWithIdentifier:@"login" sender:self];
-        
-    }else{
+
+        [self registerNewUser];
+}
+else{
         _passwordField.text = _reEnterPasswordField.text = @"";
         
         UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oooops" message:@"Your entered passwords do not match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
@@ -171,7 +154,8 @@
     user.username = _usernameField.text;
     user.password = _passwordField.text;
     user.email = _emailField.text;
-    
+    [user setObject:@"Student" forKey:@"UserType"];
+
     [_registerBtn setTitle:@"Registering..." forState:UIControlStateNormal];
     [_registerBtn setEnabled:NO];
     
@@ -193,8 +177,6 @@
         [self dismissViewControllerAnimated:YES completion:nil];
         
     }];
-    
-    
 }
 
 
@@ -217,7 +199,6 @@
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alertView show];
 }
-
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex{
     if(buttonIndex==1){

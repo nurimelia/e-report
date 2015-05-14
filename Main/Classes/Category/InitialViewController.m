@@ -133,23 +133,6 @@
 
 - (IBAction)registerUser:(id)sender
 {
-<<<<<<< HEAD
-    PFUser *user = [PFUser user];
-
-    user.username = _usernameField.text;
-    user.password = _passwordField.text;
-    user.email = _emailField.text;
-    [user setObject:@"Student" forKey:@"UserType"];
-
-    
-    [self.registerBtn setTitle:@"Loading..." forState:UIControlStateNormal];
-    [self.registerBtn setEnabled:NO];
-
-    
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        //if (!error){
-=======
->>>>>>> bd1e3be1171af7343648ee1526ea9adf6df2fadf
     if ([_usernameField.text isEqualToString:@""] || [_passwordField.text isEqualToString:@""] || [_reEnterPasswordField.text isEqualToString:@""] || [_emailField.text isEqualToString:@""]) {
         NSLog(@"Error, all fields must be filled in");
         
@@ -182,8 +165,6 @@
     }
 }
 
-<<<<<<< HEAD
-=======
 -(void)registerNewUser {
     PFUser *user = [PFUser user];
     
@@ -215,7 +196,7 @@
     
     
 }
->>>>>>> bd1e3be1171af7343648ee1526ea9adf6df2fadf
+
 
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {

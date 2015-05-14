@@ -84,7 +84,6 @@
 		A6E8AA57179D1D6E00042C02 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6E8AA56179D1D6E00042C02 /* Default.png */; };
 		A6E8AA59179D1D6E00042C02 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6E8AA58179D1D6E00042C02 /* Default@2x.png */; };
 		A6E8AA5B179D1D6E00042C02 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6E8AA5A179D1D6E00042C02 /* Default-568h@2x.png */; };
-		A6E8AA5E179D1D6E00042C02 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6E8AA5C179D1D6E00042C02 /* MainStoryboard.storyboard */; };
 		A6E8AA82179D1FD400042C02 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E8AA6A179D1FD400042C02 /* CategoryViewController.m */; };
 		A6E8AA83179D1FD400042C02 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E8AA6D179D1FD400042C02 /* CategoryDetailViewController.m */; };
 		A6E8AA84179D1FD400042C02 /* Checklist.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E8AA70179D1FD400042C02 /* Checklist.m */; };
@@ -104,6 +103,7 @@
 		A6FBDAFD1917A4760048C46D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FBDAFC1917A4760048C46D /* MessageUI.framework */; };
 		A6FBDAFF1917A4810048C46D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FBDAFE1917A4810048C46D /* StoreKit.framework */; };
 		A6FBDB011917A48B0048C46D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FBDB001917A48B0048C46D /* SystemConfiguration.framework */; };
+		E75534401B04771200A0A2AC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E755343E1B04771200A0A2AC /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -202,7 +202,6 @@
 		A6E8AA56179D1D6E00042C02 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A6E8AA58179D1D6E00042C02 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A6E8AA5A179D1D6E00042C02 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		A6E8AA5D179D1D6E00042C02 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		A6E8AA69179D1FD400042C02 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
 		A6E8AA6A179D1FD400042C02 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
 		A6E8AA6C179D1FD400042C02 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryDetailViewController.h; sourceTree = "<group>"; };
@@ -233,6 +232,7 @@
 		A6FBDAFC1917A4760048C46D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A6FBDAFE1917A4810048C46D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A6FBDB001917A48B0048C46D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E755343F1B04771200A0A2AC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,7 +413,7 @@
 		A6E8AA4A179D1D6E00042C02 /* E-Report */ = {
 			isa = PBXGroup;
 			children = (
-				A6E8AA5C179D1D6E00042C02 /* MainStoryboard.storyboard */,
+				E755343E1B04771200A0A2AC /* MainStoryboard.storyboard */,
 				A639E403190BE79500D0F10C /* MainStoryboard-iPad.storyboard */,
 				A6E8AA4B179D1D6E00042C02 /* Supporting Files */,
 			);
@@ -597,7 +597,6 @@
 				A639E414190C154A00D0F10C /* Icon114x114.png in Resources */,
 				A6E8AA5B179D1D6E00042C02 /* Default-568h@2x.png in Resources */,
 				A639E404190BE79500D0F10C /* MainStoryboard-iPad.storyboard in Resources */,
-				A6E8AA5E179D1D6E00042C02 /* MainStoryboard.storyboard in Resources */,
 				A61D5ED617A4C7CF00A37E27 /* background.png in Resources */,
 				A639E415190C154A00D0F10C /* Icon120x120.png in Resources */,
 				A61D5ED717A4C7CF00A37E27 /* background@2x.png in Resources */,
@@ -606,6 +605,7 @@
 				A61D5ED817A4C7CF00A37E27 /* EmptyContact.png in Resources */,
 				A639E416190C154A00D0F10C /* Icon144x144.png in Resources */,
 				A61D5ED917A4C7CF00A37E27 /* EmptyContact@2x.png in Resources */,
+				E75534401B04771200A0A2AC /* MainStoryboard.storyboard in Resources */,
 				A61D5EDA17A4C7CF00A37E27 /* list-element.png in Resources */,
 				A639E41B190C154A00D0F10C /* Icon57x57.png in Resources */,
 				A61D5EDB17A4C7CF00A37E27 /* list-element@2x.png in Resources */,
@@ -687,10 +687,10 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		A6E8AA5C179D1D6E00042C02 /* MainStoryboard.storyboard */ = {
+		E755343E1B04771200A0A2AC /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A6E8AA5D179D1D6E00042C02 /* en */,
+				E755343F1B04771200A0A2AC /* en */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";

@@ -44,7 +44,6 @@
 @synthesize dueDateLabel;
 @synthesize nextServiceDateLabel;
 @synthesize serviceFrequencyField, imageField;
-@synthesize adMobView;
 
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -122,48 +121,13 @@
         [self updateNextServiceDateLabel];
 
     
-    GADAdSize adSize = [self adSizeForOrientation:self.interfaceOrientation];
-    bannerView_ = [[GADBannerView alloc] initWithAdSize:adSize];
-    
-    
-    bannerView_.adUnitID = MY_BANNER_UNIT_ID;
-    
-    bannerView_.rootViewController = self;
-    [self.adMobView addSubview:bannerView_];
-    
-    [self.tableView setTableHeaderView:adMobView];
-    
-    [bannerView_ loadRequest:[GADRequest request]];
-    
-    
-    
 }
 
 
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)orientation
                                          duration:(NSTimeInterval)duration {
-    bannerView_.adSize = [self adSizeForOrientation:orientation];
-}
-
-
-
-
-
-- (GADAdSize)adSizeForOrientation:(UIInterfaceOrientation)orientation {
-    
-    if (UIInterfaceOrientationIsLandscape(orientation)) {
-        return kGADAdSizeSmartBannerLandscape;
-    }
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        return kGADAdSizeSmartBannerPortrait;
-    } else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        return kGADAdSizeBanner;
-    }
-    
-    return kGADAdSizeBanner;
-}
+ }
 
 
 //To get keyboard available when user tab the "+" button as a primary loader so that the user can input text easily
@@ -564,7 +528,7 @@
         
         
         NSDateComponents* dateComponents = [[NSDateComponents alloc]init];
-        [dateComponents setWeek:1];
+        [dateComponents setWeekOfMonth:1];
         NSCalendar* calendar = [NSCalendar currentCalendar];
         NSDate* newDate = [calendar dateByAddingComponents:dateComponents toDate:dueDate options:0];
         

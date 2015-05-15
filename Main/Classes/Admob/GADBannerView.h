@@ -3,7 +3,7 @@
 //  Google AdMob Ads SDK
 //
 //  Copyright 2011 Google Inc. All rights reserved.
-//
+/*
 
 #import <UIKit/UIKit.h>
 
@@ -124,4 +124,4 @@
 /// events, this method returns @"GADMAdapterCustomEvents".
 @property(nonatomic, readonly, weak) NSString *adNetworkClassName;
 
-@end
+@end*/

@@ -641,7 +641,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qev-cV-69o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="43"/>
+            <point key="canvasLocation" x="620" y="-445"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BHB-WW-poS">
@@ -913,7 +913,7 @@
                     <navigationItem key="navigationItem" id="8Uj-nf-AnG">
                         <barButtonItem key="rightBarButtonItem" title="Right" id="LrL-Gp-lLP">
                             <connections>
-                                <segue destination="wQf-w0-ISk" kind="modal" id="83R-ZC-2W0"/>
+                                <segue destination="wQf-w0-ISk" kind="modal" identifier="openSegue2" id="83R-ZC-2W0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -960,7 +960,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="83R-ZC-2W0"/>
         <segue reference="F4Z-Ya-IAM"/>
+        <segue reference="83R-ZC-2W0"/>
     </inferredMetricsTieBreakers>
 </document>

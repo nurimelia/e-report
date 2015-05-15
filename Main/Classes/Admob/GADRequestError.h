@@ -3,7 +3,7 @@
 //  Google AdMob Ads SDK
 //
 //  Copyright 2011 Google Inc. All rights reserved.
-//
+/*
 
 #import <Foundation/Foundation.h>
 

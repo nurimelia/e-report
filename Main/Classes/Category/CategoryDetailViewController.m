@@ -16,16 +16,15 @@
 
 @implementation CategoryDetailViewController {
     NSString *iconName;
+    NSString *Lab_Name;
+    NSString *Lab_Image;
 }
 
 @synthesize textField;
-@synthesize numberPlateTextField;
+//@synthesize numberPlateTextField;
 @synthesize doneBarButton;
 @synthesize delegate;
 @synthesize checklistToEdit;
-
-@synthesize adMobView;
-
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -58,21 +57,7 @@
 
 
     self.iconImageView.image = [UIImage imageNamed:iconName];
-    
-    
-    GADAdSize adSize = [self adSizeForOrientation:self.interfaceOrientation];
-    bannerView_ = [[GADBannerView alloc] initWithAdSize:adSize];
-    
-    
-    bannerView_.adUnitID = MY_BANNER_UNIT_ID;
-    
-    bannerView_.rootViewController = self;
-    [self.adMobView addSubview:bannerView_];
-    
-    
-    [bannerView_ loadRequest:[GADRequest request]];
-    
-    
+   
     
 }
 
@@ -80,30 +65,8 @@
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)orientation
                                          duration:(NSTimeInterval)duration {
-    bannerView_.adSize = [self adSizeForOrientation:orientation];
+   
 }
-
-
-
-
-
-- (GADAdSize)adSizeForOrientation:(UIInterfaceOrientation)orientation {
-    
-    if (UIInterfaceOrientationIsLandscape(orientation)) {
-        return kGADAdSizeSmartBannerLandscape;
-    }
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        return kGADAdSizeSmartBannerPortrait;
-    } else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        return kGADAdSizeBanner;
-    }
-    
-    return kGADAdSizeBanner;
-}
-
-
-
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -116,7 +79,7 @@
 - (void)viewDidUnload
 {
     [self setTextField:nil];
-    [self setNumberPlateTextField:nil];
+  //  [self setNumberPlateTextField:nil];
     [self setDoneBarButton:nil];
     [super viewDidUnload];
 }
@@ -136,6 +99,15 @@
 
 - (IBAction)done
 {
+  /*  NSString *Lab_Name = self.textField.text;
+    NSString *Lab_Image = self.iconImageView.image;
+   
+    
+    PFUser *laboratory = [PFUser laboratory];
+    
+    laboratory.Lab_Name = textField.text;
+    laboratory.Lab_Image = iconImageView.image;*/
+
     if (self.checklistToEdit == nil) {
         Checklist *checklist = [[Checklist alloc] init];
         checklist.category = self.textField.text;
@@ -148,16 +120,6 @@
         [self.delegate listDetailViewController:self didFinishEditingChecklist:self
          .checklistToEdit];
     }
-    
-    PFObject *laboratory = [PFObject objectWithClassName:@"laboratory"];
-    laboratory[@"Lab_Name"] = @"textField";
-    laboratory[@"Lab_Image"] = @"iconName";
-    [laboratory saveInBackground];
-    
-    // Set default ACLs
-    PFACL *defaultACL = [PFACL ACL];
-    [defaultACL setPublicReadAccess:YES];
-    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     
 
 }

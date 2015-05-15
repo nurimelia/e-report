@@ -10,9 +10,6 @@
 #import <UIKit/UIKit.h>
 #import "UIImage+Resize.h"
 
-#import "GADBannerView.h"
-
-
 
 //A protocol doesn’t have instance variables and it doesn’t implement any of the methods it declares. It just says: any object that conforms to this protocol must implement methods X, Y and Z.
 
@@ -57,7 +54,6 @@ didFinishAddingItem:(ChecklistItem *)item;
     
     UIActionSheet *sheet;
 
-    GADBannerView *bannerView_;
 
     
 }
@@ -81,7 +77,7 @@ didFinishAddingItem:(ChecklistItem *)item;
 
 @property (nonatomic, strong) UIPopoverController *popOver;
 
-@property (nonatomic, strong) IBOutlet UIWebView* adMobView;
+//@property (nonatomic, strong) IBOutlet UIWebView* adMobView;
 
 
 ///create IBAction methods

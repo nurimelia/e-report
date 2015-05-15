@@ -7,7 +7,7 @@
 //  A valid GADAdSize is considered to be one of the predefined GADAdSize
 //  constants or a GADAdSize constructed by GADAdSizeFromCGSize,
 //  GADAdSizeFullWidthPortraitWithHeight, GADAdSizeFullWidthLandscapeWithHeight.
-//
+/*
 
 #import <UIKit/UIKit.h>
 

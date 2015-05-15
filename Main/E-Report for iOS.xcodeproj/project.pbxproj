@@ -19,7 +19,6 @@
 		9C4C08601AA7B059006814F4 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4C085F1AA7B059006814F4 /* Twitter.framework */; };
 		9C4C08621AA7B0E8006814F4 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4C08611AA7B0E8006814F4 /* Social.framework */; };
 		9C4C08641AA7B117006814F4 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4C08631AA7B117006814F4 /* Accounts.framework */; };
-		9CD5FDE51AF7497200CD987F /* DefaultSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5FDE41AF7497200CD987F /* DefaultSettingsViewController.m */; };
 		A61D5ED617A4C7CF00A37E27 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A61D5EC817A4C7CF00A37E27 /* background.png */; };
 		A61D5ED717A4C7CF00A37E27 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A61D5EC917A4C7CF00A37E27 /* background@2x.png */; };
 		A61D5ED817A4C7CF00A37E27 /* EmptyContact.png in Resources */ = {isa = PBXBuildFile; fileRef = A61D5ECA17A4C7CF00A37E27 /* EmptyContact.png */; };
@@ -74,8 +73,6 @@
 		A64C38341927EE1300CE1100 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C38331927EE1300CE1100 /* InitialViewController.m */; };
 		A64C38371927EFB600CE1100 /* cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A64C38351927EFB600CE1100 /* cancel@2x.png */; };
 		A64C38381927EFB600CE1100 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = A64C38361927EFB600CE1100 /* cancel.png */; };
-		A64C38471927F2CD00CE1100 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A64C38451927F2CD00CE1100 /* libGoogleAdMobAds.a */; };
-		A64C38481927F2CD00CE1100 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = A64C38461927F2CD00CE1100 /* README.txt */; };
 		A6E8AA45179D1D6E00042C02 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E8AA44179D1D6E00042C02 /* UIKit.framework */; };
 		A6E8AA47179D1D6E00042C02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E8AA46179D1D6E00042C02 /* Foundation.framework */; };
 		A6E8AA49179D1D6E00042C02 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E8AA48179D1D6E00042C02 /* CoreGraphics.framework */; };
@@ -119,8 +116,6 @@
 		9C4C085F1AA7B059006814F4 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		9C4C08611AA7B0E8006814F4 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		9C4C08631AA7B117006814F4 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		9CD5FDE31AF7496000CD987F /* DefaultSettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DefaultSettingsViewController.h; sourceTree = "<group>"; };
-		9CD5FDE41AF7497200CD987F /* DefaultSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultSettingsViewController.m; sourceTree = "<group>"; };
 		A61D5EC817A4C7CF00A37E27 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		A61D5EC917A4C7CF00A37E27 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		A61D5ECA17A4C7CF00A37E27 /* EmptyContact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EmptyContact.png; sourceTree = "<group>"; };
@@ -177,20 +172,6 @@
 		A64C38331927EE1300CE1100 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
 		A64C38351927EFB600CE1100 /* cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel@2x.png"; sourceTree = "<group>"; };
 		A64C38361927EFB600CE1100 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
-		A64C38391927F2CD00CE1100 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
-		A64C383A1927F2CD00CE1100 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
-		A64C383B1927F2CD00CE1100 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
-		A64C383C1927F2CD00CE1100 /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
-		A64C383D1927F2CD00CE1100 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
-		A64C383E1927F2CD00CE1100 /* GADInAppPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInAppPurchase.h; sourceTree = "<group>"; };
-		A64C383F1927F2CD00CE1100 /* GADInAppPurchaseDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInAppPurchaseDelegate.h; sourceTree = "<group>"; };
-		A64C38401927F2CD00CE1100 /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
-		A64C38411927F2CD00CE1100 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
-		A64C38421927F2CD00CE1100 /* GADModules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADModules.h; sourceTree = "<group>"; };
-		A64C38431927F2CD00CE1100 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
-		A64C38441927F2CD00CE1100 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
-		A64C38451927F2CD00CE1100 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
-		A64C38461927F2CD00CE1100 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		A6E8AA41179D1D6E00042C02 /* E-Report for iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Report for iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6E8AA44179D1D6E00042C02 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A6E8AA46179D1D6E00042C02 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -257,7 +238,6 @@
 				A6FBDAFD1917A4760048C46D /* MessageUI.framework in Frameworks */,
 				A6FBDAFB1917A46B0048C46D /* CoreTelephony.framework in Frameworks */,
 				A6FBDAF91917A4590048C46D /* AVFoundation.framework in Frameworks */,
-				A64C38471927F2CD00CE1100 /* libGoogleAdMobAds.a in Frameworks */,
 				9C4C08501AA7AB91006814F4 /* Parse.framework in Frameworks */,
 				A6FBDAF51917A4470048C46D /* AdSupport.framework in Frameworks */,
 				A6E8AA45179D1D6E00042C02 /* UIKit.framework in Frameworks */,
@@ -269,15 +249,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9CD5FDE21AF7491300CD987F /* Default Settings */ = {
-			isa = PBXGroup;
-			children = (
-				9CD5FDE31AF7496000CD987F /* DefaultSettingsViewController.h */,
-				9CD5FDE41AF7497200CD987F /* DefaultSettingsViewController.m */,
-			);
-			name = "Default Settings";
-			sourceTree = "<group>";
-		};
 		A61D5EC517A4C7CF00A37E27 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,10 +409,8 @@
 		A6E8AA67179D1FD400042C02 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A6FBDAE61917A3920048C46D /* Admob */,
 				A61D5EFE17A4CE0300A37E27 /* DALinedTextView */,
 				A6E8AA75179D1FD400042C02 /* Delegate */,
-				9CD5FDE21AF7491300CD987F /* Default Settings */,
 				A6E8AA68179D1FD400042C02 /* Category */,
 				A6E8AA78179D1FD400042C02 /* List */,
 				A6E8AA6E179D1FD400042C02 /* DataModel */,
@@ -515,27 +484,6 @@
 				A6E8AA7D179D1FD400042C02 /* DatePickerViewController.m */,
 			);
 			path = "Date Picker";
-			sourceTree = "<group>";
-		};
-		A6FBDAE61917A3920048C46D /* Admob */ = {
-			isa = PBXGroup;
-			children = (
-				A64C38391927F2CD00CE1100 /* GADAdMobExtras.h */,
-				A64C383A1927F2CD00CE1100 /* GADAdNetworkExtras.h */,
-				A64C383B1927F2CD00CE1100 /* GADAdSize.h */,
-				A64C383C1927F2CD00CE1100 /* GADBannerView.h */,
-				A64C383D1927F2CD00CE1100 /* GADBannerViewDelegate.h */,
-				A64C383E1927F2CD00CE1100 /* GADInAppPurchase.h */,
-				A64C383F1927F2CD00CE1100 /* GADInAppPurchaseDelegate.h */,
-				A64C38401927F2CD00CE1100 /* GADInterstitial.h */,
-				A64C38411927F2CD00CE1100 /* GADInterstitialDelegate.h */,
-				A64C38421927F2CD00CE1100 /* GADModules.h */,
-				A64C38431927F2CD00CE1100 /* GADRequest.h */,
-				A64C38441927F2CD00CE1100 /* GADRequestError.h */,
-				A64C38451927F2CD00CE1100 /* libGoogleAdMobAds.a */,
-				A64C38461927F2CD00CE1100 /* README.txt */,
-			);
-			path = Admob;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -624,7 +572,6 @@
 				A61D5EF117A4CCD000A37E27 /* bar-icon-cal@2x.png in Resources */,
 				A61D5EF417A4CD4000A37E27 /* No Icon.png in Resources */,
 				A61D5EF517A4CD4000A37E27 /* No Icon@2x.png in Resources */,
-				A64C38481927F2CD00CE1100 /* README.txt in Resources */,
 				A61D5EF817A4CDA200A37E27 /*  No Icon.png in Resources */,
 				A61D5EF917A4CDA200A37E27 /*  No Icon@2x.png in Resources */,
 				A61D5F1517A4E81300A37E27 /* Appointments.png in Resources */,
@@ -672,7 +619,6 @@
 				A6E8AA8E179D210600042C02 /* IconPickerViewController.m in Sources */,
 				A6E8AAC5179D36A000042C02 /* UIImage+Resize.m in Sources */,
 				A61D5F0117A4CE0300A37E27 /* DALinedTextView.m in Sources */,
-				9CD5FDE51AF7497200CD987F /* DefaultSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

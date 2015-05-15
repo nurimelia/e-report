@@ -9,7 +9,6 @@
 
 #import "IconPickerViewController.h"
 #import <UIKit/UIKit.h>
-#import "GADBannerView.h"
 #import <Parse/Parse.h>
 
 @class CategoryDetailViewController;
@@ -31,29 +30,18 @@
 UITextFieldDelegate, IconPickerViewControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
  
     
-    // Declare one as an instance variable
-    GADBannerView *bannerView_;
-
-    
-    
 }
 
 @property (strong, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (nonatomic, strong) IBOutlet UITextField *textField;
-@property (nonatomic, strong) IBOutlet UITextField *numberPlateTextField;
+//@property (nonatomic, strong) IBOutlet UITextField *numberPlateTextField;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *doneBarButton;
 
 @property (nonatomic, weak) id <ListDetailViewControllerDelegate> delegate;
 @property (nonatomic, strong) Checklist *checklistToEdit;
 
-@property (nonatomic, strong) IBOutlet UIWebView* adMobView;
-
-
 - (IBAction)cancel;
 
 - (IBAction)done;
-
-//- (IBAction)signUp;
-
 
 @end

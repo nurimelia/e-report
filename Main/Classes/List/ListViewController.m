@@ -24,10 +24,6 @@
 
 @synthesize checklist;
 @synthesize button;
-@synthesize adMobView;
-
-
-
 
 - (void)viewDidLoad
 {
@@ -51,21 +47,6 @@
      action:@selector(refresh)
      forControlEvents:UIControlEventValueChanged
      ];
-
-
-    GADAdSize adSize = [self adSizeForOrientation:self.interfaceOrientation];
-    bannerView_ = [[GADBannerView alloc] initWithAdSize:adSize];
-    
-    
-    bannerView_.adUnitID = MY_BANNER_UNIT_ID;
-    
-    bannerView_.rootViewController = self;
-    [self.adMobView addSubview:bannerView_];
-    
-    [self.tableView setTableHeaderView:adMobView];
-    
-    [bannerView_ loadRequest:[GADRequest request]];
-    
     
 }
 
@@ -73,29 +54,7 @@
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)orientation
                                          duration:(NSTimeInterval)duration {
-    bannerView_.adSize = [self adSizeForOrientation:orientation];
 }
-
-
-
-
-
-- (GADAdSize)adSizeForOrientation:(UIInterfaceOrientation)orientation {
-    
-    if (UIInterfaceOrientationIsLandscape(orientation)) {
-        return kGADAdSizeSmartBannerLandscape;
-    }
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        return kGADAdSizeSmartBannerPortrait;
-    } else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        return kGADAdSizeBanner;
-    }
-    
-    return kGADAdSizeBanner;
-}
-
-
 
 
 

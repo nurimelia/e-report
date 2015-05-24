@@ -9,13 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "CategoryDetailViewController.h"
 #import "DataModel.h"
+#import <Parse/Parse.h>
 
 
 @interface CategoryViewController : UITableViewController <ListDetailViewControllerDelegate, UINavigationControllerDelegate>{
-    
+
+//@interface CategoryViewController : UIViewController <UITableViewDelegate> {
+    NSArray *colorsArray;
+
     
 }
-
+@property (weak, nonatomic) IBOutlet UITableView *listTable;
 @property (nonatomic, strong) DataModel *dataModel;
 
 

@@ -29,6 +29,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
+        
     [aCoder encodeObject:self.category forKey:@"Category"];
     [aCoder encodeObject:self.items forKey:@"Items"];
     [aCoder encodeObject:self.iconName forKey:@"IconName"];
@@ -61,6 +62,7 @@
 {
     return [self.category localizedCaseInsensitiveCompare:otherChecklist.category];
 }
+
 
 
 @end

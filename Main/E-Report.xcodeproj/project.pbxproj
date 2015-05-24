@@ -172,14 +172,14 @@
 		A64C38331927EE1300CE1100 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
 		A64C38351927EFB600CE1100 /* cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel@2x.png"; sourceTree = "<group>"; };
 		A64C38361927EFB600CE1100 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
-		A6E8AA41179D1D6E00042C02 /* E-Report for iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Report for iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6E8AA41179D1D6E00042C02 /* E-Report.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Report.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6E8AA44179D1D6E00042C02 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A6E8AA46179D1D6E00042C02 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6E8AA48179D1D6E00042C02 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		A6E8AA4C179D1D6E00042C02 /* E-Report for iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "E-Report for iOS-Info.plist"; sourceTree = "<group>"; };
+		A6E8AA4C179D1D6E00042C02 /* E-Report-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "E-Report-Info.plist"; sourceTree = "<group>"; };
 		A6E8AA4E179D1D6E00042C02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A6E8AA50179D1D6E00042C02 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A6E8AA52179D1D6E00042C02 /* E-Report for iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "E-Report for iOS-Prefix.pch"; sourceTree = "<group>"; };
+		A6E8AA52179D1D6E00042C02 /* E-Report-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "E-Report-Prefix.pch"; sourceTree = "<group>"; };
 		A6E8AA56179D1D6E00042C02 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A6E8AA58179D1D6E00042C02 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A6E8AA5A179D1D6E00042C02 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -349,7 +349,7 @@
 		A6E8AA42179D1D6E00042C02 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A6E8AA41179D1D6E00042C02 /* E-Report for iOS.app */,
+				A6E8AA41179D1D6E00042C02 /* E-Report.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -395,10 +395,10 @@
 		A6E8AA4B179D1D6E00042C02 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A6E8AA4C179D1D6E00042C02 /* E-Report for iOS-Info.plist */,
+				A6E8AA4C179D1D6E00042C02 /* E-Report-Info.plist */,
 				A6E8AA4D179D1D6E00042C02 /* InfoPlist.strings */,
 				A6E8AA50179D1D6E00042C02 /* main.m */,
-				A6E8AA52179D1D6E00042C02 /* E-Report for iOS-Prefix.pch */,
+				A6E8AA52179D1D6E00042C02 /* E-Report-Prefix.pch */,
 				A6E8AA56179D1D6E00042C02 /* Default.png */,
 				A6E8AA58179D1D6E00042C02 /* Default@2x.png */,
 				A6E8AA5A179D1D6E00042C02 /* Default-568h@2x.png */,
@@ -489,9 +489,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A6E8AA40179D1D6E00042C02 /* E-Report for iOS */ = {
+		A6E8AA40179D1D6E00042C02 /* E-Report */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A6E8AA64179D1D6E00042C02 /* Build configuration list for PBXNativeTarget "E-Report for iOS" */;
+			buildConfigurationList = A6E8AA64179D1D6E00042C02 /* Build configuration list for PBXNativeTarget "E-Report" */;
 			buildPhases = (
 				A6E8AA3D179D1D6E00042C02 /* Sources */,
 				A6E8AA3E179D1D6E00042C02 /* Frameworks */,
@@ -501,9 +501,9 @@
 			);
 			dependencies = (
 			);
-			name = "E-Report for iOS";
+			name = "E-Report";
 			productName = "Maintenance Tracker";
-			productReference = A6E8AA41179D1D6E00042C02 /* E-Report for iOS.app */;
+			productReference = A6E8AA41179D1D6E00042C02 /* E-Report.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -515,7 +515,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Kalai Chelvan";
 			};
-			buildConfigurationList = A6E8AA3C179D1D6E00042C02 /* Build configuration list for PBXProject "E-Report for iOS" */;
+			buildConfigurationList = A6E8AA3C179D1D6E00042C02 /* Build configuration list for PBXProject "E-Report" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -527,7 +527,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A6E8AA40179D1D6E00042C02 /* E-Report for iOS */,
+				A6E8AA40179D1D6E00042C02 /* E-Report */,
 			);
 		};
 /* End PBXProject section */
@@ -656,7 +656,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -687,7 +687,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -708,15 +708,15 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Maintenance Tracker/E-Report for iOS-Prefix.pch";
-				INFOPLIST_FILE = "Maintenance Tracker/E-Report for iOS-Info.plist";
+				GCC_PREFIX_HEADER = "Maintenance Tracker/E-Report-Prefix.pch";
+				INFOPLIST_FILE = "Maintenance Tracker/E-Report-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Classes/Admob",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "E-Report for iOS";
+				PRODUCT_NAME = "E-Report";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -730,15 +730,15 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Maintenance Tracker/E-Report for iOS-Prefix.pch";
-				INFOPLIST_FILE = "Maintenance Tracker/E-Report for iOS-Info.plist";
+				GCC_PREFIX_HEADER = "Maintenance Tracker/E-Report-Prefix.pch";
+				INFOPLIST_FILE = "Maintenance Tracker/E-Report-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Classes/Admob",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "E-Report for iOS";
+				PRODUCT_NAME = "E-Report";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -747,7 +747,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A6E8AA3C179D1D6E00042C02 /* Build configuration list for PBXProject "E-Report for iOS" */ = {
+		A6E8AA3C179D1D6E00042C02 /* Build configuration list for PBXProject "E-Report" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A6E8AA62179D1D6E00042C02 /* Debug */,
@@ -756,7 +756,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A6E8AA64179D1D6E00042C02 /* Build configuration list for PBXNativeTarget "E-Report for iOS" */ = {
+		A6E8AA64179D1D6E00042C02 /* Build configuration list for PBXNativeTarget "E-Report" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A6E8AA65179D1D6E00042C02 /* Debug */,

@@ -37,7 +37,7 @@
 
 
 @synthesize dataModel;
-
+@synthesize listTable;
 
             
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -51,8 +51,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        
-    
+    self.listTable = [NSArray array];
+    // Do any additional setup after loading the view, typically from a nib.
+    [self performSelector: @selector(retreiveFromParse)];
     
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:
                                      [UIImage imageNamed:@"background.png"]];
@@ -60,7 +61,7 @@
 
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
    
-    self.title = @"Category";
+    self.title = @"Laboratory";
 
     
     
@@ -126,16 +127,27 @@
     }
 }
 
-
+- (void) retrieveFromParse {
+    PFQuery *retrieveColors = [PFQuery queryWithClassName: @"e-report"];
+    [retrieveColors findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error){
+            colorsArray = [[NSArray alloc] initWithArray:objects];
+        }
+        [listTable reloadData];
+    }];
+}
                  
 #pragma mark - Table view data source
 
-
+- (NSInteger)numberOfSectionInTableView:(UITableView *)tableView {
+    return 1;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(
                                                                        NSInteger)section
 {
     return [self.dataModel.lists count];
+    return colorsArray.count;
     
 }
 
@@ -176,16 +188,17 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
+  /*  if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
+       
+    }*/
+    PFObject *tempObject = [colorsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [tempObject objectForKey:@"Lab_Name"];
     
     Checklist *checklist = [self.dataModel.lists objectAtIndex:indexPath.row];
     cell.textLabel.text = checklist.category;
     cell.textLabel.textColor = [UIColor darkGrayColor];
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
-       
-     
 
     cell.imageView.image = [UIImage imageNamed:checklist.iconName];
     
@@ -198,8 +211,6 @@
                       [button addTarget:self action:@selector(accessoryButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
                       button.backgroundColor = [UIColor clearColor];
                       cell.accessoryView = button;
-                      
-                      
     return cell;
     
     
@@ -248,7 +259,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath
                                                                     *)indexPath
-{
+{ NSLog(@"cell tapped");
     [self.dataModel setIndexOfSelectedChecklist:indexPath.row];
     Checklist *checklist = [self.dataModel.lists objectAtIndex:indexPath.row];
      [self performSegueWithIdentifier:@"ShowChecklist" sender:checklist];

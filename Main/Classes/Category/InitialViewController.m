@@ -9,6 +9,7 @@
 #import "InitialViewController.h"
 
 @interface InitialViewController ()
+//@interface InitialViewController : UITableViewController <InitialViewControllerDelegate>
 
 @end
 
@@ -22,6 +23,16 @@
     }
     return self;
 }
+/*@synthesize delegate;
+
+#pragma mark - InitialViewViewControllerDelegate
+
+- (void)InitialViewViewControllerDidCancel:
+(InitialViewViewController *)controller
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}*/
+
 
 - (void)viewDidLoad
 {
@@ -36,11 +47,14 @@
 {
     [self.userIDOutlet resignFirstResponder];
     [self.passwordOutlet resignFirstResponder];
+    [self.usernameField resignFirstResponder];
+    [self.emailField resignFirstResponder];
 }
 
 -(void)displayKeyboard
 {
     [self.userIDOutlet becomeFirstResponder];
+    [self.usernameField becomeFirstResponder];
 }
 
 -(void)openVideoController
@@ -186,8 +200,6 @@ else{
        [self performSegueWithIdentifier:@"signupSegue" sender:self];
 }
 
-- (IBAction)done:(UIStoryboardSegue *)seque { [self.navigationController popViewControllerAnimated:YES];
-}
 
 -(IBAction)forgotPassword:(id)sender {
     
@@ -214,4 +226,5 @@ else{
         [alertViewSuccess show];
     }
 }
+
 @end

@@ -25,6 +25,7 @@
 @synthesize doneBarButton;
 @synthesize delegate;
 @synthesize checklistToEdit;
+@synthesize iconImageView;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -99,15 +100,36 @@
 
 - (IBAction)done
 {
-  /*  NSString *Lab_Name = self.textField.text;
-    NSString *Lab_Image = self.iconImageView.image;
+  /*  PFObject *lab = [PFObject objectWithClassName:@"laboratory"];
+    [lab setObject:textField.text forKey:@"Lab_Name"];
+    //[lab setObject:textField.text forKey:@"Lab_Name"];
+    
+    NSData *imageData = UIImageJPEGRepresentation(iconImageView.image, 0.8);
+    NSString *filename = [NSString stringWithFormat:@"%@.png", textField.text];
+    PFFile *imageFile = [PFFile fileWithName:filename data:imageData];
+    [lab setObject:imageFile forKey:@"Lab_Image"];
+    
+    // Show progress
    
-    
-    PFUser *laboratory = [PFUser laboratory];
-    
-    laboratory.Lab_Name = textField.text;
-    laboratory.Lab_Image = iconImageView.image;*/
-
+    [lab saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            // Show success message
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Upload Complete" message:@"Successfully saved the recipe" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+            // Notify table view to reload the recipes from Parse cloud
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+            
+            // Dismiss the controller
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Upload Failure" message:[error localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }*/
+        
+        
     if (self.checklistToEdit == nil) {
         Checklist *checklist = [[Checklist alloc] init];
         checklist.category = self.textField.text;
@@ -120,9 +142,8 @@
         [self.delegate listDetailViewController:self didFinishEditingChecklist:self
          .checklistToEdit];
     }
-    
-
-}
+   /* }];*/
+    }
 
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath

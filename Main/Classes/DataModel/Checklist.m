@@ -14,6 +14,7 @@
 @synthesize category;
 @synthesize items;
 @synthesize iconName;
+@synthesize notes;
 
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -21,6 +22,7 @@
     if ((self = [super init])) {
         self.category = [aDecoder decodeObjectForKey:@"Category"];
         self.items = [aDecoder decodeObjectForKey:@"Items"];
+        self.notes = [aDecoder decodeObjectForKey:@"Notes"];
         self.iconName = [aDecoder decodeObjectForKey:@"IconName"];
     }
     return self;
@@ -32,6 +34,7 @@
         
     [aCoder encodeObject:self.category forKey:@"Category"];
     [aCoder encodeObject:self.items forKey:@"Items"];
+    [aCoder encodeObject:self.notes forKey:@"Notes"];
     [aCoder encodeObject:self.iconName forKey:@"IconName"];
 }
 

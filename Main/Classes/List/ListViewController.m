@@ -131,8 +131,10 @@
     UILabel *makeLabel = (UILabel *)[cell viewWithTag:1700];
     makeLabel.text = item.make;
 
-    UILabel *numberPlateLabel = (UILabel *)[cell viewWithTag:1701];
-    numberPlateLabel.text = item.numberPlate;
+    UILabel *notesLabel = (UILabel *)[cell viewWithTag:1701];
+    notesLabel.text = item.notes;
+    //UILabel *numberPlateLabel = (UILabel *)[cell viewWithTag:1701];
+    //numberPlateLabel.text = item.numberPlate;
     
    //masking the image
     

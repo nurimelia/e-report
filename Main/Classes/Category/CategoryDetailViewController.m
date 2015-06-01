@@ -21,7 +21,7 @@
 }
 
 @synthesize textField;
-//@synthesize numberPlateTextField;
+@synthesize notesField;
 @synthesize doneBarButton;
 @synthesize delegate;
 @synthesize checklistToEdit;
@@ -50,6 +50,8 @@
     if (self.checklistToEdit != nil) {
         self.title = @"Edit Category";
         self.textField.text = self.checklistToEdit.category;
+        self.notesField.text = self.checklistToEdit.notes;
+        
         self.doneBarButton.enabled = YES;
         iconName = self.checklistToEdit.iconName;
         
@@ -80,7 +82,7 @@
 - (void)viewDidUnload
 {
     [self setTextField:nil];
-  //  [self setNumberPlateTextField:nil];
+    [self setNotesField:nil];
     [self setDoneBarButton:nil];
     [super viewDidUnload];
 }
@@ -99,45 +101,18 @@
 }
 
 - (IBAction)done
-{
-  /*  PFObject *lab = [PFObject objectWithClassName:@"laboratory"];
-    [lab setObject:textField.text forKey:@"Lab_Name"];
-    //[lab setObject:textField.text forKey:@"Lab_Name"];
-    
-    NSData *imageData = UIImageJPEGRepresentation(iconImageView.image, 0.8);
-    NSString *filename = [NSString stringWithFormat:@"%@.png", textField.text];
-    PFFile *imageFile = [PFFile fileWithName:filename data:imageData];
-    [lab setObject:imageFile forKey:@"Lab_Image"];
-    
-    // Show progress
-   
-    [lab saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            // Show success message
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Upload Complete" message:@"Successfully saved the recipe" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            
-            // Notify table view to reload the recipes from Parse cloud
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
-            
-            // Dismiss the controller
-            [self dismissViewControllerAnimated:YES completion:nil];
-            
-        } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Upload Failure" message:[error localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            
-        }*/
-        
-        
+{ //self.notes = [aDecoder decodeObjectForKey:@"Notes"];
+
     if (self.checklistToEdit == nil) {
         Checklist *checklist = [[Checklist alloc] init];
         checklist.category = self.textField.text;
+        checklist.notes = self.notesField.text;
         checklist.iconName = iconName;
         [self.delegate listDetailViewController:self didFinishAddingChecklist:
          checklist];
     } else {
         self.checklistToEdit.category = self.textField.text;
+        self.checklistToEdit.notes = self.notesField.text;
         self.checklistToEdit.iconName = iconName;
         [self.delegate listDetailViewController:self didFinishEditingChecklist:self
          .checklistToEdit];

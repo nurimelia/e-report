@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oD8-hu-pQ7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oD8-hu-pQ7">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Report-->
@@ -27,12 +27,6 @@
                                             <color key="textColor" red="0.4431372549" green="0.52156862749999999" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1700" contentMode="left" fixedFrame="YES" text="Make" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1z-JA-SGe">
-                                            <rect key="frame" x="79" y="9" width="237" height="21"/>
-                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.2666666667" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
                                         <button opaque="NO" userInteractionEnabled="NO" tag="1703" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUq-6J-s8C">
                                             <rect key="frame" x="79" y="55" width="18" height="18"/>
                                             <state key="normal" backgroundImage="bar-icon-cal.png">
@@ -42,9 +36,15 @@
                                         <imageView userInteractionEnabled="NO" tag="1100" contentMode="scaleToFill" fixedFrame="YES" image="PersonalChat.png" translatesAutoresizingMaskIntoConstraints="NO" id="CAl-m2-pQp">
                                             <rect key="frame" x="17" y="16" width="48" height="48"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1701" contentMode="left" fixedFrame="YES" text="ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PpA-Sn-Jsx">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1701" contentMode="left" fixedFrame="YES" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PpA-Sn-Jsx">
                                             <rect key="frame" x="79" y="29" width="237" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.0" green="0.2666666667" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1700" contentMode="left" fixedFrame="YES" text="Make" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1z-JA-SGe">
+                                            <rect key="frame" x="79" y="8" width="237" height="21"/>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.2666666667" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
@@ -103,7 +103,7 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="colorsTable" destination="toN-83-mbt" id="x8b-Vq-9ea"/>
+                        <outlet property="listTable" destination="toN-83-mbt" id="Ike-2H-78W"/>
                         <segue destination="IlK-9R-PWn" kind="push" identifier="ShowChecklist" id="NFe-a4-o3Z"/>
                     </connections>
                 </tableViewController>

@@ -87,11 +87,11 @@
 
 - (int)indexOfSelectedChecklist
 {
-    return (int)[[NSUserDefaults standardUserDefaults] integerForKey:@"ChecklistIndex"];
+    return (int)[[NSUserDefaults standardUserDefaults] integerForKey:@"ChecklistItem"];
 }
 - (void)setIndexOfSelectedChecklist:(int)index
 {
-    [[NSUserDefaults standardUserDefaults] setInteger:index forKey:@"ChecklistIndex"];
+    [[NSUserDefaults standardUserDefaults] setInteger:index forKey:@"ChecklistItem"];
 }
 
 

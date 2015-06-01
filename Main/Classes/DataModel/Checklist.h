@@ -13,6 +13,7 @@
 
 @property (nonatomic, copy) NSString *category;
 @property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, strong) NSString *notes;
 @property (nonatomic, copy) NSString *iconName;
 
 - (int)countUncheckedItems;

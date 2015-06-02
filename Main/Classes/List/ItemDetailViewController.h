@@ -19,6 +19,7 @@
 
 @class ItemDetailViewController;
 @class ChecklistItem;
+@class RadioButton;
 
 
 
@@ -78,6 +79,8 @@ didFinishAddingItem:(ChecklistItem *)item;
 @property (nonatomic, strong) UIPopoverController *popOver;
 
 //@property (nonatomic, strong) IBOutlet UIWebView* adMobView;
+@property (nonatomic, strong) IBOutlet RadioButton* radioButton;
+-(IBAction)onRadioBtn:(id)sender;
 
 
 ///create IBAction methods

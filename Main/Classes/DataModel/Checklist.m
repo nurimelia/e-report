@@ -44,7 +44,7 @@
 {
     if ((self = [super init])) {
         self.items = [[NSMutableArray alloc] initWithCapacity:20];
-        self.iconName = @"Trips";
+        self.iconName = @"Computer";
     }
     return self;
 }

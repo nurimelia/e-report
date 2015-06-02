@@ -9,6 +9,9 @@
 #import "Checklist.h"
 #import "CategoryDetailViewController.h"
 #import <Parse/Parse.h>
+#import <MobileCoreServices/UTCoreTypes.h>
+#import "MBProgressHUB.h"
+#import <ParseUI/ParseUI.h>
 
 @interface CategoryDetailViewController ()
 
@@ -16,12 +19,11 @@
 
 @implementation CategoryDetailViewController {
     NSString *iconName;
-    NSString *Lab_Name;
-    NSString *Lab_Image;
+
 }
 
 @synthesize textField;
-@synthesize notesField;
+//@synthesize notesField;
 @synthesize doneBarButton;
 @synthesize delegate;
 @synthesize checklistToEdit;
@@ -45,12 +47,12 @@
                                      [UIImage imageNamed:@"background.png"]];
     
 
-    
+    textField.delegate = self;
     
     if (self.checklistToEdit != nil) {
         self.title = @"Edit Category";
         self.textField.text = self.checklistToEdit.category;
-        self.notesField.text = self.checklistToEdit.notes;
+       // self.notesField.text = self.checklistToEdit.notes;
         
         self.doneBarButton.enabled = YES;
         iconName = self.checklistToEdit.iconName;
@@ -81,8 +83,9 @@
 
 - (void)viewDidUnload
 {
+    [self setIconImageView:nil];
     [self setTextField:nil];
-    [self setNotesField:nil];
+   // [self setNotesField:nil];
     [self setDoneBarButton:nil];
     [super viewDidUnload];
 }
@@ -101,23 +104,69 @@
 }
 
 - (IBAction)done
-{ //self.notes = [aDecoder decodeObjectForKey:@"Notes"];
+{
 
-    if (self.checklistToEdit == nil) {
+    // Create PFObject with lab (Checklist) information
+    PFObject *Checklist = [PFObject objectWithClassName:@"laboratory"];
+    [Checklist setObject:textField.text forKey:@"Lab_Name"];
+    
+    // Lab image
+    NSData *iconName = UIImageJPEGRepresentation(iconImageView.image, 0.8);
+    NSString *filename = [NSString stringWithFormat:@"%@.png", textField.text];
+    PFFile *imageFile = [PFFile fileWithName:filename data:iconName];
+    [Checklist setObject:imageFile forKey:@"Lab_Image"];
+    
+    // Show progress
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.labelText = @"Progressing";
+    [hud show:YES];
+    
+    
+    // Upload lab to Parse
+    [Checklist saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [hud hide:YES];
+        
+        if (!error) {
+            // Show success message
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Complete" message:@"Successfully saved the category" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+            // Notify table view to reload the recipes from Parse cloud
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+            
+            // Dismiss the controller
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
+            
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure" message:[error localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+            self.checklistToEdit.category = self.textField.text;
+            self.checklistToEdit.iconName = iconName;
+            [self.delegate listDetailViewController:self didFinishEditingChecklist:self
+             .checklistToEdit];
+
+        }
+        
+    }];
+    
+   /* if (self.checklistToEdit == nil) {
         Checklist *checklist = [[Checklist alloc] init];
         checklist.category = self.textField.text;
-        checklist.notes = self.notesField.text;
+    //    checklist.notes = self.notesField.text;
         checklist.iconName = iconName;
         [self.delegate listDetailViewController:self didFinishAddingChecklist:
          checklist];
     } else {
         self.checklistToEdit.category = self.textField.text;
-        self.checklistToEdit.notes = self.notesField.text;
+      //  self.checklistToEdit.notes = self.notesField.text;
         self.checklistToEdit.iconName = iconName;
         [self.delegate listDetailViewController:self didFinishEditingChecklist:self
          .checklistToEdit];
-    }
-   /* }];*/
+    }*/
+  
     }
 
 
@@ -146,7 +195,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    if (indexPath.row == 0) {
+    
+    }
 }
 
 
@@ -175,7 +226,11 @@ theIconName
     [self.textField resignFirstResponder];
     
 }
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.textField resignFirstResponder];
+    return YES;
+}
 
 
 

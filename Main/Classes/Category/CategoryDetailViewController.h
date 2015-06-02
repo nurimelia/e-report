@@ -35,7 +35,6 @@ UITextFieldDelegate, IconPickerViewControllerDelegate, UIImagePickerControllerDe
 
 @property (strong, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (nonatomic, strong) IBOutlet UITextField *textField;
-@property (strong, nonatomic) IBOutlet UITextField *notesField;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *doneBarButton;
 
 @property (nonatomic, weak) id <ListDetailViewControllerDelegate> delegate;

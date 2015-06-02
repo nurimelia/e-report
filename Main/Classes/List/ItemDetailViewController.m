@@ -10,6 +10,7 @@
 #import "ChecklistItem.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImage+Resize.h"
+#import "RadioButton.h"
 
 @interface ItemDetailViewController () {
   
@@ -20,7 +21,10 @@
 
 @end
 
-@implementation ItemDetailViewController {
+@implementation ItemDetailViewController
+
+
+{
     NSString *text;
     NSString *notes;
     NSString *make;
@@ -31,7 +35,9 @@
     NSDate *nextServiceDate;
 
 }
-
+-(IBAction)onRadioBtn:(RadioButton*)sender
+{
+}
 ///synthesize properties
 
 @synthesize textField;

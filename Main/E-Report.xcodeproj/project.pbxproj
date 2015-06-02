@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9C3749431AD4D9550021AD3C /* UPNM.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9C3749421AD4D9550021AD3C /* UPNM.jpeg */; };
-		9C4C08501AA7AB91006814F4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4C084F1AA7AB91006814F4 /* Parse.framework */; };
-		9C4C08521AA7ABA0006814F4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4C08511AA7ABA0006814F4 /* Bolts.framework */; };
 		9C4C08541AA7AC7B006814F4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4C08531AA7AC7B006814F4 /* CFNetwork.framework */; };
 		9C4C08561AA7AC86006814F4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4C08551AA7AC86006814F4 /* CoreLocation.framework */; };
 		9C4C08581AA7ACA5006814F4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4C08571AA7ACA5006814F4 /* MobileCoreServices.framework */; };
@@ -19,6 +17,17 @@
 		9C4C08601AA7B059006814F4 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4C085F1AA7B059006814F4 /* Twitter.framework */; };
 		9C4C08621AA7B0E8006814F4 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4C08611AA7B0E8006814F4 /* Social.framework */; };
 		9C4C08641AA7B117006814F4 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4C08631AA7B117006814F4 /* Accounts.framework */; };
+		9C9097391B1C8B3F00043394 /* MBProgressHUB.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9097381B1C8B3F00043394 /* MBProgressHUB.m */; };
+		9C90973E1B1D779F00043394 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C90973D1B1D779F00043394 /* libz.1.1.3.dylib */; };
+		9C9097481B1DC57300043394 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C9097471B1DC57300043394 /* Parse.framework */; };
+		9C90974A1B1DC57D00043394 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C9097491B1DC57D00043394 /* ParseUI.framework */; };
+		9C90974C1B1DC95000043394 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C90974B1B1DC95000043394 /* Bolts.framework */; };
+		9C9097511B1E296600043394 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C90974D1B1E296600043394 /* checked.png */; };
+		9C9097521B1E296600043394 /* checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C90974E1B1E296600043394 /* checked@2x.png */; };
+		9C9097531B1E296600043394 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C90974F1B1E296600043394 /* unchecked.png */; };
+		9C9097541B1E296600043394 /* unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C9097501B1E296600043394 /* unchecked@2x.png */; };
+		9C9097571B1E29D500043394 /* RadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9097561B1E29D500043394 /* RadioButton.m */; };
+		9C90975A1B1E2DCF00043394 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C9097591B1E2DCF00043394 /* Foundation.framework */; };
 		A61D5ED617A4C7CF00A37E27 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A61D5EC817A4C7CF00A37E27 /* background.png */; };
 		A61D5ED717A4C7CF00A37E27 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A61D5EC917A4C7CF00A37E27 /* background@2x.png */; };
 		A61D5ED817A4C7CF00A37E27 /* EmptyContact.png in Resources */ = {isa = PBXBuildFile; fileRef = A61D5ECA17A4C7CF00A37E27 /* EmptyContact.png */; };
@@ -105,8 +114,6 @@
 
 /* Begin PBXFileReference section */
 		9C3749421AD4D9550021AD3C /* UPNM.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = UPNM.jpeg; sourceTree = "<group>"; };
-		9C4C084F1AA7AB91006814F4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		9C4C08511AA7ABA0006814F4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		9C4C08531AA7AC7B006814F4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		9C4C08551AA7AC86006814F4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9C4C08571AA7ACA5006814F4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -116,6 +123,19 @@
 		9C4C085F1AA7B059006814F4 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		9C4C08611AA7B0E8006814F4 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		9C4C08631AA7B117006814F4 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		9C9097371B1C8B3F00043394 /* MBProgressHUB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUB.h; sourceTree = "<group>"; };
+		9C9097381B1C8B3F00043394 /* MBProgressHUB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUB.m; sourceTree = "<group>"; };
+		9C90973D1B1D779F00043394 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		9C9097471B1DC57300043394 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		9C9097491B1DC57D00043394 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		9C90974B1B1DC95000043394 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		9C90974D1B1E296600043394 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
+		9C90974E1B1E296600043394 /* checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checked@2x.png"; sourceTree = "<group>"; };
+		9C90974F1B1E296600043394 /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
+		9C9097501B1E296600043394 /* unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unchecked@2x.png"; sourceTree = "<group>"; };
+		9C9097551B1E29D500043394 /* RadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioButton.h; sourceTree = "<group>"; };
+		9C9097561B1E29D500043394 /* RadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadioButton.m; sourceTree = "<group>"; };
+		9C9097591B1E2DCF00043394 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Foundation.framework; sourceTree = "<group>"; };
 		A61D5EC817A4C7CF00A37E27 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		A61D5EC917A4C7CF00A37E27 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		A61D5ECA17A4C7CF00A37E27 /* EmptyContact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EmptyContact.png; sourceTree = "<group>"; };
@@ -221,34 +241,55 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C4C08641AA7B117006814F4 /* Accounts.framework in Frameworks */,
-				9C4C08621AA7B0E8006814F4 /* Social.framework in Frameworks */,
-				9C4C08601AA7B059006814F4 /* Twitter.framework in Frameworks */,
 				9C4C085E1AA7ACED006814F4 /* libsqlite3.dylib in Frameworks */,
+				9C4C08621AA7B0E8006814F4 /* Social.framework in Frameworks */,
+				9C4C08641AA7B117006814F4 /* Accounts.framework in Frameworks */,
 				9C4C085C1AA7ACE0006814F4 /* libz.dylib in Frameworks */,
 				A6FBDB011917A48B0048C46D /* SystemConfiguration.framework in Frameworks */,
 				A6FBDAFF1917A4810048C46D /* StoreKit.framework in Frameworks */,
+				9C9097481B1DC57300043394 /* Parse.framework in Frameworks */,
 				9C4C085A1AA7ACB9006814F4 /* Security.framework in Frameworks */,
 				A6E8AAC8179D36D000042C02 /* QuartzCore.framework in Frameworks */,
 				9C4C08581AA7ACA5006814F4 /* MobileCoreServices.framework in Frameworks */,
-				A6E8AA49179D1D6E00042C02 /* CoreGraphics.framework in Frameworks */,
 				9C4C08561AA7AC86006814F4 /* CoreLocation.framework in Frameworks */,
+				A6E8AA49179D1D6E00042C02 /* CoreGraphics.framework in Frameworks */,
 				9C4C08541AA7AC7B006814F4 /* CFNetwork.framework in Frameworks */,
 				A6FBDAF71917A44E0048C46D /* AudioToolbox.framework in Frameworks */,
+				9C90973E1B1D779F00043394 /* libz.1.1.3.dylib in Frameworks */,
+				9C90975A1B1E2DCF00043394 /* Foundation.framework in Frameworks */,
+				9C90974C1B1DC95000043394 /* Bolts.framework in Frameworks */,
+				9C4C08601AA7B059006814F4 /* Twitter.framework in Frameworks */,
 				A6FBDAFD1917A4760048C46D /* MessageUI.framework in Frameworks */,
 				A6FBDAFB1917A46B0048C46D /* CoreTelephony.framework in Frameworks */,
 				A6FBDAF91917A4590048C46D /* AVFoundation.framework in Frameworks */,
-				9C4C08501AA7AB91006814F4 /* Parse.framework in Frameworks */,
 				A6FBDAF51917A4470048C46D /* AdSupport.framework in Frameworks */,
 				A6E8AA45179D1D6E00042C02 /* UIKit.framework in Frameworks */,
+				9C90974A1B1DC57D00043394 /* ParseUI.framework in Frameworks */,
 				A6E8AA47179D1D6E00042C02 /* Foundation.framework in Frameworks */,
-				9C4C08521AA7ABA0006814F4 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C9097361B1C8B1D00043394 /* MBProgressHUB */ = {
+			isa = PBXGroup;
+			children = (
+				9C9097371B1C8B3F00043394 /* MBProgressHUB.h */,
+				9C9097381B1C8B3F00043394 /* MBProgressHUB.m */,
+			);
+			name = MBProgressHUB;
+			sourceTree = "<group>";
+		};
+		9C9097581B1E29DD00043394 /* RadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				9C9097561B1E29D500043394 /* RadioButton.m */,
+				9C9097551B1E29D500043394 /* RadioButton.h */,
+			);
+			name = RadioButton;
+			sourceTree = "<group>";
+		};
 		A61D5EC517A4C7CF00A37E27 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +305,10 @@
 				A61D5ECD17A4C7CF00A37E27 /* list-element@2x.png */,
 				A61D5ED217A4C7CF00A37E27 /* PersonalChat.png */,
 				A61D5ED317A4C7CF00A37E27 /* PersonalChat@2x.png */,
+				9C90974D1B1E296600043394 /* checked.png */,
+				9C90974E1B1E296600043394 /* checked@2x.png */,
+				9C90974F1B1E296600043394 /* unchecked.png */,
+				9C9097501B1E296600043394 /* unchecked@2x.png */,
 				A61D5EE217A4C98400A37E27 /* list-item-bg.png */,
 				A61D5EE317A4C98400A37E27 /* list-item-bg@2x.png */,
 				A61D5EE617A4C9A800A37E27 /* ipad-arrow.png */,
@@ -336,8 +381,7 @@
 		A6E8AA38179D1D6E00042C02 = {
 			isa = PBXGroup;
 			children = (
-				9C4C08511AA7ABA0006814F4 /* Bolts.framework */,
-				9C4C084F1AA7AB91006814F4 /* Parse.framework */,
+				9C9097581B1E29DD00043394 /* RadioButton */,
 				A61D5EC517A4C7CF00A37E27 /* Resources */,
 				A6E8AA67179D1FD400042C02 /* Classes */,
 				A6E8AA4A179D1D6E00042C02 /* E-Report */,
@@ -357,6 +401,11 @@
 		A6E8AA43179D1D6E00042C02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9C90974B1B1DC95000043394 /* Bolts.framework */,
+				9C9097491B1DC57D00043394 /* ParseUI.framework */,
+				9C9097471B1DC57300043394 /* Parse.framework */,
+				9C90973D1B1D779F00043394 /* libz.1.1.3.dylib */,
+				9C9097591B1E2DCF00043394 /* Foundation.framework */,
 				9C4C08631AA7B117006814F4 /* Accounts.framework */,
 				9C4C08611AA7B0E8006814F4 /* Social.framework */,
 				9C4C085F1AA7B059006814F4 /* Twitter.framework */,
@@ -409,6 +458,7 @@
 		A6E8AA67179D1FD400042C02 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9C9097361B1C8B1D00043394 /* MBProgressHUB */,
 				A61D5EFE17A4CE0300A37E27 /* DALinedTextView */,
 				A6E8AA75179D1FD400042C02 /* Delegate */,
 				A6E8AA68179D1FD400042C02 /* Category */,
@@ -540,6 +590,7 @@
 				A6E8AA4F179D1D6E00042C02 /* InfoPlist.strings in Resources */,
 				A6E8AA57179D1D6E00042C02 /* Default.png in Resources */,
 				A639E41D190C154A00D0F10C /* Icon72x72.png in Resources */,
+				9C9097531B1E296600043394 /* unchecked.png in Resources */,
 				A64C38381927EFB600CE1100 /* cancel.png in Resources */,
 				A6E8AA59179D1D6E00042C02 /* Default@2x.png in Resources */,
 				A639E414190C154A00D0F10C /* Icon114x114.png in Resources */,
@@ -549,6 +600,7 @@
 				A639E415190C154A00D0F10C /* Icon120x120.png in Resources */,
 				A61D5ED717A4C7CF00A37E27 /* background@2x.png in Resources */,
 				9C3749431AD4D9550021AD3C /* UPNM.jpeg in Resources */,
+				9C9097541B1E296600043394 /* unchecked@2x.png in Resources */,
 				A639E417190C154A00D0F10C /* Icon152x152.png in Resources */,
 				A61D5ED817A4C7CF00A37E27 /* EmptyContact.png in Resources */,
 				A639E416190C154A00D0F10C /* Icon144x144.png in Resources */,
@@ -563,6 +615,7 @@
 				A61D5EE417A4C98400A37E27 /* list-item-bg.png in Resources */,
 				A61D5EE517A4C98400A37E27 /* list-item-bg@2x.png in Resources */,
 				A61D5EE817A4C9A800A37E27 /* ipad-arrow.png in Resources */,
+				9C9097521B1E296600043394 /* checked@2x.png in Resources */,
 				A61D5EE917A4C9A800A37E27 /* ipad-arrow@2x.png in Resources */,
 				A639E41E190C154A00D0F10C /* Icon76x76.png in Resources */,
 				A639E413190C154A00D0F10C /* Icon100x100.png in Resources */,
@@ -575,6 +628,7 @@
 				A61D5EF817A4CDA200A37E27 /*  No Icon.png in Resources */,
 				A61D5EF917A4CDA200A37E27 /*  No Icon@2x.png in Resources */,
 				A61D5F1517A4E81300A37E27 /* Appointments.png in Resources */,
+				9C9097511B1E296600043394 /* checked.png in Resources */,
 				A61D5F1617A4E81300A37E27 /* Appointments@2x.png in Resources */,
 				A639E41A190C154A00D0F10C /* Icon50x50.png in Resources */,
 				A61D5F1717A4E81300A37E27 /* Birthdays.png in Resources */,
@@ -608,6 +662,7 @@
 				A6E8AA51179D1D6E00042C02 /* main.m in Sources */,
 				A6E8AA82179D1FD400042C02 /* CategoryViewController.m in Sources */,
 				A6E8AA83179D1FD400042C02 /* CategoryDetailViewController.m in Sources */,
+				9C9097571B1E29D500043394 /* RadioButton.m in Sources */,
 				A6E8AA84179D1FD400042C02 /* Checklist.m in Sources */,
 				A6E8AA85179D1FD400042C02 /* ChecklistItem.m in Sources */,
 				A64C38341927EE1300CE1100 /* InitialViewController.m in Sources */,
@@ -615,6 +670,7 @@
 				A6E8AA87179D1FD400042C02 /* AppDelegate.m in Sources */,
 				A6E8AA89179D1FD400042C02 /* DatePickerViewController.m in Sources */,
 				A6E8AA8A179D1FD400042C02 /* ItemDetailViewController.m in Sources */,
+				9C9097391B1C8B3F00043394 /* MBProgressHUB.m in Sources */,
 				A6E8AA8B179D1FD400042C02 /* ListViewController.m in Sources */,
 				A6E8AA8E179D210600042C02 /* IconPickerViewController.m in Sources */,
 				A6E8AAC5179D36A000042C02 /* UIImage+Resize.m in Sources */,
@@ -706,6 +762,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"/Users/user/Downloads/ParsePlatform-LoginAndSignUpTutorial-0710943",
+					"/Users/user/Downloads/parse-library-1.7.4",
+					"(1)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Maintenance Tracker/E-Report-Prefix.pch";
@@ -728,6 +787,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"/Users/user/Downloads/ParsePlatform-LoginAndSignUpTutorial-0710943",
+					"/Users/user/Downloads/parse-library-1.7.4",
+					"(1)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Maintenance Tracker/E-Report-Prefix.pch";

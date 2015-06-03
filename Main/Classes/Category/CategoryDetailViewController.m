@@ -23,7 +23,6 @@
 }
 
 @synthesize textField;
-//@synthesize notesField;
 @synthesize doneBarButton;
 @synthesize delegate;
 @synthesize checklistToEdit;
@@ -47,12 +46,11 @@
                                      [UIImage imageNamed:@"background.png"]];
     
 
-    textField.delegate = self;
+   // textField.delegate = self;
     
     if (self.checklistToEdit != nil) {
         self.title = @"Edit Category";
         self.textField.text = self.checklistToEdit.category;
-       // self.notesField.text = self.checklistToEdit.notes;
         
         self.doneBarButton.enabled = YES;
         iconName = self.checklistToEdit.iconName;
@@ -85,7 +83,6 @@
 {
     [self setIconImageView:nil];
     [self setTextField:nil];
-   // [self setNotesField:nil];
     [self setDoneBarButton:nil];
     [super viewDidUnload];
 }
@@ -105,26 +102,43 @@
 
 - (IBAction)done
 {
-
+    if (self.checklistToEdit == nil) {
+        Checklist *checklist = [[Checklist alloc] init];
+        checklist.category = self.textField.text;
+        checklist.iconName = iconName;
+        [self.delegate listDetailViewController:self didFinishAddingChecklist:
+         checklist];
+    } else {
+        self.checklistToEdit.category = self.textField.text;
+        self.checklistToEdit.iconName = iconName;
+        [self.delegate listDetailViewController:self didFinishEditingChecklist:self
+         .checklistToEdit];
+    }
+    
     // Create PFObject with lab (Checklist) information
-    PFObject *Checklist = [PFObject objectWithClassName:@"laboratory"];
-    [Checklist setObject:textField.text forKey:@"Lab_Name"];
+    PFObject *laboratory = [PFObject objectWithClassName:@"Laboratory"];
+    [laboratory setObject:textField.text forKey:@"LabName"];
+    
+    // Set default ACLs
+    PFACL *defaultACL = [PFACL ACL];
+    [defaultACL setPublicReadAccess:YES];
+    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     
     // Lab image
     NSData *iconName = UIImageJPEGRepresentation(iconImageView.image, 0.8);
     NSString *filename = [NSString stringWithFormat:@"%@.png", textField.text];
     PFFile *imageFile = [PFFile fileWithName:filename data:iconName];
-    [Checklist setObject:imageFile forKey:@"Lab_Image"];
+    [laboratory setObject:imageFile forKey:@"LabImage"];
     
     // Show progress
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
-    hud.labelText = @"Progressing";
+    hud.labelText = @"In Progress";
     [hud show:YES];
     
     
     // Upload lab to Parse
-    [Checklist saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    [laboratory saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [hud hide:YES];
         
         if (!error) {
@@ -138,34 +152,12 @@
             // Dismiss the controller
             [self dismissViewControllerAnimated:YES completion:nil];
             
-            
         } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure" message:[error localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             
-            self.checklistToEdit.category = self.textField.text;
-            self.checklistToEdit.iconName = iconName;
-            [self.delegate listDetailViewController:self didFinishEditingChecklist:self
-             .checklistToEdit];
-
         }
-        
     }];
-    
-   /* if (self.checklistToEdit == nil) {
-        Checklist *checklist = [[Checklist alloc] init];
-        checklist.category = self.textField.text;
-    //    checklist.notes = self.notesField.text;
-        checklist.iconName = iconName;
-        [self.delegate listDetailViewController:self didFinishAddingChecklist:
-         checklist];
-    } else {
-        self.checklistToEdit.category = self.textField.text;
-      //  self.checklistToEdit.notes = self.notesField.text;
-        self.checklistToEdit.iconName = iconName;
-        [self.delegate listDetailViewController:self didFinishEditingChecklist:self
-         .checklistToEdit];
-    }*/
   
     }
 
@@ -184,12 +176,7 @@
     NSString *newText = [theTextField.text stringByReplacingCharactersInRange:range withString:string];
     self.doneBarButton.enabled = ([newText length] > 0);
     return YES;
-    
 }
-
-
-
-
 
 #pragma mark - Table view delegate
 
@@ -217,8 +204,6 @@ theIconName
     self.iconImageView.image = [UIImage imageNamed:iconName];
     [self.navigationController popViewControllerAnimated:YES];
 }
-
-
 
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView

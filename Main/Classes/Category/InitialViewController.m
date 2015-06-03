@@ -23,15 +23,6 @@
     }
     return self;
 }
-/*@synthesize delegate;
-
-#pragma mark - InitialViewViewControllerDelegate
-
-- (void)InitialViewViewControllerDidCancel:
-(InitialViewViewController *)controller
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}*/
 
 
 - (void)viewDidLoad

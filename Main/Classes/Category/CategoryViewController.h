@@ -12,13 +12,12 @@
 #import <ParseUI/ParseUI.h>
 
 
-//@interface CategoryViewController : UITableViewController <ListDetailViewControllerDelegate, UINavigationControllerDelegate>{
-
-//@interface CategoryViewController : UIViewController <UITableViewDelegate> {
     NSArray *colorsArray;
     
 //@interface CategoryViewController : UITableViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>{
-@interface CategoryViewController : PFQueryTableViewController
+@interface CategoryViewController : PFQueryTableViewController{
+    
+}
     
 
 @property (weak, nonatomic) IBOutlet UITableView *listTable;

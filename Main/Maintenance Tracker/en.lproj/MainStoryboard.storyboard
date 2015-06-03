@@ -145,7 +145,7 @@
                         <sections>
                             <tableViewSection id="9jo-EK-tUB">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="101" id="koy-LY-pyl">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="57" id="koy-LY-pyl">
                                         <rect key="frame" x="0.0" y="114" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="koy-LY-pyl" id="6go-ab-lc8">
@@ -167,8 +167,18 @@
                                                         <outlet property="delegate" destination="V9k-kv-PIZ" id="gPE-cI-Cmk"/>
                                                     </connections>
                                                 </textField>
-                                                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ca1-ho-IbT" customClass="RadioButton">
-                                                    <rect key="frame" x="17" y="43" width="143" height="24"/>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="57" id="eBf-tD-HVS">
+                                        <rect key="frame" x="0.0" y="202" width="320" height="57"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eBf-tD-HVS" id="fZe-my-TVK">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STJ-D4-wMT" customClass="RadioButton">
+                                                    <rect key="frame" x="22" y="0.0" width="115" height="24"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <inset key="titleEdgeInsets" minX="6" minY="2" maxX="0.0" maxY="0.0"/>
                                                     <state key="normal" title="Electrical items" image="unchecked.png">
@@ -181,15 +191,12 @@
                                                     <state key="highlighted">
                                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="onRadioBtn:" destination="V9k-kv-PIZ" eventType="touchUpInside" id="0Cw-ND-baz"/>
-                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2AJ-Kq-jQQ" customClass="RadioButton">
-                                                    <rect key="frame" x="17" y="73" width="151" height="24"/>
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3j-P6-kUA" customClass="RadioButton">
+                                                    <rect key="frame" x="23" y="29" width="125" height="24"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <inset key="titleEdgeInsets" minX="6" minY="2" maxX="0.0" maxY="0.0"/>
-                                                    <state key="normal" title="Computer item" image="unchecked.png">
+                                                    <state key="normal" title="Computer items" image="unchecked.png">
                                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -199,12 +206,9 @@
                                                     <state key="highlighted">
                                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="onRadioBtn:" destination="V9k-kv-PIZ" eventType="touchUpInside" id="fu3-47-1rm"/>
-                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UiE-cy-cKM" customClass="RadioButton">
-                                                    <rect key="frame" x="168" y="43" width="143" height="24"/>
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQA-eA-d7J" customClass="RadioButton">
+                                                    <rect key="frame" x="196" y="16" width="72" height="24"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <inset key="titleEdgeInsets" minX="6" minY="2" maxX="0.0" maxY="0.0"/>
                                                     <state key="normal" title="Others" image="unchecked.png">
@@ -217,9 +221,6 @@
                                                     <state key="highlighted">
                                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="onRadioBtn:" destination="V9k-kv-PIZ" eventType="touchUpInside" id="76a-Xn-D14"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -240,9 +241,6 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="PersonalChat.png" translatesAutoresizingMaskIntoConstraints="NO" id="upb-sO-F2u">
                                                     <rect key="frame" x="212" y="4" width="48" height="48"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="PersonalChat.png" translatesAutoresizingMaskIntoConstraints="NO" id="eS4-Xr-gDE">
-                                                    <rect key="frame" x="212" y="4" width="48" height="48"/>
-                                                </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8Z-W3-UeG">
                                                     <rect key="frame" x="276" y="16" width="22" height="22"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -257,29 +255,11 @@
                                                         <action selector="photoButtonClicked:" destination="V9k-kv-PIZ" eventType="touchUpInside" id="biS-LU-9MK"/>
                                                     </connections>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="PersonalChat.png" translatesAutoresizingMaskIntoConstraints="NO" id="eS4-Xr-gDE">
+                                                    <rect key="frame" x="212" y="4" width="48" height="48"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Notes" id="44D-Px-GQb">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="PFC-lf-NcS">
-                                        <rect key="frame" x="0.0" y="531" width="320" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PFC-lf-NcS" id="csM-pt-CN3">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="281-0q-5Zj" customClass="DALinedTextView">
-                                                    <rect key="frame" x="15" y="0.0" width="289" height="99"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -384,6 +364,27 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Notes" id="44D-Px-GQb">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="PFC-lf-NcS">
+                                        <rect key="frame" x="0.0" y="531" width="320" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PFC-lf-NcS" id="csM-pt-CN3">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="281-0q-5Zj" customClass="DALinedTextView">
+                                                    <rect key="frame" x="15" y="0.0" width="289" height="99"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="V9k-kv-PIZ" id="P3d-CB-cew"/>
@@ -409,7 +410,6 @@
                         <outlet property="makeField" destination="NPF-Zi-tLC" id="ddP-aI-cG0"/>
                         <outlet property="nextServiceDateLabel" destination="DsD-Tl-xZf" id="Xsy-5p-h4C"/>
                         <outlet property="notesField" destination="281-0q-5Zj" id="96p-Lh-tLc"/>
-                        <outlet property="radioButton" destination="ca1-ho-IbT" id="KDo-vn-y2A"/>
                         <outlet property="serviceFrequencyField" destination="jw2-dI-cWF" id="J9w-zp-ZrW"/>
                         <outlet property="switchControl" destination="aGW-qc-JU0" id="DFj-Cb-xHh"/>
                     </connections>
@@ -921,9 +921,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="83R-ZC-2W0"/>
+        <segue reference="55R-AG-pA4"/>
         <segue reference="q5t-Ma-XzW"/>
-        <segue reference="NFe-a4-o3Z"/>
-        <segue reference="F4Z-Ya-IAM"/>
+        <segue reference="lxl-ww-7gG"/>
+        <segue reference="dd6-kN-NIY"/>
     </inferredMetricsTieBreakers>
 </document>

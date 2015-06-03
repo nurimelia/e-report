@@ -19,7 +19,6 @@
 
 @interface CategoryViewController ()
 
-
 @end
 
 
@@ -27,7 +26,6 @@
     NSMutableArray *lists;
     
 }
-
 
 @synthesize dataModel;
 @synthesize listTable;
@@ -65,23 +63,19 @@ if ((self = [super initWithCoder:aDecoder])) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [super viewDidLoad];
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(refreshTable:)
                                                  name:@"refreshTable"
-                                               object:nil];
+                                               object:nil]; 
     
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:
                                      [UIImage imageNamed:@"background.png"]];
     
-    
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     self.title = @"Laboratory";
-    
-    
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
                                    initWithImage:[UIImage imageNamed:@"cancel.png"]
@@ -120,8 +114,6 @@ if ((self = [super initWithCoder:aDecoder])) {
     return query;
 }
 
-
-
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
@@ -141,9 +133,6 @@ if ((self = [super initWithCoder:aDecoder])) {
 {
     [super didReceiveMemoryWarning];
 }
-
-
-
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -177,8 +166,6 @@ if ((self = [super initWithCoder:aDecoder])) {
 {
     return [self.dataModel.lists count];
      return colorsArray.count;
-    
-    
 }
 
 
@@ -198,22 +185,15 @@ if ((self = [super initWithCoder:aDecoder])) {
     cell.backgroundColor =  [UIColor colorWithPatternImage:[UIImage imageNamed:@"category.png"]];
     
     //  cell.backgroundColor = [UIColor whiteColor];
-    
 }
-
-
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 60;
 }
 
-
-
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:
-(PFObject *) object
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath //object:
+//(PFObject *) object
 {
     static NSString *CellIdentifier = @"Cell";
     
@@ -223,17 +203,6 @@ if ((self = [super initWithCoder:aDecoder])) {
         
     }
     
-    // Configure the cell
-    PFFile *thumbnail = [object objectForKey:@"iconName"];
-    PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:100];
-    thumbnailImageView.image = [UIImage imageNamed:@"Folder.jpg"];
-    thumbnailImageView.file = thumbnail;
-    [thumbnailImageView loadInBackground];
-    
-    UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
-    nameLabel.text = [object objectForKey:@"category"];
- 
-    
     Checklist *checklist = [self.dataModel.lists objectAtIndex:indexPath.row];
     cell.textLabel.text = checklist.category;
     cell.textLabel.textColor = [UIColor darkGrayColor];
@@ -242,23 +211,29 @@ if ((self = [super initWithCoder:aDecoder])) {
     cell.imageView.image = [UIImage imageNamed:checklist.iconName];
     
     UIImage *image = [UIImage   imageNamed:@"ipad-arrow"];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    CGRect frame = CGRectMake(60.0, 60.0, image.size.width, image.size.height);
-    button.frame = frame;
-    [button setBackgroundImage:image forState:UIControlStateNormal];
+                    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+                    CGRect frame = CGRectMake(60.0, 60.0, image.size.width, image.size.height);
+                    button.frame = frame;
+                    [button setBackgroundImage:image forState:UIControlStateNormal];
     
-    [button addTarget:self action:@selector(accessoryButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
-    button.backgroundColor = [UIColor clearColor];
-    cell.accessoryView = button;
+                    [button addTarget:self action:@selector(accessoryButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
+                    button.backgroundColor = [UIColor clearColor];
+                    cell.accessoryView = button;
+    
+    
+  /*  // Configure the cell
+    PFFile *thumbnail = [object objectForKey:@"iconName"];
+    PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:100];
+    thumbnailImageView.image = [UIImage imageNamed:@"Folder.jpg"];
+    thumbnailImageView.file = thumbnail;
+    [thumbnailImageView loadInBackground];
+    
+    UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
+    nameLabel.text = [object objectForKey:@"category"]; */
+    
     return cell;
-    
-    
-    
-    
-    
+  
 }
-
-
 
 - (void)accessoryButtonTapped:(id)sender event:(id)event
 {
@@ -273,10 +248,6 @@ if ((self = [super initWithCoder:aDecoder])) {
     }
 }
 
-
-
-
-
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 
 {
@@ -284,14 +255,7 @@ if ((self = [super initWithCoder:aDecoder])) {
     [self.dataModel.lists removeObjectAtIndex:indexPath.row];
     NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationLeft];
-    
-    
 }
-
-
-
-
-
 
 
 #pragma mark - Table view delegate
@@ -303,10 +267,6 @@ if ((self = [super initWithCoder:aDecoder])) {
     Checklist *checklist = [self.dataModel.lists objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"ShowChecklist" sender:checklist];
 }
-
-
-
-
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
@@ -330,9 +290,6 @@ if ((self = [super initWithCoder:aDecoder])) {
     
 }
 
-
-
-
 - (void)listDetailViewControllerDidCancel:(CategoryDetailViewController *)controller
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -352,17 +309,9 @@ if ((self = [super initWithCoder:aDecoder])) {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-
-
-
-
-
-
 - (void)tableView:(UITableView *)tableView
 accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    
     
     UINavigationController *navigationController = [self.storyboard
                                                     instantiateViewControllerWithIdentifier:@"ListNavigationController"];
@@ -371,15 +320,10 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
     controller.delegate = self;
     Checklist *checklist = [self.dataModel.lists objectAtIndex:indexPath.row];
     
-    //  controller.checklistToEdit = checklist;
+    controller.checklistToEdit = checklist;
     [self presentViewController:navigationController animated:YES completion:nil
      ];
 }
-
-
-
-
-
 
 // Implementation of Pull to add new item. It will trigger the performsegueidentifier method. and also it will release the refresh control property.
 
@@ -388,7 +332,6 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
     [self performSegueWithIdentifier:@"AddChecklist" sender:self];
     
     [self.refreshControl endRefreshing];
-    
 }
 
 
@@ -396,7 +339,5 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
-
-
 
 @end

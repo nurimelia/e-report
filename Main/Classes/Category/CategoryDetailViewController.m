@@ -46,7 +46,7 @@
                                      [UIImage imageNamed:@"background.png"]];
     
 
-   // textField.delegate = self;
+    textField.delegate = self;
     
     if (self.checklistToEdit != nil) {
         self.title = @"Edit Category";

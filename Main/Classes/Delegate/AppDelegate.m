@@ -26,7 +26,7 @@
 
     // Initialize Parse.
     [Parse setApplicationId:@"Jr1ThYd3sxuT307hVFfAAiTJpgBQgb5x7AAM8nX0"
-                  clientKey:@"vFmNh59v7ykmEBb2XtQcChHCIvo7QbPLZBRwxMZl"];
+        clientKey:@"vFmNh59v7ykmEBb2XtQcChHCIvo7QbPLZBRwxMZl"];
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];

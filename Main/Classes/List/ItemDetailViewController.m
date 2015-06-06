@@ -11,6 +11,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIImage+Resize.h"
 #import "RadioButton.h"
+#import <ParseUI/ParseUI.h>
+#import <MobileCoreServices/UTCoreTypes.h>
+#import "MBProgressHUB.h"
+#import <Parse/Parse.h>
 
 @interface ItemDetailViewController () {
   
@@ -25,10 +29,9 @@
 
 
 {
-    NSString *text;
+ //   NSString *text;
     NSString *notes;
-    NSString *make;
-    NSString *numberPlate;
+    NSString *itemName;
     NSString *serviceFrequency;
     BOOL shouldRemind;
     NSDate *dueDate;
@@ -37,13 +40,13 @@
 }
 -(IBAction)onRadioBtn:(RadioButton*)sender
 {
+        _statusLabel.text = [NSString stringWithFormat:@"%@", sender.titleLabel.text];
 }
 ///synthesize properties
 
-@synthesize textField;
+//@synthesize textField;
 @synthesize notesField;
-@synthesize makeField;
-@synthesize numberPlateField;
+@synthesize itemField;
 @synthesize delegate;
 @synthesize itemToEdit;
 @synthesize switchControl;
@@ -55,7 +58,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if ((self = [super initWithCoder:aDecoder])) {
-        make = @"";
+        itemName = @"";
         shouldRemind = NO;
         dueDate = [NSDate date];
         nextServiceDate = [NSDate date];
@@ -71,8 +74,6 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     self.dueDateLabel.text = [formatter stringFromDate:dueDate];
-
-
 }
 
 
@@ -84,30 +85,22 @@
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     
     self.nextServiceDateLabel.text = [formatter stringFromDate:nextServiceDate];
-
- 
-    
 }
-
 
 ///Done bar button will be enabled only when number plate has soeme letters
 - (void)updateDoneBarButton
 {
-    self.doneBarButton.enabled = ([numberPlate length] > 0);
+    self.doneBarButton.enabled = ([itemName length] > 0);
 
 }
-
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // background view with our own image
-    
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:
                                      [UIImage imageNamed:@"background.png"]];
 
-    
-    
     if (self.itemToEdit != nil) {
         self.title = @"Edit Item"; // set the title of edit view controller
 
@@ -115,10 +108,9 @@
     } else
     
         self.title = @"Add Item";   // set the title of add view controller
-        self.textField.text = text;
+       // self.textField.text = text;
         self.notesField.text = notes;
-        self.makeField.text = make;
-        self.numberPlateField.text = numberPlate;
+        self.itemField.text = itemName;
         self.serviceFrequencyField.text = serviceFrequency;
         self.imageField.image = self.itemToEdit.image;
         self.switchControl.on = shouldRemind;
@@ -128,8 +120,6 @@
 
     
 }
-
-
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)orientation
                                          duration:(NSTimeInterval)duration {
@@ -144,25 +134,21 @@
     [super viewWillAppear:animated];
     
     if (self.title != NSLocalizedString(@"Edit Item", nil)) {
-    [self.makeField becomeFirstResponder];
+    [self.itemField becomeFirstResponder];
 
-    }else
-        [self.textField resignFirstResponder];
+    }//else
+      //  [self.textField resignFirstResponder];
     
     
 }
-
-
-
 
 //To release the memory
 
 - (void)viewDidUnload
 {
-    [self setTextField:nil];
+  //  [self setTextField:nil];
     [self setNotesField:nil];
-    [self setMakeField:nil];
-    [self setNumberPlateField:nil];
+    [self setItemField:nil];
     [self setDoneBarButton:nil];
     [self setSwitchControl:nil];
     [self setDueDateLabel:nil];
@@ -171,9 +157,7 @@
 }
 
 
-// To dismiss the view 
-
-
+// To dismiss the view
 ///when user tap cancel, we dismiss the view presented
 - (IBAction)cancel
 {
@@ -185,24 +169,22 @@
 - (IBAction)done
 {
     if (self.itemToEdit == nil) {
-        ChecklistItem *item = [[ChecklistItem alloc] init];
-        item.text = self.textField.text;
-        item.notes = self.notesField.text;
-        item.make = self.makeField.text;
-        item.numberPlate = self.numberPlateField.text;
-        item.serviceFrequency = self.serviceFrequencyField.text;
-        item.checked = NO;
-        item.shouldRemind = self.switchControl.on;
-        item.image = self.imageField.image;
-        item.dueDate = dueDate;
-        item.nextServiceDate = nextServiceDate;
-        [item scheduleNotification];
-        [self.delegate itemDetailViewController:self didFinishAddingItem:item];
+        ChecklistItem *items = [[ChecklistItem alloc] init];
+   //     item.text = self.textField.text;
+        items.notes = self.notesField.text;
+        items.item = self.itemField.text;
+        items.serviceFrequency = self.serviceFrequencyField.text;
+        items.checked = NO;
+        items.shouldRemind = self.switchControl.on;
+        items.image = self.imageField.image;
+        items.dueDate = dueDate;
+        items.nextServiceDate = nextServiceDate;
+        [items scheduleNotification];
+        [self.delegate itemDetailViewController:self didFinishAddingItem:items];
     } else {
-        self.itemToEdit.text = self.textField.text;
+    //    self.itemToEdit.text = self.textField.text; //numberPlateField
         self.itemToEdit.notes = self.notesField.text;
-        self.itemToEdit.make = self.makeField.text;
-        self.itemToEdit.numberPlate = self.numberPlateField.text;
+        self.itemToEdit.item = self.itemField.text;
         self.itemToEdit.serviceFrequency = self.serviceFrequencyField.text;
         self.itemToEdit.shouldRemind = self.switchControl.on;
         self.itemToEdit.image = self.imageField.image;
@@ -211,7 +193,69 @@
         [self.itemToEdit scheduleNotification];
         [self.delegate itemDetailViewController:self didFinishEditingItem:self.itemToEdit];
     }
+
+    
+    // Create PFObject with report (ChecklistItem) information
+    PFObject *report = [PFObject objectWithClassName:@"Report"];
+    [report setObject:itemField.text forKey:@"ItemName"];
+    [report setObject:notesField.text forKey:@"Notes"];
+    [report setObject:dueDateLabel.text forKey:@"LastMaintenance"];
+    [report setObject:serviceFrequencyField.text forKey:@"MaintenanceInterval"];
+    [report setObject:nextServiceDateLabel.text forKey:@"NextMaintenance"];
+    
+  
+   // [report setObject:self.switchControl.on forKey:@"Remainder"];
+    //if (sender == switchControl) {
+      /*  BOOL mySwitchValue = [ switchControl isOn ];
+        NSString *tmpString = mySwitchValue ? @"1" : @"-1" ;
+        NSUserDefaults  *myNSUD = [NSUserDefaults standardUserDefaults];
+        [ myNSUD setObject:tmpString forKey: @"mySwitchValueKey" ];
+        [ myNSUD synchronize ];*/
+    
+   // }
+    
+    // Set default ACLs
+    PFACL *defaultACL = [PFACL ACL];
+    [defaultACL setPublicReadAccess:YES];
+    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
+    
+    // Report image
+    NSData *imageName = UIImageJPEGRepresentation(imageField.image, 0.8);
+    NSString *filename = [NSString stringWithFormat:@"%@.png", itemField.text];
+    PFFile *imageFile = [PFFile fileWithName:filename data:imageName];
+    [report setObject:imageFile forKey:@"Photo"];
+    
+    // Show progress
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.labelText = @"In Progress";
+    [hud show:YES];
+    
+    
+    // Upload report to Parse
+    [report saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [hud hide:YES];
+        
+        if (!error) {
+            // Show success message
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Complete" message:@"Successfully saved the report" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+            // Notify table view to reload the report from Parse cloud
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+            
+            // Dismiss the controller
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure" message:[error localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }
+    }];
+    
 }
+
 
 
 ///we send the message if the user choose to set local notification
@@ -219,24 +263,18 @@
 - (IBAction)switchChanged:(UISwitch *)sender
 {
     shouldRemind = sender.on;
-
-    
+    //NSLog(@"Switch is ON");
 }
 
 ///Since our table view is a bit long, we can dismiss the keyboard, when user scrolls the tableview
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    [self.textField resignFirstResponder];
+ // [self.textField resignFirstResponder];
     [self.notesField resignFirstResponder];
-    [self.makeField resignFirstResponder];
-    [self.numberPlateField resignFirstResponder];
-
+    [self.itemField resignFirstResponder];
 
 }
-
-
-
 
 // To deactivate user interaction with static cell or row turns blue
 
@@ -255,7 +293,6 @@
         
         return nil;
     }
-
 }
 
 
@@ -267,18 +304,14 @@
     }else {
         
     }
-    
-    
 }
 
-
-
-// below code is to get the "Done" button in both locaions (top bar buton and keyboard) to be available only when there is a text in the text filed
+// below code is to get the "Done" button in both locations (top bar buton and keyboard) to be available only when there is a text in the text filed
 
 - (BOOL)textField:(UITextField *)theTextField shouldChangeCharactersInRange:(
                                                                              NSRange)range replacementString:(NSString *)string
 {
-    numberPlate = [theTextField.text stringByReplacingCharactersInRange:range withString
+    itemName = [theTextField.text stringByReplacingCharactersInRange:range withString
                                                                 :string];
     [self updateDoneBarButton];
     return YES;
@@ -288,20 +321,18 @@
 
 - (BOOL)notesField:(UITextView *)theNotesField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    numberPlate = [theNotesField.text stringByReplacingCharactersInRange:range withString
+    notes = [theNotesField.text stringByReplacingCharactersInRange:range withString
                                                                 :string];
     [self updateDoneBarButton];
     return YES;
 }
 
 
-
 - (void)textFieldDidEndEditing:(UITextField *)theTextField
 {
-    numberPlate = theTextField.text;
+    itemName = theTextField.text;
     [self updateDoneBarButton];
 }
-
 
 
 ///below method sets the information to edit
@@ -310,17 +341,15 @@
 {
     if (itemToEdit != newItem) {
         itemToEdit = newItem;
-        text = itemToEdit.text;
+      //  text = itemToEdit.text;
         notes = itemToEdit.notes;
-        make= itemToEdit.make;
-        numberPlate = itemToEdit.numberPlate;
+        itemName= itemToEdit.item;
         serviceFrequency = itemToEdit.serviceFrequency;
         shouldRemind = itemToEdit.shouldRemind;
         dueDate = itemToEdit.dueDate;
         nextServiceDate = itemToEdit.nextServiceDate;
     }
 }
-
 
 ///we use segue method to detect and display the view accordingly. When the user tap on the date, we display date picker view and let the user to choose new date
 
@@ -332,7 +361,6 @@
         controller.date = dueDate;
     }
 }
-
 
 
 //if the user cancel date picker viw controller, we dismiss the view
@@ -353,19 +381,7 @@
     [self updateNextServiceDateLabel];
 
     [self dismissViewControllerAnimated:YES completion:nil];
-    
-    
-    
 }
-
-
-
-
-
-
-
-
-
 
 
  ///User have an option to tap on the frequecy button and choose the interval from presented picker ction sheet list
@@ -398,8 +414,6 @@
         [sheet showInView:self.view];
         
     }
-
-    
     
   }
 
@@ -443,10 +457,7 @@
         [sheet showInView:self.view];
         
     }
-
-  
 }
-
 
 /// from user selection in action sheet, we displa the image picker controller
 
@@ -481,8 +492,6 @@
             [alert show];
             
         }
-        
-        
     }
         
     
@@ -495,11 +504,9 @@
         self.imageField.image = nil;
         [self presentViewController:photoPicker animated:YES completion:NULL];
         
-        
     } else  if (buttonIndex == 2) // cancel the action sheet
         
     {
-        
         
     }
     }
@@ -509,9 +516,7 @@
         {
             self.serviceFrequencyField.text = @"Daily"; // we update the label
             
-            
             //we also set the next service label to one day later
-            
             NSDateComponents* dateComponents = [[NSDateComponents alloc]init];
             [dateComponents setDay:1];
             NSCalendar* calendar = [NSCalendar currentCalendar];
@@ -531,8 +536,6 @@
         
         
         //we also set the next service label to one week later
-        
-        
         NSDateComponents* dateComponents = [[NSDateComponents alloc]init];
         [dateComponents setWeekOfMonth:1];
         NSCalendar* calendar = [NSCalendar currentCalendar];
@@ -553,7 +556,6 @@
             self.serviceFrequencyField.text = @"Monthly";
             
             //we also set the next service label to one month later
-            
             NSDateComponents* dateComponents = [[NSDateComponents alloc]init];
             [dateComponents setMonth:1];
             NSCalendar* calendar = [NSCalendar currentCalendar];
@@ -563,12 +565,10 @@
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateStyle:NSDateFormatterMediumStyle];
             //        [formatter setTimeStyle:NSDateFormatterShortStyle];
-            
             self.nextServiceDateLabel.text = [formatter stringFromDate:newDate];
             
             nextServiceDate = newDate;
 
-            
         }
         
         if (buttonIndex == 3)
@@ -576,8 +576,6 @@
             self.serviceFrequencyField.text = @"Quarterly";
             
             //we also set the next service label to three months later
-            
-            
             NSDateComponents* dateComponents = [[NSDateComponents alloc]init];
             [dateComponents setMonth:3];
             NSCalendar* calendar = [NSCalendar currentCalendar];
@@ -599,8 +597,6 @@
             self.serviceFrequencyField.text = @"Half Yearly";
             
             //we also set the next service label to six months later
-            
-            
             NSDateComponents* dateComponents = [[NSDateComponents alloc]init];
             [dateComponents setMonth:6];
             NSCalendar* calendar = [NSCalendar currentCalendar];
@@ -621,9 +617,6 @@
             self.serviceFrequencyField.text = @"Yearly";
             
             //we also set the next service label to one year later
-            
-            
-            
             NSDateComponents* dateComponents = [[NSDateComponents alloc]init];
             [dateComponents setYear:1];
             NSCalendar* calendar = [NSCalendar currentCalendar];
@@ -639,10 +632,8 @@
             nextServiceDate = newDate;
 
             }
-
         
     }
-
 }
 
 //once the user take / pick the image, we let the user to edit the image 
@@ -653,7 +644,6 @@
     originalImage = [info valueForKey:UIImagePickerControllerEditedImage];
 
     //we resize it
-    
     UIImage *img=[UIImage_Resize imageWithImage:originalImage scaledToSize:CGSizeMake(100.0, 100.0)];
 
     
@@ -669,9 +659,7 @@
     mask.frame = CGRectMake(0, 0, 48, 48);
     imageField.layer.mask = mask;
     imageField.layer.masksToBounds = YES;
-    
 }
-
 
 ///if the user didn't pick or take any photo we assign a empty image
 
@@ -683,30 +671,16 @@
 
 }
 
-
-
-
-
 - (void)viewWillAppear
 {
 
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     
 }
-
-
-
-
-
-
-
-
 
 
 @end

@@ -129,7 +129,7 @@
 {
 
     UILabel *makeLabel = (UILabel *)[cell viewWithTag:1700];
-    makeLabel.text = item.make;
+    makeLabel.text = item.item;
 
     UILabel *notesLabel = (UILabel *)[cell viewWithTag:1701];
     notesLabel.text = item.notes;

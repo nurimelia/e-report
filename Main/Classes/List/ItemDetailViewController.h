@@ -54,18 +54,14 @@ didFinishAddingItem:(ChecklistItem *)item;
 @interface ItemDetailViewController : UITableViewController <UINavigationControllerDelegate, UITextFieldDelegate, DatePickerViewControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate> {
     
     UIActionSheet *sheet;
-
-
     
 }
 
 
-
 /// create properties
-@property (strong, nonatomic) IBOutlet UITextField *textField;
+//@property (strong, nonatomic) IBOutlet UITextField *textField;
+@property (strong, nonatomic) IBOutlet UITextField *itemField;
 @property (strong, nonatomic) IBOutlet UITextView *notesField;
-@property (strong, nonatomic) IBOutlet UITextField *makeField;
-@property (strong, nonatomic) IBOutlet UITextField *numberPlateField;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;
 @property (nonatomic, weak) id <ItemDetailViewControllerDelegate> delegate;
 @property (nonatomic, strong) ChecklistItem *itemToEdit;
@@ -75,11 +71,12 @@ didFinishAddingItem:(ChecklistItem *)item;
 @property (nonatomic, strong) IBOutlet UILabel *serviceFrequencyField;
 @property (strong, nonatomic) IBOutlet UIImageView *imageField;
 
-
+// Popover (iPad Only)
 @property (nonatomic, strong) UIPopoverController *popOver;
 
 //@property (nonatomic, strong) IBOutlet UIWebView* adMobView;
 @property (nonatomic, strong) IBOutlet RadioButton* radioButton;
+@property (nonatomic, strong) IBOutlet UILabel* statusLabel;
 -(IBAction)onRadioBtn:(id)sender;
 
 

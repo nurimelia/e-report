@@ -444,7 +444,6 @@
                         <outlet property="doneBarButton" destination="Q0h-zS-F89" id="sJw-5f-cZd"/>
                         <outlet property="dueDateLabel" destination="RER-O3-ZZx" id="peB-Vc-kfx"/>
                         <outlet property="imageField" destination="ziI-QR-9hH" id="3tK-GL-tbQ"/>
-                        <outlet property="makeField" destination="X0T-mn-e71" id="iKj-IL-NdG"/>
                         <outlet property="nextServiceDateLabel" destination="c5E-i0-2ne" id="Jxb-6J-tnf"/>
                         <outlet property="notesField" destination="1TO-nn-qYm" id="xAB-6z-6ob"/>
                         <outlet property="numberPlateField" destination="SXf-4Q-M7Y" id="L1c-Ms-07e"/>

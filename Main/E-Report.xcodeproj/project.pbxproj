@@ -282,6 +282,7 @@
 				9C9097551B1E29D500043394 /* RadioButton.h */,
 			);
 			name = RadioButton;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A61D5EC517A4C7CF00A37E27 /* Resources */ = {
@@ -375,7 +376,6 @@
 		A6E8AA38179D1D6E00042C02 = {
 			isa = PBXGroup;
 			children = (
-				9C9097581B1E29DD00043394 /* RadioButton */,
 				A61D5EC517A4C7CF00A37E27 /* Resources */,
 				A6E8AA67179D1FD400042C02 /* Classes */,
 				A6E8AA4A179D1D6E00042C02 /* E-Report */,
@@ -450,6 +450,7 @@
 		A6E8AA67179D1FD400042C02 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9C9097581B1E29DD00043394 /* RadioButton */,
 				9C9097361B1C8B1D00043394 /* MBProgressHUB */,
 				A61D5EFE17A4CE0300A37E27 /* DALinedTextView */,
 				A6E8AA75179D1FD400042C02 /* Delegate */,

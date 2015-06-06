@@ -13,7 +13,7 @@
 
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, copy) NSString *notes;
-@property (nonatomic, copy) NSString *make;
+@property (nonatomic, copy) NSString *item;
 @property (nonatomic, copy) NSString *numberPlate;
 @property (nonatomic, copy) NSString *serviceFrequency;
 @property (nonatomic, assign) BOOL checked;

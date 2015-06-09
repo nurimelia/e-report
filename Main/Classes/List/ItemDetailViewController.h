@@ -51,16 +51,17 @@ didFinishAddingItem:(ChecklistItem *)item;
 
 /// confirm that textfield, datpicker and actionsheet delegates to self
 
-@interface ItemDetailViewController : UITableViewController <UINavigationControllerDelegate, UITextFieldDelegate, DatePickerViewControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate> {
+@interface ItemDetailViewController : UITableViewController <UINavigationControllerDelegate, UITextFieldDelegate, DatePickerViewControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate> {
     
     UIActionSheet *sheet;
+    NSArray *dataArray;
     
 }
 
 
 /// create properties
 //@property (strong, nonatomic) IBOutlet UITextField *textField;
-@property (strong, nonatomic) IBOutlet UITextField *itemField;
+//@property (strong, nonatomic) IBOutlet UITextField *itemField;
 @property (strong, nonatomic) IBOutlet UITextView *notesField;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;
 @property (nonatomic, weak) id <ItemDetailViewControllerDelegate> delegate;
@@ -74,7 +75,6 @@ didFinishAddingItem:(ChecklistItem *)item;
 // Popover (iPad Only)
 @property (nonatomic, strong) UIPopoverController *popOver;
 
-//@property (nonatomic, strong) IBOutlet UIWebView* adMobView;
 @property (nonatomic, strong) IBOutlet RadioButton* radioButton;
 @property (nonatomic, strong) IBOutlet UILabel* statusLabel;
 -(IBAction)onRadioBtn:(id)sender;
@@ -87,6 +87,12 @@ didFinishAddingItem:(ChecklistItem *)item;
 
 
 - (IBAction)switchChanged:(UISwitch *)sender;
+
+
+@property (weak, nonatomic) IBOutlet UITextField *pickerTextField;
+@property (strong, nonatomic) NSArray *Computer;
+@property (strong, nonatomic) NSArray *Electric;
+@property (strong, nonatomic) NSArray *Others;
 
 
 

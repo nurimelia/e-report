@@ -50,10 +50,10 @@
     
     if (self.checklistToEdit != nil) {
         self.title = @"Edit Category";
-        self.textField.text = self.checklistToEdit.category;
+        self.textField.text = self.checklistToEdit.LabName;
         
         self.doneBarButton.enabled = YES;
-        iconName = self.checklistToEdit.iconName;
+        iconName = self.checklistToEdit.LabImage;
         
     } else
         self.title = @"New Category";
@@ -104,13 +104,13 @@
 {
     if (self.checklistToEdit == nil) {
         Checklist *checklist = [[Checklist alloc] init];
-        checklist.category = self.textField.text;
-        checklist.iconName = iconName;
+        checklist.LabName = self.textField.text;
+        checklist.LabImage = iconName;
         [self.delegate listDetailViewController:self didFinishAddingChecklist:
          checklist];
     } else {
-        self.checklistToEdit.category = self.textField.text;
-        self.checklistToEdit.iconName = iconName;
+        self.checklistToEdit.LabName = self.textField.text;
+        self.checklistToEdit.LabImage = iconName;
         [self.delegate listDetailViewController:self didFinishEditingChecklist:self
          .checklistToEdit];
     }
@@ -125,9 +125,9 @@
     [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     
     // Lab image
-    NSData *iconName = UIImageJPEGRepresentation(iconImageView.image, 0.8);
+    NSData *iconNam = UIImageJPEGRepresentation(iconImageView.image, 0.8);
     NSString *filename = [NSString stringWithFormat:@"%@.png", textField.text];
-    PFFile *imageFile = [PFFile fileWithName:filename data:iconName];
+    PFFile *imageFile = [PFFile fileWithName:filename data:iconNam];
     [laboratory setObject:imageFile forKey:@"LabImage"];
     
     // Show progress

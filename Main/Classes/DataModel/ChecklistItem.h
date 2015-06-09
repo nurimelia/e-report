@@ -8,6 +8,7 @@
 
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 @interface ChecklistItem : NSObject <NSCoding>
 
@@ -21,7 +22,7 @@
 @property (nonatomic, copy) NSDate *nextServiceDate;
 @property (nonatomic, assign) BOOL shouldRemind;
 @property (nonatomic, assign) int itemId;
-@property (nonatomic, copy) UIImage *image;
+@property (nonatomic, copy) PFFile *image;
 
 
 

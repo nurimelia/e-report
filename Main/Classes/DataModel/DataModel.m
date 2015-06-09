@@ -65,7 +65,7 @@
     BOOL firstTime = [[NSUserDefaults standardUserDefaults] boolForKey:@"FirstTime"];
                       if (firstTime) {
                           Checklist *checklist = [[Checklist alloc] init];
-                          checklist.category = @"Computer";
+                          checklist.LabName = @"Computer";
                           [lists addObject:checklist];
                           [self setIndexOfSelectedChecklist:0];
                           [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"FirstTime"];

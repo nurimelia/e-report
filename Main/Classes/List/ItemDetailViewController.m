@@ -19,9 +19,7 @@
 @interface ItemDetailViewController () {
   
             UIImage *originalImage;
-
 }
-
 
 @end
 
@@ -29,7 +27,7 @@
 
 
 {
- //   NSString *text;
+   // NSString *text;
     NSString *notes;
     NSString *itemName;
     NSString *serviceFrequency;
@@ -40,19 +38,18 @@
 }
 -(IBAction)onRadioBtn:(RadioButton*)sender
 {
-        _statusLabel.text = [NSString stringWithFormat:@"%@", sender.titleLabel.text];
+        statusLabel.text = [NSString stringWithFormat:@"%@", sender.titleLabel.text];
 }
-///synthesize properties
 
-//@synthesize textField;
+///synthesize properties
 @synthesize notesField;
-@synthesize itemField;
+@synthesize pickerTextField;
 @synthesize delegate;
 @synthesize itemToEdit;
 @synthesize switchControl;
 @synthesize dueDateLabel;
 @synthesize nextServiceDateLabel;
-@synthesize serviceFrequencyField, imageField;
+@synthesize serviceFrequencyField, imageField, statusLabel;
 
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -87,7 +84,7 @@
     self.nextServiceDateLabel.text = [formatter stringFromDate:nextServiceDate];
 }
 
-///Done bar button will be enabled only when number plate has soeme letters
+///Done bar button will be enabled only when itemName has soeme letters
 - (void)updateDoneBarButton
 {
     self.doneBarButton.enabled = ([itemName length] > 0);
@@ -98,8 +95,7 @@
 {
     [super viewDidLoad];
     // background view with our own image
-    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:
-                                     [UIImage imageNamed:@"background.png"]];
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
 
     if (self.itemToEdit != nil) {
         self.title = @"Edit Item"; // set the title of edit view controller
@@ -108,9 +104,9 @@
     } else
     
         self.title = @"Add Item";   // set the title of add view controller
-       // self.textField.text = text;
         self.notesField.text = notes;
-        self.itemField.text = itemName;
+        //self.itemField.text = itemName;
+       self.pickerTextField.text = itemName;
         self.serviceFrequencyField.text = serviceFrequency;
         self.imageField.image = self.itemToEdit.image;
         self.switchControl.on = shouldRemind;
@@ -119,6 +115,25 @@
         [self updateNextServiceDateLabel];
 
     
+    //sheet = [[UIActionSheet alloc]initWithTitle:@"Compiter Items?";
+    dataArray=[[NSArray alloc]initWithObjects: @"Monitor",@"Keyboard",@"Mouse",@"CPU", @"AirCon",@"Projector",@"Table",@"Chair", @"Door",@"Whiteboard",@"Switch", nil];
+    UIPickerView *picker=[[UIPickerView alloc]init];
+    picker.dataSource=self;
+    picker.delegate=self;
+    [self.pickerTextField setInputView:picker];
+    
+    UIToolbar *toolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
+    [toolBar setTintColor:[UIColor grayColor]];
+    UIBarButtonItem *doneBtn=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(removePicker)];
+    UIBarButtonItem *space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [toolBar setItems:[NSArray arrayWithObjects:space,doneBtn, nil]];
+   // [self.pickerRadioButton setSelected:toolBar];
+     [self.pickerTextField setInputAccessoryView:toolBar];
+    
+}
+-(void)removePicker
+{
+    [self.pickerTextField resignFirstResponder];
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)orientation
@@ -127,28 +142,28 @@
 
 
 //To get keyboard available when user tab the "+" button as a primary loader so that the user can input text easily
-
-
-- (void)viewWillAppear:(BOOL)animated
+/*- (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
     if (self.title != NSLocalizedString(@"Edit Item", nil)) {
-    [self.itemField becomeFirstResponder];
+    [self.pickerTextField becomeFirstResponder];
+ //itemField
 
-    }//else
-      //  [self.textField resignFirstResponder];
+    }else
+        [self.imageField resignFirstResponder];
+    [self.serviceFrequencyField resignFirstResponder];
     
     
-}
+}*/
 
 //To release the memory
-
 - (void)viewDidUnload
 {
   //  [self setTextField:nil];
     [self setNotesField:nil];
-    [self setItemField:nil];
+    //[self setItemField:nil];
+    [self setPickerTextField:nil];
     [self setDoneBarButton:nil];
     [self setSwitchControl:nil];
     [self setDueDateLabel:nil];
@@ -172,7 +187,7 @@
         ChecklistItem *items = [[ChecklistItem alloc] init];
    //     item.text = self.textField.text;
         items.notes = self.notesField.text;
-        items.item = self.itemField.text;
+        items.item = self.pickerTextField.text;
         items.serviceFrequency = self.serviceFrequencyField.text;
         items.checked = NO;
         items.shouldRemind = self.switchControl.on;
@@ -182,9 +197,9 @@
         [items scheduleNotification];
         [self.delegate itemDetailViewController:self didFinishAddingItem:items];
     } else {
-    //    self.itemToEdit.text = self.textField.text; //numberPlateField
+
         self.itemToEdit.notes = self.notesField.text;
-        self.itemToEdit.item = self.itemField.text;
+        self.itemToEdit.item = self.pickerTextField.text;
         self.itemToEdit.serviceFrequency = self.serviceFrequencyField.text;
         self.itemToEdit.shouldRemind = self.switchControl.on;
         self.itemToEdit.image = self.imageField.image;
@@ -197,20 +212,15 @@
     
     // Create PFObject with report (ChecklistItem) information
     PFObject *report = [PFObject objectWithClassName:@"Report"];
-    [report setObject:itemField.text forKey:@"ItemName"];
+    [report setObject:pickerTextField.text forKey:@"ItemName"];
     [report setObject:notesField.text forKey:@"Notes"];
     [report setObject:dueDateLabel.text forKey:@"LastMaintenance"];
     [report setObject:serviceFrequencyField.text forKey:@"MaintenanceInterval"];
     [report setObject:nextServiceDateLabel.text forKey:@"NextMaintenance"];
-    
+     [report setObject:statusLabel.text forKey:@"TypeOfReport"];
   
    // [report setObject:self.switchControl.on forKey:@"Remainder"];
     //if (sender == switchControl) {
-      /*  BOOL mySwitchValue = [ switchControl isOn ];
-        NSString *tmpString = mySwitchValue ? @"1" : @"-1" ;
-        NSUserDefaults  *myNSUD = [NSUserDefaults standardUserDefaults];
-        [ myNSUD setObject:tmpString forKey: @"mySwitchValueKey" ];
-        [ myNSUD synchronize ];*/
     
    // }
     
@@ -221,7 +231,7 @@
     
     // Report image
     NSData *imageName = UIImageJPEGRepresentation(imageField.image, 0.8);
-    NSString *filename = [NSString stringWithFormat:@"%@.png", itemField.text];
+    NSString *filename = [NSString stringWithFormat:@"%@.png", pickerTextField.text];
     PFFile *imageFile = [PFFile fileWithName:filename data:imageName];
     [report setObject:imageFile forKey:@"Photo"];
     
@@ -272,7 +282,7 @@
 {
  // [self.textField resignFirstResponder];
     [self.notesField resignFirstResponder];
-    [self.itemField resignFirstResponder];
+    [self.pickerTextField resignFirstResponder];
 
 }
 
@@ -341,7 +351,6 @@
 {
     if (itemToEdit != newItem) {
         itemToEdit = newItem;
-      //  text = itemToEdit.text;
         notes = itemToEdit.notes;
         itemName= itemToEdit.item;
         serviceFrequency = itemToEdit.serviceFrequency;
@@ -681,6 +690,26 @@
     [super didReceiveMemoryWarning];
     
 }
+
+#pragma mark - UIPickerView DataSourde Method
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [dataArray count];
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [dataArray objectAtIndex:row];
+}
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+   // self.pickerRadioButton.selected=[dataArray objectAtIndex:row];
+    self.pickerTextField.text=[dataArray objectAtIndex:row];
+}
+
 
 
 @end

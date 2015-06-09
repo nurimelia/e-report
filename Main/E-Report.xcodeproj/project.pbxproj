@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C304A7B1B25CEA600E97103 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C304A7A1B25CEA600E97103 /* placeholder.jpg */; };
+		9C304A7E1B26216F00E97103 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C304A7D1B26216F00E97103 /* DetailViewController.m */; };
 		9C3749431AD4D9550021AD3C /* UPNM.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9C3749421AD4D9550021AD3C /* UPNM.jpeg */; };
 		9C9097391B1C8B3F00043394 /* MBProgressHUB.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9097381B1C8B3F00043394 /* MBProgressHUB.m */; };
 		9C9097511B1E296600043394 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C90974D1B1E296600043394 /* checked.png */; };
@@ -111,6 +113,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C304A7A1B25CEA600E97103 /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder.jpg; sourceTree = "<group>"; };
+		9C304A7C1B26216F00E97103 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		9C304A7D1B26216F00E97103 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		9C3749421AD4D9550021AD3C /* UPNM.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = UPNM.jpeg; sourceTree = "<group>"; };
 		9C9097371B1C8B3F00043394 /* MBProgressHUB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUB.h; sourceTree = "<group>"; };
 		9C9097381B1C8B3F00043394 /* MBProgressHUB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUB.m; sourceTree = "<group>"; };
@@ -300,6 +305,7 @@
 				A61D5ECD17A4C7CF00A37E27 /* list-element@2x.png */,
 				A61D5ED217A4C7CF00A37E27 /* PersonalChat.png */,
 				A61D5ED317A4C7CF00A37E27 /* PersonalChat@2x.png */,
+				9C304A7A1B25CEA600E97103 /* placeholder.jpg */,
 				9C90974D1B1E296600043394 /* checked.png */,
 				9C90974E1B1E296600043394 /* checked@2x.png */,
 				9C90974F1B1E296600043394 /* unchecked.png */,
@@ -515,6 +521,8 @@
 				A6E8AA81179D1FD400042C02 /* ListViewController.m */,
 				A6E8AA7E179D1FD400042C02 /* ItemDetailViewController.h */,
 				A6E8AA7F179D1FD400042C02 /* ItemDetailViewController.m */,
+				9C304A7C1B26216F00E97103 /* DetailViewController.h */,
+				9C304A7D1B26216F00E97103 /* DetailViewController.m */,
 				A6E8AA7B179D1FD400042C02 /* Date Picker */,
 			);
 			path = List;
@@ -584,6 +592,7 @@
 				A6E8AA57179D1D6E00042C02 /* Default.png in Resources */,
 				A639E41D190C154A00D0F10C /* Icon72x72.png in Resources */,
 				9C9097531B1E296600043394 /* unchecked.png in Resources */,
+				9C304A7B1B25CEA600E97103 /* placeholder.jpg in Resources */,
 				A64C38381927EFB600CE1100 /* cancel.png in Resources */,
 				A6E8AA59179D1D6E00042C02 /* Default@2x.png in Resources */,
 				A639E414190C154A00D0F10C /* Icon114x114.png in Resources */,
@@ -654,6 +663,7 @@
 			files = (
 				A6E8AA51179D1D6E00042C02 /* main.m in Sources */,
 				A6E8AA82179D1FD400042C02 /* CategoryViewController.m in Sources */,
+				9C304A7E1B26216F00E97103 /* DetailViewController.m in Sources */,
 				A6E8AA83179D1FD400042C02 /* CategoryDetailViewController.m in Sources */,
 				9C9097571B1E29D500043394 /* RadioButton.m in Sources */,
 				A6E8AA84179D1FD400042C02 /* Checklist.m in Sources */,

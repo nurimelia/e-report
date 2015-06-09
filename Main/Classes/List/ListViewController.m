@@ -6,10 +6,17 @@
 //  Copyright (c) 2015 Nur Imelia. All rights reserved.
 //
 
+#import <MobileCoreServices/UTCoreTypes.h>
+
 #import "ListViewController.h"
+#import "DetailViewController.h"
+#import "MBProgressHUB.h"
+
 #import "ChecklistItem.h"
 #import "Checklist.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Parse/Parse.h"
+#import <ParseUI/ParseUI.h>
 
 
 
@@ -25,72 +32,157 @@
 @synthesize checklist;
 @synthesize button;
 
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        // Custom the table
+        // The className to query on
+        self.parseClassName = @"Report";
+        
+        // The key of the PFObject to display in the label of the default cell style
+        self.textKey = @"ItemName";
+        self.textKey = @"Notes";
+        self.textKey = @"NextMaintenance";
+        
+        // Whether the built-in pull-to-refresh is enabled
+        self.pullToRefreshEnabled = YES;
+        
+        // Whether the built-in pagination is enabled
+        self.paginationEnabled = NO;
+        
+    }
+    
+    return self;
+}
+
+
 - (void)viewDidLoad
 {
 
     ///title of view controller
-  
     [super viewDidLoad];
-    self.title = self.checklist.category;
+    self.title = self.checklist.LabName;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refreshTable:)
+                                                 name:@"refreshTable"
+                                               object:nil];
     
-    
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     ///table view background with our own custom image
-
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:
                                      [UIImage imageNamed:@"background.png"]];
    
-    
     ///initialize pull to refresh control
-
     [self.refreshControl
      addTarget:self
      action:@selector(refresh)
      forControlEvents:UIControlEventValueChanged
      ];
     
+  
+    
+}
+- (void)refreshTable:(NSNotification *) notification
+{
+    // Reload the Report
+    [self loadObjects];
 }
 
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"refreshTable" object:nil];
+}
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+- (PFQuery *)queryForTable
+{
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    return query;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *) object
+
+{
+        static NSString *CellIdentifier = @"ReportCell";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        }
+
+    
+    // Configure the cell
+    PFFile *thumbnail = [object objectForKey:@"Photo"];
+    PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:100];
+    thumbnailImageView.image = [UIImage imageNamed:@"placeholder.jpg"];
+    thumbnailImageView.file = thumbnail;
+    [thumbnailImageView loadInBackground];
+    
+    UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
+    nameLabel.text = [object objectForKey:@"ItemName"];
+    UILabel *nextLabel = (UILabel*) [cell viewWithTag:101];
+   nextLabel.text = [object objectForKey:@"NextMaintenance"];
+    UILabel *notesLabel = (UILabel*) [cell viewWithTag:101];
+    notesLabel.text = [object objectForKey:@"Notes"];
+
+    
+    return cell;
+}
+
+- (void) objectsDidLoad:(NSError *)error
+{
+    [super objectsDidLoad:error];
+    
+    NSLog(@"error: %@", [error localizedDescription]);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showReportDetail"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        ListViewController *destViewController = segue.destinationViewController;
+        
+        PFObject *object = [self.objects objectAtIndex:indexPath.row];
+        ChecklistItem *checklistItem = [[ChecklistItem alloc] init];
+        checklistItem.item = [object objectForKey:@"ItemName"];
+        checklistItem.image = [object objectForKey:@"Photo"];
+        checklistItem.notes = [object objectForKey:@"Notes"];
+        destViewController.checklist = checklistItem;
+    
+    }
+   /* if ([segue.identifier isEqualToString:@"AddItem"]) {
+        
+        
+        UINavigationController *navigationController = segue.destinationViewController;
+        ItemDetailViewController *controller = (ItemDetailViewController *)navigationController.topViewController;
+        controller.delegate = self;
+        
+    } else if ([segue.identifier isEqualToString:@"EditItem"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        ItemDetailViewController *controller = (ItemDetailViewController *)navigationController.topViewController;
+        controller.delegate = self;
+        controller.itemToEdit = sender;
+    }*/
+}
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)orientation
                                          duration:(NSTimeInterval)duration {
 }
 
-
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    
-
-    
-}
-
-
-///Tells the data source to return the number of rows in a given section of a table view. (required)
-/// Number of rows in tableview. we leave it to count it itself and we don't limit it.
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(
+/*- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(
                                                                        NSInteger)section
 {
     return [self.checklist.items count];
-}
+}*/
 
-
-
-
-
-// configiure background color of cell
-///Asks the data source for a cell to insert in a particular location of the table view. (required)
-/// here we configure uitableview cell. this will be reused for te whole tableview
-
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {  
-
-  
-    
-    
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         
@@ -111,11 +203,6 @@
     
 }
 
-
-
-///The method allows the delegate to specify rows with varying heights. If this method is implemented, the value it returns overrides the value specified for the rowHeight property of UITableView for the given row.
-/// height of uitable view cell which overrides interface builder
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 78;
@@ -128,14 +215,14 @@
                                                                         ChecklistItem *)item
 {
 
-    UILabel *makeLabel = (UILabel *)[cell viewWithTag:1700];
-    makeLabel.text = item.item;
+    UILabel *itemLabel = (UILabel *)[cell viewWithTag:1700];
+    itemLabel.text = item.item;
 
     UILabel *notesLabel = (UILabel *)[cell viewWithTag:1701];
     notesLabel.text = item.notes;
 
     
-   //masking the image
+   //making the image
     
     if (item.image != nil) {
         UIImageView *imageView = (UIImageView *)[cell viewWithTag:1100];
@@ -183,25 +270,6 @@
         calander.hidden=TRUE;
 
     }
-    
-}
-
-
-///Asks the data source for a cell to insert in a particular location of the table view. (required)
-/// here we configure uitableview cell. this will be reused for te whole tableview
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(
-                                                                               NSIndexPath *)indexPath
-{
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChecklistItem"];
-                             ChecklistItem *item = [self.checklist.items objectAtIndex:indexPath.row];
-                             [self configureTextForCell:cell withChecklistItem:item];
-                        //     [self configureCheckmarkForCell:cell withChecklistItem:item];
-  
-                             return cell;
-    
     
 }
 
@@ -270,28 +338,6 @@
 }
 
 
-
-//This means there is one more thing we need to do: we have to tell ItemDetailViewController that the ChecklistsViewController is now its delegate.The proper place to do that when you’re using Storyboards is in the prepareForSegue method.
-
-
-//prepareForSegue
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"AddItem"]) {
-        
-        
-        UINavigationController *navigationController = segue.destinationViewController;
-        ItemDetailViewController *controller = (ItemDetailViewController *)navigationController.topViewController;
-        controller.delegate = self;
-        
-    } else if ([segue.identifier isEqualToString:@"EditItem"]) {
-        UINavigationController *navigationController = segue.destinationViewController;
-        ItemDetailViewController *controller = (ItemDetailViewController *)navigationController.topViewController;
-        controller.delegate = self;
-        controller.itemToEdit = sender;
-    }
-}
 
 
 ///we display when the user tap on a cell

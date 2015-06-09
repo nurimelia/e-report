@@ -12,6 +12,8 @@
 #import <ParseUI/ParseUI.h>
 
 
+
+
     NSArray *colorsArray;
     
 //@interface CategoryViewController : UITableViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>{
@@ -20,7 +22,7 @@
 }
     
 
-@property (weak, nonatomic) IBOutlet UITableView *listTable;
+//@property (weak, nonatomic) IBOutlet UITableView *listTable;
 @property (nonatomic, strong) DataModel *dataModel;
 
 

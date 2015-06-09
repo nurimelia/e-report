@@ -10,7 +10,7 @@
 #import "IconPickerViewController.h"
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-//#import <"ParseUI/ParseUI.h">
+#import <ParseUI/ParseUI.h>
 
 @class CategoryDetailViewController;
 @class Checklist;
@@ -27,18 +27,22 @@
 
 @end
 
-@interface CategoryDetailViewController : UITableViewController <
-UITextFieldDelegate, IconPickerViewControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
+//@interface CategoryDetailViewController : UITableViewController <
+//UITextFieldDelegate, IconPickerViewControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface CategoryDetailViewController :PFQueryTableViewController
+
+{
  
     
 }
 
-@property (strong, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (strong, nonatomic) IBOutlet PFImageView *iconImageView;
 @property (nonatomic, strong) IBOutlet UITextField *textField;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *doneBarButton;
 
 @property (nonatomic, weak) id <ListDetailViewControllerDelegate> delegate;
 @property (nonatomic, strong) Checklist *checklistToEdit;
+
 
 - (IBAction)cancel;
 

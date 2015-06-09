@@ -11,19 +11,19 @@
 
 @implementation Checklist
 
-@synthesize category;
+@synthesize LabName;
 @synthesize items;
-@synthesize iconName;
+@synthesize LabImage;
 @synthesize notes;
 
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if ((self = [super init])) {
-        self.category = [aDecoder decodeObjectForKey:@"Category"];
+        self.LabName = [aDecoder decodeObjectForKey:@"LabName"];
         self.items = [aDecoder decodeObjectForKey:@"Items"];
         self.notes = [aDecoder decodeObjectForKey:@"Notes"];
-        self.iconName = [aDecoder decodeObjectForKey:@"IconName"];
+        self.LabImage = [aDecoder decodeObjectForKey:@"LabImage"];
     }
     return self;
 }
@@ -32,10 +32,10 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
         
-    [aCoder encodeObject:self.category forKey:@"Category"];
+    [aCoder encodeObject:self.LabName forKey:@"LabName"];
     [aCoder encodeObject:self.items forKey:@"Items"];
     [aCoder encodeObject:self.notes forKey:@"Notes"];
-    [aCoder encodeObject:self.iconName forKey:@"IconName"];
+    [aCoder encodeObject:self.LabImage forKey:@"LabImage"];
 }
 
 
@@ -44,7 +44,7 @@
 {
     if ((self = [super init])) {
         self.items = [[NSMutableArray alloc] initWithCapacity:20];
-        self.iconName = @"Computer";
+        self.LabImage = @"LabImage";
     }
     return self;
 }
@@ -63,7 +63,7 @@
 
 - (NSComparisonResult)compare:(Checklist *)otherChecklist
 {
-    return [self.category localizedCaseInsensitiveCompare:otherChecklist.category];
+    return [self.LabName localizedCaseInsensitiveCompare:otherChecklist.LabName];
 }
 
 

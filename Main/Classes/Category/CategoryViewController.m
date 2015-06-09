@@ -6,12 +6,13 @@
 //  Copyright (c) 2015 Nur Imelia. All rights reserved.
 //
 
+#import <MobileCoreServices/UTCoreTypes.h>
 
-#import "ChecklistItem.h"
 #import "CategoryViewController.h"
 #import "ListViewController.h"
-#import <MobileCoreServices/UTCoreTypes.h>
 #import "MBProgressHUB.h"
+
+#import "ChecklistItem.h"
 #import "Checklist.h"
 #import "Parse/Parse.h"
 #import <ParseUI/ParseUI.h>
@@ -23,38 +24,31 @@
 
 
 @implementation CategoryViewController {
-    NSMutableArray *lists;
+  //  NSMutableArray *lists;
     
 }
 
 @synthesize dataModel;
-@synthesize listTable;
+//@synthesize listTable;
 
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
-if ((self = [super initWithCoder:aDecoder])) {
-      self.dataModel = [[DataModel alloc] init];
-     }
-    
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Custom the table
-        
         // The className to query on
-        self.parseClassName = @"Checklist";
+        self.parseClassName = @"Laboratory";
         
         // The key of the PFObject to display in the label of the default cell style
-        self.textKey = @"category";
+        self.textKey = @"LabName";
         
         // Whether the built-in pull-to-refresh is enabled
         self.pullToRefreshEnabled = YES;
         
         // Whether the built-in pagination is enabled
         self.paginationEnabled = NO;
-        
-        // The number of objects to show per page
-        //self.objectsPerPage = 10;
+
     }
     
     return self;
@@ -63,26 +57,19 @@ if ((self = [super initWithCoder:aDecoder])) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(refreshTable:)
                                                  name:@"refreshTable"
-                                               object:nil]; 
-    
-    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:
-                                     [UIImage imageNamed:@"background.png"]];
+                                               object:nil];
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     self.title = @"Laboratory";
-    
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
                                    initWithImage:[UIImage imageNamed:@"cancel.png"]
                                    style:UIBarButtonItemStylePlain
                                    target:self
                                    action:@selector(back)];
-    
     
     self.navigationItem.leftBarButtonItem = backButton;
     
@@ -97,7 +84,6 @@ if ((self = [super initWithCoder:aDecoder])) {
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"refreshTable" object:nil];
 }
 
@@ -106,19 +92,87 @@ if ((self = [super initWithCoder:aDecoder])) {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-
 - (PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    
     return query;
 }
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:
+(PFObject *) object
+
+{
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        
+    }
+    
+  /*    Checklist *checklist = [self.dataModel.lists objectAtIndex:indexPath.row];
+     cell.textLabel.text = checklist.LabName;
+     cell.textLabel.textColor = [UIColor darkGrayColor];
+     cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
+    
+    cell.imageView.image = [UIImage imageNamed:checklist.LabImage];
+     
+     UIImage *image = [UIImage   imageNamed:@"ipad-arrow"];
+     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+     CGRect frame = CGRectMake(60.0, 60.0, image.size.width, image.size.height);
+     button.frame = frame;
+     [button setBackgroundImage:image forState:UIControlStateNormal];
+     
+     [button addTarget:self action:@selector(accessoryButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
+     button.backgroundColor = [UIColor clearColor];
+     cell.accessoryView = button;
+   */
+    
+    // Configure the cell
+    PFFile *thumbnail = [object objectForKey:@"LabImage"];
+    PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:100];
+    thumbnailImageView.image = [UIImage imageNamed:@"Folder.jpg"];
+    thumbnailImageView.file = thumbnail;
+    [thumbnailImageView loadInBackground];
+    
+    UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
+    nameLabel.text = [object objectForKey:@"LabName"];
+
+    
+    
+    
+    return cell;
+    
+}
+
+- (void) objectsDidLoad:(NSError *)error
+{
+    [super objectsDidLoad:error];
+    
+    NSLog(@"error: %@", [error localizedDescription]);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ShowChecklist"]) {
+        ListViewController *controller = segue.destinationViewController;
+        controller.checklist = sender;
+        
+    } else if ([segue.identifier isEqualToString:@"AddChecklist"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        CategoryDetailViewController *controller = (CategoryDetailViewController *)navigationController.topViewController;
+        controller.delegate = self;
+        controller.checklistToEdit = nil;
+    }
+    
+}
+
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
 }
-
+/*
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
     id objectToMove = [dataModel.lists objectAtIndex:fromIndexPath.row];
@@ -127,7 +181,7 @@ if ((self = [super initWithCoder:aDecoder])) {
     [tableView reloadData];
     
 }
-
+*/
 
 - (void)didReceiveMemoryWarning
 {
@@ -142,7 +196,7 @@ if ((self = [super initWithCoder:aDecoder])) {
 }
 
 
-- (void)viewDidAppear:(BOOL)animated
+/*- (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     self.navigationController.delegate = self;
@@ -150,10 +204,8 @@ if ((self = [super initWithCoder:aDecoder])) {
     if (index >= 0 && index < [self.dataModel.lists count]) {
         Checklist *checklist = [self.dataModel.lists objectAtIndex:index];
         [self performSegueWithIdentifier:@"ShowChecklist" sender:checklist];
-
     }
 }
-
 
 #pragma mark - Table view data source
 
@@ -161,18 +213,14 @@ if ((self = [super initWithCoder:aDecoder])) {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(
-                                                                       NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.dataModel.lists count];
      return colorsArray.count;
-}
-
+}*/
 
 - (void)configureTextForCell:(UITableViewCell *)cell withChecklistItem:(ChecklistItem *)item
 {
     UILabel *label = (UILabel *)[cell viewWithTag:1000];
-    //label.text = item.text;
     label.text = [NSString stringWithFormat:@"%d: %@", item.itemId, item.text];
     
 }
@@ -180,59 +228,11 @@ if ((self = [super initWithCoder:aDecoder])) {
 //background list one by one
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    //  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    
     cell.backgroundColor =  [UIColor colorWithPatternImage:[UIImage imageNamed:@"category.png"]];
-    
-    //  cell.backgroundColor = [UIColor whiteColor];
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath //object:
-//(PFObject *) object
-{
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        
-    }
-    
-    Checklist *checklist = [self.dataModel.lists objectAtIndex:indexPath.row];
-    cell.textLabel.text = checklist.category;
-    cell.textLabel.textColor = [UIColor darkGrayColor];
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
-    
-    cell.imageView.image = [UIImage imageNamed:checklist.iconName];
-    
-    UIImage *image = [UIImage   imageNamed:@"ipad-arrow"];
-                    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-                    CGRect frame = CGRectMake(60.0, 60.0, image.size.width, image.size.height);
-                    button.frame = frame;
-                    [button setBackgroundImage:image forState:UIControlStateNormal];
-    
-                    [button addTarget:self action:@selector(accessoryButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
-                    button.backgroundColor = [UIColor clearColor];
-                    cell.accessoryView = button;
-    
-    
-  /*  // Configure the cell
-    PFFile *thumbnail = [object objectForKey:@"iconName"];
-    PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:100];
-    thumbnailImageView.image = [UIImage imageNamed:@"Folder.jpg"];
-    thumbnailImageView.file = thumbnail;
-    [thumbnailImageView loadInBackground];
-    
-    UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
-    nameLabel.text = [object objectForKey:@"category"]; */
-    
-    return cell;
-  
 }
 
 - (void)accessoryButtonTapped:(id)sender event:(id)event
@@ -260,34 +260,19 @@ if ((self = [super initWithCoder:aDecoder])) {
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath
+/*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath
                                                                     *)indexPath
 { NSLog(@"cell tapped");
     [self.dataModel setIndexOfSelectedChecklist:indexPath.row];
     Checklist *checklist = [self.dataModel.lists objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"ShowChecklist" sender:checklist];
-}
+}*/
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     if (viewController == self) {
         [self.dataModel setIndexOfSelectedChecklist:-1];
     }
-}
-
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"ShowChecklist"]) {
-        ListViewController *controller = segue.destinationViewController;
-        controller.checklist = sender;
-    } else if ([segue.identifier isEqualToString:@"AddChecklist"]) {
-        UINavigationController *navigationController = segue.destinationViewController;
-        CategoryDetailViewController *controller = (CategoryDetailViewController *)navigationController.topViewController;
-        controller.delegate = self;
-        controller.checklistToEdit = nil;
-    }
-    
 }
 
 - (void)listDetailViewControllerDidCancel:(CategoryDetailViewController *)controller
@@ -318,11 +303,11 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
     CategoryDetailViewController *controller = (CategoryDetailViewController *)
     navigationController.topViewController;
     controller.delegate = self;
-    Checklist *checklist = [self.dataModel.lists objectAtIndex:indexPath.row];
+   // Checklist *checklist = [self.dataModel.lists objectAtIndex:indexPath.row];
     
-    controller.checklistToEdit = checklist;
-    [self presentViewController:navigationController animated:YES completion:nil
-     ];
+  //  controller.checklistToEdit = checklist;
+ //   [self presentViewController:navigationController animated:YES completion:nil
+  //   ];
 }
 
 // Implementation of Pull to add new item. It will trigger the performsegueidentifier method. and also it will release the refresh control property.

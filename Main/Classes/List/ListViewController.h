@@ -8,16 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "ItemDetailViewController.h"
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
 
 @class Checklist;
+NSArray *colorsArray;
+//@interface ListViewController : UITableViewController   <ItemDetailViewControllerDelegate>
+@interface ListViewController : PFQueryTableViewController
 
-@interface ListViewController : UITableViewController   <ItemDetailViewControllerDelegate>
 {
 
 }
 
 
+//@property (nonatomic, strong) Checklist *checklistitem;
 @property (nonatomic, strong) Checklist *checklist;
 @property (strong, nonatomic) IBOutlet UIButton *button;
 

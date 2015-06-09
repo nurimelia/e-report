@@ -13,6 +13,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="r8r-Nr-4PK">
+                            <rect key="frame" x="-23" y="-15" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Check">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
                         <prototypes>
                             <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChecklistItem" rowHeight="78" id="Cef-2u-PWS">
                                 <rect key="frame" x="0.0" y="136" width="320" height="78"/>
@@ -33,7 +40,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" tag="1100" contentMode="scaleToFill" fixedFrame="YES" image="PersonalChat.png" translatesAutoresizingMaskIntoConstraints="NO" id="CAl-m2-pQp">
+                                        <imageView userInteractionEnabled="NO" tag="1100" contentMode="scaleToFill" fixedFrame="YES" image="PersonalChat.png" translatesAutoresizingMaskIntoConstraints="NO" id="CAl-m2-pQp" customClass="PFImageView">
                                             <rect key="frame" x="17" y="16" width="48" height="48"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1700" contentMode="left" fixedFrame="YES" text="Item" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1z-JA-SGe">
@@ -71,6 +78,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="BG3-eG-hQJ" kind="modal" identifier="EditItem" id="dd6-kN-NIY"/>
+                        <segue destination="SoS-az-9E5" kind="push" identifier="showReportDetail" id="wTH-sQ-492"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XvM-Nq-jFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -86,7 +94,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecipeCell" id="MY4-Wi-zay" userLabel="Cell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="MY4-Wi-zay" userLabel="Cell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MY4-Wi-zay" id="Rax-7l-3pb">
@@ -97,7 +105,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="53" height="43"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyQ-X5-EWl">
-                                            <rect key="frame" x="61" y="2" width="206" height="21"/>
+                                            <rect key="frame" x="73" y="14" width="206" height="21"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -152,7 +160,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PC Dell" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NPF-Zi-tLC">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Monitor" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NPF-Zi-tLC">
                                                     <rect key="frame" x="137" y="9" width="153" height="38"/>
                                                     <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
@@ -233,7 +241,7 @@
                                                         <outletCollection property="groupButtons" destination="LGX-n3-g34" id="cKW-ua-FHO"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Computer Item" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="K2j-zk-Duz">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Computer Items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="K2j-zk-Duz">
                                                     <rect key="frame" x="174" y="29" width="138" height="31"/>
                                                     <color key="backgroundColor" red="0.93898607339999995" green="0.93898607339999995" blue="0.93898607339999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -427,10 +435,10 @@
                         <outlet property="doneBarButton" destination="exz-fW-Upf" id="LO7-h1-IVB"/>
                         <outlet property="dueDateLabel" destination="0ye-WF-wtz" id="fTK-iR-IXw"/>
                         <outlet property="imageField" destination="eS4-Xr-gDE" id="5DA-ee-c82"/>
-                        <outlet property="itemField" destination="NPF-Zi-tLC" id="Nn3-4h-fJb"/>
                         <outlet property="nextServiceDateLabel" destination="DsD-Tl-xZf" id="Xsy-5p-h4C"/>
                         <outlet property="notesField" destination="281-0q-5Zj" id="96p-Lh-tLc"/>
-                        <outlet property="radioButton" destination="SUW-zK-tN8" id="Eqk-Mg-E5x"/>
+                        <outlet property="pickerTextField" destination="NPF-Zi-tLC" id="gRx-HB-chF"/>
+                        <outlet property="radioButton" destination="SUW-zK-tN8" id="fLt-F5-ru3"/>
                         <outlet property="serviceFrequencyField" destination="jw2-dI-cWF" id="J9w-zp-ZrW"/>
                         <outlet property="statusLabel" destination="K2j-zk-Duz" id="SCz-TG-zRC"/>
                         <outlet property="switchControl" destination="aGW-qc-JU0" id="DFj-Cb-xHh"/>
@@ -889,10 +897,10 @@
             </objects>
             <point key="canvasLocation" x="-465" y="-445"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="SGK-c9-hgN">
             <objects>
-                <viewController id="SoS-az-9E5" sceneMemberID="viewController">
+                <viewController id="SoS-az-9E5" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5J5-sk-0Oa"/>
                         <viewControllerLayoutGuide type="bottom" id="Bnc-EB-NzB"/>
@@ -904,29 +912,32 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wco-ed-yVi" customClass="PFImageView">
                                 <rect key="frame" x="20" y="55" width="281" height="208"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Item" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vxq-qZ-f1u">
-                                <rect key="frame" x="20" y="278" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nvW-uK-UtH">
-                                <rect key="frame" x="75" y="274" width="226" height="30"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I4a-c5-fnx">
+                                <rect key="frame" x="20" y="307" width="281" height="241"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Notes" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OmA-kU-OvN">
-                                <rect key="frame" x="16" y="312" width="288" height="236"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KW8-e0-dA9">
+                                <rect key="frame" x="64" y="271" width="191" height="33"/>
+                                <color key="backgroundColor" red="0.9715317234848484" green="0.7532589375357106" blue="0.55935065988721389" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="FrG-rf-Xwu"/>
+                    <connections>
+                        <outlet property="itemNameTextView" destination="KW8-e0-dA9" id="WAx-Pg-Ipc"/>
+                        <outlet property="notesTextView" destination="I4a-c5-fnx" id="1k8-f3-VdN"/>
+                        <outlet property="reportPhoto" destination="wco-ed-yVi" id="u3P-p5-yLb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3a-lh-opa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2130" y="-623"/>
+            <point key="canvasLocation" x="2115" y="-626"/>
         </scene>
     </scenes>
     <resources>
@@ -943,9 +954,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dd6-kN-NIY"/>
-        <segue reference="lxl-ww-7gG"/>
-        <segue reference="55R-AG-pA4"/>
         <segue reference="q5t-Ma-XzW"/>
+        <segue reference="55R-AG-pA4"/>
+        <segue reference="lxl-ww-7gG"/>
+        <segue reference="F4Z-Ya-IAM"/>
     </inferredMetricsTieBreakers>
 </document>

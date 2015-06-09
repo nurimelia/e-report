@@ -17,6 +17,7 @@
     
     CategoryViewController *controller;
 }
+//+ (NSTimeZone *)localTimeZone;
 @property (weak, nonatomic) IBOutlet UITextField *userIDOutlet;
 @property (weak, nonatomic) IBOutlet UITextField *passwordOutlet;
 @property (weak, nonatomic) IBOutlet UIButton *loginButtonOutlet;
@@ -29,5 +30,7 @@
 
 - (IBAction)forgotPassword:(id)sender;
 - (IBAction)registerUser:(id)sender;
+
+
 
 @end

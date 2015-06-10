@@ -12,7 +12,9 @@
 @implementation ChecklistItem
 
 
-@synthesize text, checked, notes, item, numberPlate, serviceFrequency;
+@synthesize text, checked, notes, item;
+//numberPlate,
+@synthesize serviceFrequency;
 @synthesize dueDate, nextServiceDate, shouldRemind, itemId, image;
 
 
@@ -97,9 +99,9 @@
         localNotification.fireDate = self.nextServiceDate;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         
-        NSString *numberPlate2 = [NSString stringWithFormat:@"%@ %@ is due for Maintenance!", item ? item: @"", numberPlate ? numberPlate: @""];
+       // NSString *numberPlate2 = [NSString stringWithFormat:@"%@ %@ is due for Maintenance!", item ? item: @"", numberPlate ? numberPlate: @""];
         
-        localNotification.alertBody = numberPlate2;
+      //  localNotification.alertBody = numberPlate2;
         localNotification.soundName = UILocalNotificationDefaultSoundName;
         localNotification.userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:self.itemId] forKey:@"ItemID"];
                 

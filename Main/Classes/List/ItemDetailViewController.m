@@ -99,14 +99,13 @@
 
     if (self.itemToEdit != nil) {
         self.title = @"Edit Item"; // set the title of edit view controller
-
+         self.pickerTextField.text = self.itemToEdit.item;
         
     } else
     
         self.title = @"Add Item";   // set the title of add view controller
         self.notesField.text = notes;
-        //self.itemField.text = itemName;
-       self.pickerTextField.text = itemName;
+        self.pickerTextField.text = itemName;
         self.serviceFrequencyField.text = serviceFrequency;
         self.imageField.image = self.itemToEdit.image;
         self.switchControl.on = shouldRemind;
@@ -116,7 +115,7 @@
 
     
     //sheet = [[UIActionSheet alloc]initWithTitle:@"Compiter Items?";
-    dataArray=[[NSArray alloc]initWithObjects: @"Monitor",@"Keyboard",@"Mouse",@"CPU", @"AirCon",@"Projector",@"Table",@"Chair", @"Door",@"Whiteboard",@"Switch", nil];
+    dataArray=[[NSArray alloc]initWithObjects: @"Monitor",@"Keyboard",@"Mouse",@"CPU", @"Air Con",@"Projector",@"Table",@"Chair", @"Door",@"Whiteboard",@"Switch", nil];
     UIPickerView *picker=[[UIPickerView alloc]init];
     picker.dataSource=self;
     picker.delegate=self;
@@ -127,7 +126,7 @@
     UIBarButtonItem *doneBtn=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(removePicker)];
     UIBarButtonItem *space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [toolBar setItems:[NSArray arrayWithObjects:space,doneBtn, nil]];
-   // [self.pickerRadioButton setSelected:toolBar];
+
      [self.pickerTextField setInputAccessoryView:toolBar];
     
 }
@@ -160,9 +159,8 @@
 //To release the memory
 - (void)viewDidUnload
 {
-  //  [self setTextField:nil];
+
     [self setNotesField:nil];
-    //[self setItemField:nil];
     [self setPickerTextField:nil];
     [self setDoneBarButton:nil];
     [self setSwitchControl:nil];
@@ -183,7 +181,7 @@
 ///When user finish adding information and press done button, we update the information in plist and display in cell
 - (IBAction)done
 {
-    if (self.itemToEdit == nil) {
+  /*  if (self.itemToEdit == nil) {
         ChecklistItem *items = [[ChecklistItem alloc] init];
    //     item.text = self.textField.text;
         items.notes = self.notesField.text;
@@ -207,7 +205,7 @@
         self.itemToEdit.nextServiceDate = nextServiceDate;
         [self.itemToEdit scheduleNotification];
         [self.delegate itemDetailViewController:self didFinishEditingItem:self.itemToEdit];
-    }
+    }*/
 
     
     // Create PFObject with report (ChecklistItem) information
@@ -223,11 +221,6 @@
     //if (sender == switchControl) {
     
    // }
-    
-    // Set default ACLs
-    PFACL *defaultACL = [PFACL ACL];
-    [defaultACL setPublicReadAccess:YES];
-    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     
     // Report image
     NSData *imageName = UIImageJPEGRepresentation(imageField.image, 0.8);
@@ -248,7 +241,7 @@
         
         if (!error) {
             // Show success message
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Complete" message:@"Successfully saved the report" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Upload Complete" message:@"Successfully saved the report" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             
             // Notify table view to reload the report from Parse cloud

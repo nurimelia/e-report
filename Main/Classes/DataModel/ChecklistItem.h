@@ -9,28 +9,27 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
 @interface ChecklistItem : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, copy) NSString *notes;
 @property (nonatomic, copy) NSString *item;
-@property (nonatomic, copy) NSString *numberPlate;
+//@property (nonatomic, copy) NSString *numberPlate;
 @property (nonatomic, copy) NSString *serviceFrequency;
 @property (nonatomic, assign) BOOL checked;
 @property (nonatomic, copy) NSDate *dueDate;
 @property (nonatomic, copy) NSDate *nextServiceDate;
 @property (nonatomic, assign) BOOL shouldRemind;
 @property (nonatomic, assign) int itemId;
-@property (nonatomic, copy) PFFile *image;
+@property (nonatomic, copy) PFFile  *image;
 
 
 
 - (void)toggleChecked;
 
 - (void)scheduleNotification;
-
-
 
 
 @end

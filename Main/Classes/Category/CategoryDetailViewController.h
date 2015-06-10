@@ -27,9 +27,9 @@
 
 @end
 
-//@interface CategoryDetailViewController : UITableViewController <
-//UITextFieldDelegate, IconPickerViewControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
-@interface CategoryDetailViewController :PFQueryTableViewController
+//@interface CategoryDetailViewController : UITableViewController
+@interface CategoryDetailViewController :PFQueryTableViewController <
+UITextFieldDelegate, IconPickerViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 {
  

@@ -103,30 +103,11 @@
 
 {
     static NSString *CellIdentifier = @"Cell";
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         
     }
-    
-  /*    Checklist *checklist = [self.dataModel.lists objectAtIndex:indexPath.row];
-     cell.textLabel.text = checklist.LabName;
-     cell.textLabel.textColor = [UIColor darkGrayColor];
-     cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
-    
-    cell.imageView.image = [UIImage imageNamed:checklist.LabImage];
-     
-     UIImage *image = [UIImage   imageNamed:@"ipad-arrow"];
-     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-     CGRect frame = CGRectMake(60.0, 60.0, image.size.width, image.size.height);
-     button.frame = frame;
-     [button setBackgroundImage:image forState:UIControlStateNormal];
-     
-     [button addTarget:self action:@selector(accessoryButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
-     button.backgroundColor = [UIColor clearColor];
-     cell.accessoryView = button;
-   */
     
     // Configure the cell
     PFFile *thumbnail = [object objectForKey:@"LabImage"];
@@ -137,9 +118,6 @@
     
     UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
     nameLabel.text = [object objectForKey:@"LabName"];
-
-    
-    
     
     return cell;
     

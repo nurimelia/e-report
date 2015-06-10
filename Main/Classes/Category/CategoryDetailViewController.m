@@ -58,7 +58,6 @@
     } else
         self.title = @"New Category";
 
-
     self.iconImageView.image = [UIImage imageNamed:iconName];
    
     

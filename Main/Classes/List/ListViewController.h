@@ -14,8 +14,8 @@
 
 @class Checklist;
 NSArray *colorsArray;
-//@interface ListViewController : UITableViewController   <ItemDetailViewControllerDelegate>
-@interface ListViewController : PFQueryTableViewController
+//@interface ListViewController : UITableViewController
+@interface ListViewController : PFQueryTableViewController <ItemDetailViewControllerDelegate>
 
 {
 
@@ -28,6 +28,5 @@ NSArray *colorsArray;
 
 
 -(IBAction) addItem:(id)sender;
-
 
 @end

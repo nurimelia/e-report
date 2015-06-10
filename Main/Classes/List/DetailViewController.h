@@ -8,12 +8,16 @@
 #import <UIKit/UIKit.h>
 //#import <Foundation/Foundation.h>
 #import "ChecklistItem.h"
+#import "Parse/Parse.h"
+#import <ParseUI/ParseUI.h>
 
 @interface DetailViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIImageView *reportPhoto;
+@property (weak, nonatomic) IBOutlet PFImageView *reportPhoto;
+
+@property (weak, nonatomic) IBOutlet UILabel *ItemNameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *notesTextView;
-@property (weak, nonatomic) IBOutlet UITextView *itemNameTextView;
+
 
 
 @property (nonatomic, strong) ChecklistItem *checklistItem; //*checklistToEdit;

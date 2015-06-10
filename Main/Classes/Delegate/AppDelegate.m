@@ -23,7 +23,7 @@
     // [Optional] Power your app with Local Datastore. For more info, go to
     // https://parse.com/docs/ios_guide#localdatastore/iOS
     [Parse enableLocalDatastore];
-
+[PFImageView class];
     // Initialize Parse.
     [Parse setApplicationId:@"Jr1ThYd3sxuT307hVFfAAiTJpgBQgb5x7AAM8nX0"
         clientKey:@"vFmNh59v7ykmEBb2XtQcChHCIvo7QbPLZBRwxMZl"];

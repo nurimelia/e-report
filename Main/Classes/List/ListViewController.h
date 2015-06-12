@@ -13,7 +13,7 @@
 
 
 @class Checklist;
-NSArray *colorsArray;
+//NSArray *colorsArray;
 //@interface ListViewController : UITableViewController
 @interface ListViewController : PFQueryTableViewController <ItemDetailViewControllerDelegate>
 
@@ -25,7 +25,7 @@ NSArray *colorsArray;
 //@property (nonatomic, strong) Checklist *checklistitem;
 @property (nonatomic, strong) Checklist *checklist;
 @property (strong, nonatomic) IBOutlet UIButton *button;
-
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 -(IBAction) addItem:(id)sender;
 

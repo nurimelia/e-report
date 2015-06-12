@@ -24,11 +24,11 @@
 
 
 @implementation ListViewController
-
+ NSArray *checkItems;
 
 @synthesize checklist;
 @synthesize button;
-
+@synthesize tableView = _tableView;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 
@@ -65,6 +65,7 @@
 {
     ///title of view controller
     [super viewDidLoad];
+    
     self.title = self.checklist.LabName;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable:)
      name:@"refreshTable" object:nil];
@@ -107,10 +108,29 @@
 }
 
 - (PFQuery *)queryForTable
+
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    return query;
-}
+   /* [query whereKey:@"objectIdLab" equalTo:@"objectID"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+       //     NSLog(@"Successfully retrieved %d report.", objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];*/
+    
+   // if ([self.objects count] == 0) {
+    //    query.cachePolicy = kPFCachePolicyCacheThenNetwork; }
+
+   return query;
+    }
 
 
 
@@ -126,6 +146,7 @@
     // Configure the cell
     
     PFFile *thumbnail = [object objectForKey:@"Photo"];
+    NSLog(@"******* thumbnail - LabImage = %@",thumbnail);
     PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:1777];
     thumbnailImageView.image = [UIImage imageNamed:@"placeholder.jpg"];
     thumbnailImageView.file = thumbnail;
@@ -161,17 +182,23 @@
         }
     else if
         ([segue.identifier isEqualToString:@"showReportDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            
+          DetailViewController *destViewController = segue.destinationViewController;
         
-        DetailViewController *destViewController = segue.destinationViewController;
-        
+           // PFObject *object=[exerciseArray objectAtIndex:indexPath.row];
+            
         PFObject *object = [self.objects objectAtIndex:indexPath.row];
         ChecklistItem *checklistItem = [[ChecklistItem alloc] init];
         
         checklistItem.item = [object objectForKey:@"ItemName"];
-        checklistItem.image = [object objectForKey:@"Photo"];
+        checklistItem.imageF = [object objectForKey:@"Photo"];
+             NSLog(@"******* imageF = %@",object );
         checklistItem.notes = [object objectForKey:@"Notes"];
-        destViewController.checklistItem = checklistItem;
+            destViewController.checklistItem =checklistItem;
+           
+           // destViewController.checklistItem = [checkItems objectAtIndex:indexPath.row];
+            //checklistItem;
       
     }
 /*
@@ -231,9 +258,9 @@
     UILabel *notesLabel = (UILabel *)[cell viewWithTag:1701];
     notesLabel.text = item.notes;
     //making the image
-    if (item.image != nil) {
+    if (item.imageF != nil) {
         UIImageView *imageView = (UIImageView *)[cell viewWithTag:1100];
-        imageView.image = item.image;
+        imageView.image = item.imageF;
         CALayer *mask = [CALayer layer];
         mask.contents = (id)[[UIImage imageNamed:@"PersonalChat.png"] CGImage];
         mask.frame = CGRectMake(0, 0, 48, 48);
@@ -296,6 +323,11 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 
 {
+    // Remove the row from data model
+    PFObject *object = [self.objects objectAtIndex:indexPath.row];
+    [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [self refreshTable:nil];
+    }];
     
     [self.checklist.items removeObjectAtIndex:indexPath.row];
     NSArray *indexPaths = [NSArray arrayWithObject:indexPath];

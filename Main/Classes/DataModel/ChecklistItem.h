@@ -23,7 +23,7 @@
 @property (nonatomic, copy) NSDate *nextServiceDate;
 @property (nonatomic, assign) BOOL shouldRemind;
 @property (nonatomic, assign) int itemId;
-@property (nonatomic, copy) PFFile  *image;
+@property (nonatomic, assign) PFFile  *imageF;
 
 
 

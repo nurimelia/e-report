@@ -107,7 +107,7 @@
         self.notesField.text = notes;
         self.pickerTextField.text = itemName;
         self.serviceFrequencyField.text = serviceFrequency;
-        self.imageField.image = self.itemToEdit.image;
+        self.imageField.image = self.itemToEdit.imageF;
         self.switchControl.on = shouldRemind;
         [self updateDoneBarButton];
         [self updateDueDateLabel];    

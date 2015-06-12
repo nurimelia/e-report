@@ -111,6 +111,7 @@
     
     // Configure the cell
     PFFile *thumbnail = [object objectForKey:@"LabImage"];
+    NSLog(@"******* thumbnail - LabImage = %@",thumbnail);
     PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:100];
     thumbnailImageView.image = [UIImage imageNamed:@"Folder.jpg"];
     thumbnailImageView.file = thumbnail;
@@ -118,7 +119,7 @@
     
     UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
     nameLabel.text = [object objectForKey:@"LabName"];
-    
+     
     return cell;
     
 }

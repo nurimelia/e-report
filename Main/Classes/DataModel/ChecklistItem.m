@@ -15,7 +15,7 @@
 @synthesize text, checked, notes, item;
 //numberPlate,
 @synthesize serviceFrequency;
-@synthesize dueDate, nextServiceDate, shouldRemind, itemId, image;
+@synthesize dueDate, nextServiceDate, shouldRemind, itemId, imageF;
 
 
 
@@ -34,7 +34,7 @@
         self.nextServiceDate = [aDecoder decodeObjectForKey:@"NextServiceDate"];
         self.shouldRemind = [aDecoder decodeBoolForKey:@"ShouldRemind"];
         self.itemId = [aDecoder decodeIntForKey:@"ItemID"];
-        self.image = [aDecoder decodeObjectForKey:@"Image"];
+        self.imageF = [aDecoder decodeObjectForKey:@"Image"];
 
     }
     return self;
@@ -51,7 +51,7 @@
     [aCoder encodeObject:self.nextServiceDate forKey:@"NextServiceDate"];
     [aCoder encodeBool:self.shouldRemind forKey:@"ShouldRemind"];
     [aCoder encodeInt:self.itemId forKey:@"ItemID"];
-    [aCoder encodeObject:self.image forKey:@"Image"];
+    [aCoder encodeObject:self.imageF forKey:@"Image"];
 
 }
 

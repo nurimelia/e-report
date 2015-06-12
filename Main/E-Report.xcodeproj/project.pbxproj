@@ -16,6 +16,7 @@
 		9C9097531B1E296600043394 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C90974F1B1E296600043394 /* unchecked.png */; };
 		9C9097541B1E296600043394 /* unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C9097501B1E296600043394 /* unchecked@2x.png */; };
 		9C9097571B1E29D500043394 /* RadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9097561B1E29D500043394 /* RadioButton.m */; };
+		9CB925EF1B2968260036C4AA /* E-Report:asu_pid.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 9CB925EE1B2968260036C4AA /* E-Report:asu_pid.entitlements */; };
 		A61D5ED617A4C7CF00A37E27 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A61D5EC817A4C7CF00A37E27 /* background.png */; };
 		A61D5ED717A4C7CF00A37E27 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A61D5EC917A4C7CF00A37E27 /* background@2x.png */; };
 		A61D5ED817A4C7CF00A37E27 /* EmptyContact.png in Resources */ = {isa = PBXBuildFile; fileRef = A61D5ECA17A4C7CF00A37E27 /* EmptyContact.png */; };
@@ -125,6 +126,7 @@
 		9C9097501B1E296600043394 /* unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unchecked@2x.png"; sourceTree = "<group>"; };
 		9C9097551B1E29D500043394 /* RadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioButton.h; sourceTree = "<group>"; };
 		9C9097561B1E29D500043394 /* RadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadioButton.m; sourceTree = "<group>"; };
+		9CB925EE1B2968260036C4AA /* E-Report:asu_pid.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "E-Report:asu_pid.entitlements"; sourceTree = "<group>"; };
 		A61D5EC817A4C7CF00A37E27 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		A61D5EC917A4C7CF00A37E27 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		A61D5ECA17A4C7CF00A37E27 /* EmptyContact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EmptyContact.png; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 		A6E8AA38179D1D6E00042C02 = {
 			isa = PBXGroup;
 			children = (
+				9CB925EE1B2968260036C4AA /* E-Report:asu_pid.entitlements */,
 				A61D5EC517A4C7CF00A37E27 /* Resources */,
 				A6E8AA67179D1FD400042C02 /* Classes */,
 				A6E8AA4A179D1D6E00042C02 /* E-Report */,
@@ -640,6 +643,7 @@
 				A61D5F1A17A4E81300A37E27 /* Button-info@2x.png in Resources */,
 				A61D5F1D17A4E81300A37E27 /* Computer.png in Resources */,
 				A61D5F1E17A4E81300A37E27 /* Computer@2x.png in Resources */,
+				9CB925EF1B2968260036C4AA /* E-Report:asu_pid.entitlements in Resources */,
 				A61D5F1F17A4E81300A37E27 /* Electronics.png in Resources */,
 				A61D5F2017A4E81300A37E27 /* Electronics@2x.png in Resources */,
 				A61D5F2117A4E81300A37E27 /* Folder.png in Resources */,
@@ -715,7 +719,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "-";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -747,7 +752,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "-";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -764,6 +770,7 @@
 		A6E8AA65179D1D6E00042C02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Maintenance Tracker/E-Report-Prefix.pch";
@@ -781,6 +788,7 @@
 		A6E8AA66179D1D6E00042C02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Maintenance Tracker/E-Report-Prefix.pch";

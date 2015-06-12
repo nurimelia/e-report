@@ -36,7 +36,8 @@
     
     self.title = checklistItem.item;
     self.ItemNameLabel.text = checklistItem.item;
-    self.reportPhoto = checklistItem.image;
+    self.reportPhoto.image =[UIImage imageNamed:checklistItem.imageF];
+    //checklistItem.image;
     
     NSMutableString *notesReport = [NSMutableString string];
     for (NSString* notesReports in checklistItem.notes) {

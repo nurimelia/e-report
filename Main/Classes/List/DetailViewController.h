@@ -13,7 +13,7 @@
 
 @interface DetailViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet PFImageView *reportPhoto;
+@property (weak, nonatomic) IBOutlet UIImageView *reportPhoto;
 
 @property (weak, nonatomic) IBOutlet UILabel *ItemNameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *notesTextView;

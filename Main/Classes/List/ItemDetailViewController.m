@@ -27,7 +27,7 @@
 
 
 {
-   // NSString *text;
+   NSString *name;
     NSString *notes;
     NSString *itemName;
     NSString *serviceFrequency;
@@ -41,15 +41,13 @@
         statusLabel.text = [NSString stringWithFormat:@"%@", sender.titleLabel.text];
 }
 
-///synthesize properties
+@synthesize nameField;
 @synthesize notesField;
 @synthesize pickerTextField;
 @synthesize delegate;
 @synthesize itemToEdit;
-@synthesize switchControl;
 @synthesize dueDateLabel;
-@synthesize nextServiceDateLabel;
-@synthesize serviceFrequencyField, imageField, statusLabel;
+@synthesize imageField, statusLabel;
 
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -64,7 +62,6 @@
     return self;
 }
 
-
 ///method to update due date label
 - (void)updateDueDateLabel
 {
@@ -73,7 +70,6 @@
     self.dueDateLabel.text = [formatter stringFromDate:dueDate];
 }
 
-
 ///method to format update next service data lable
 - (void)updateNextServiceDateLabel
 {
@@ -81,7 +77,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     
-    self.nextServiceDateLabel.text = [formatter stringFromDate:nextServiceDate];
+    //self.nextServiceDateLabel.text = [formatter stringFromDate:nextServiceDate];
 }
 
 ///Done bar button will be enabled only when itemName has soeme letters
@@ -104,17 +100,15 @@
     } else
     
         self.title = @"Add Item";   // set the title of add view controller
+        self.nameField.text = name;
         self.notesField.text = notes;
         self.pickerTextField.text = itemName;
-        self.serviceFrequencyField.text = serviceFrequency;
         self.imageField.image = self.itemToEdit.imageF;
-        self.switchControl.on = shouldRemind;
         [self updateDoneBarButton];
         [self updateDueDateLabel];    
         [self updateNextServiceDateLabel];
 
-    
-    //sheet = [[UIActionSheet alloc]initWithTitle:@"Compiter Items?";
+
     dataArray=[[NSArray alloc]initWithObjects: @"Monitor",@"Keyboard",@"Mouse",@"CPU", @"Air Con",@"Projector",@"Table",@"Chair", @"Door",@"Whiteboard",@"Switch", nil];
     UIPickerView *picker=[[UIPickerView alloc]init];
     picker.dataSource=self;
@@ -140,32 +134,14 @@
  }
 
 
-//To get keyboard available when user tab the "+" button as a primary loader so that the user can input text easily
-/*- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    if (self.title != NSLocalizedString(@"Edit Item", nil)) {
-    [self.pickerTextField becomeFirstResponder];
- //itemField
-
-    }else
-        [self.imageField resignFirstResponder];
-    [self.serviceFrequencyField resignFirstResponder];
-    
-    
-}*/
-
 //To release the memory
 - (void)viewDidUnload
 {
-
+    [self setNameField:nil];
     [self setNotesField:nil];
     [self setPickerTextField:nil];
     [self setDoneBarButton:nil];
-    [self setSwitchControl:nil];
     [self setDueDateLabel:nil];
-    [self setNextServiceDateLabel:nil];
     [super viewDidUnload];
 }
 
@@ -212,15 +188,10 @@
     PFObject *report = [PFObject objectWithClassName:@"Report"];
     [report setObject:pickerTextField.text forKey:@"ItemName"];
     [report setObject:notesField.text forKey:@"Notes"];
-    [report setObject:dueDateLabel.text forKey:@"LastMaintenance"];
-    [report setObject:serviceFrequencyField.text forKey:@"MaintenanceInterval"];
-    [report setObject:nextServiceDateLabel.text forKey:@"NextMaintenance"];
-     [report setObject:statusLabel.text forKey:@"TypeOfReport"];
-  
-   // [report setObject:self.switchControl.on forKey:@"Remainder"];
-    //if (sender == switchControl) {
-    
-   // }
+    [report setObject:nameField.text forKey:@"Names"];
+    [report setObject:dueDateLabel.text forKey:@"Date"];
+    [report setObject:statusLabel.text forKey:@"TypeOfReport"];
+
     
     // Report image
     NSData *imageName = UIImageJPEGRepresentation(imageField.image, 0.8);
@@ -260,20 +231,11 @@
 }
 
 
-
-///we send the message if the user choose to set local notification
-
-- (IBAction)switchChanged:(UISwitch *)sender
-{
-    shouldRemind = sender.on;
-    //NSLog(@"Switch is ON");
-}
-
 ///Since our table view is a bit long, we can dismiss the keyboard, when user scrolls the tableview
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
- // [self.textField resignFirstResponder];
+  [self.radioButton resignFirstResponder];
     [self.notesField resignFirstResponder];
     [self.pickerTextField resignFirstResponder];
 
@@ -512,11 +474,11 @@
         
     }
     }
-    if (actionSheet.tag == 2) {
+    /*if (actionSheet.tag == 2) {
         
         if (buttonIndex == 0)
         {
-            self.serviceFrequencyField.text = @"Daily"; // we update the label
+            //self.serviceFrequencyField.text = @"Daily"; // we update the label
             
             //we also set the next service label to one day later
             NSDateComponents* dateComponents = [[NSDateComponents alloc]init];
@@ -527,7 +489,7 @@
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateStyle:NSDateFormatterMediumStyle];
             
-            self.nextServiceDateLabel.text = [formatter stringFromDate:newDate];
+           // self.nextServiceDateLabel.text = [formatter stringFromDate:newDate];
             
             nextServiceDate = newDate;
 
@@ -635,7 +597,7 @@
 
             }
         
-    }
+    }*/
 }
 
 //once the user take / pick the image, we let the user to edit the image 

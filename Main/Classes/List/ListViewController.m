@@ -44,10 +44,9 @@
         self.parseClassName = @"Report";
 
         // The key of the PFObject to display in the label of the default cell style
-        
         self.textKey = @"ItemName";
         self.textKey = @"Notes";
-        self.textKey = @"NextMaintenance";
+        self.textKey = @"Date";
   
         // Whether the built-in pull-to-refresh is enabled
         self.pullToRefreshEnabled = YES;
@@ -75,8 +74,6 @@
     ///table view background with our own custom image
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:
                                      [UIImage imageNamed:@"background.png"]];
-    
-    
     
     ///initialize pull to refresh control
     [self.refreshControl
@@ -156,7 +153,7 @@
     nameLabel.text = [object objectForKey:@"ItemName"];
     
     UILabel *nextLabel = (UILabel*) [cell viewWithTag:1702];
-    nextLabel.text = [object objectForKey:@"NextMaintenance"];
+    nextLabel.text = [object objectForKey:@"Date"];
     
     UILabel *notesLabel = (UILabel*) [cell viewWithTag:1701];
     notesLabel.text = [object objectForKey:@"Notes"];
@@ -199,18 +196,7 @@
            
            // destViewController.checklistItem = [checkItems objectAtIndex:indexPath.row];
             //checklistItem;
-      
     }
-/*
-     } else if ([segue.identifier isEqualToString:@"EditItem"]) {
-     
-     UINavigationController *navigationController = segue.destinationViewController;
-     ItemDetailViewController *controller = (ItemDetailViewController *)navigationController.topViewController;
-     controller.delegate = self;
-     controller.itemToEdit = sender;
-     
-     }*/
-    
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)orientation
@@ -306,9 +292,9 @@
 
 {
     
-  //  ChecklistItem *item = [self.checklist.items objectAtIndex:indexPath.row];
+    ChecklistItem *item = [self.checklist.items objectAtIndex:indexPath.row];
     
-  //  [self performSegueWithIdentifier:@"EditItem" sender:item];
+    [self performSegueWithIdentifier:@"showReportDetail" sender:item];
     
 }
 

@@ -59,19 +59,13 @@ didFinishAddingItem:(ChecklistItem *)item;
     NSArray *dataArray;
     
 }
+@property (strong, nonatomic) IBOutlet UITextField *nameField;
 
-
-/// create properties
-//@property (strong, nonatomic) IBOutlet UITextField *textField;
-//@property (strong, nonatomic) IBOutlet UITextField *itemField;
 @property (strong, nonatomic) IBOutlet UITextView *notesField;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;
 @property (nonatomic, weak) id <ItemDetailViewControllerDelegate> delegate;
 @property (nonatomic, strong) ChecklistItem *itemToEdit;
-@property (nonatomic, strong) IBOutlet UISwitch *switchControl;
 @property (nonatomic, strong) IBOutlet UILabel *dueDateLabel;
-@property (nonatomic, strong) IBOutlet UILabel *nextServiceDateLabel;
-@property (nonatomic, strong) IBOutlet UILabel *serviceFrequencyField;
 @property (strong, nonatomic) IBOutlet PFImageView *imageField;
 
 // Popover (iPad Only)
@@ -85,11 +79,6 @@ didFinishAddingItem:(ChecklistItem *)item;
 ///create IBAction methods
 - (IBAction)cancel;
 - (IBAction)done;
-- (IBAction)frequency:(id)sender;
-
-
-- (IBAction)switchChanged:(UISwitch *)sender;
-
 
 @property (weak, nonatomic) IBOutlet UITextField *pickerTextField;
 @property (strong, nonatomic) NSArray *Computer;

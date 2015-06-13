@@ -36,14 +36,17 @@
     
     self.title = checklistItem.item;
     self.ItemNameLabel.text = checklistItem.item;
-    self.reportPhoto.image =[UIImage imageNamed:checklistItem.imageF];
+    [self.reportPhoto setImage:[UIImage imageWithData:[checklistItem.imageF getData]]];
+    //self.reportPhoto.image =[UIImage image];
+    
     //checklistItem.image;
     
-    NSMutableString *notesReport = [NSMutableString string];
-    for (NSString* notesReports in checklistItem.notes) {
-        [notesReport appendFormat:@"%@\n", notesReports];
-    }
-    self.notesTextView.text = notesReport;
+    //NSMutableString *notesReport = [NSMutableString string];
+        NSLog(@"chcklistitem :%@",checklistItem.notes);
+        //[notesReport appendFormat:@"%@\n", notesReports];
+    
+    
+    self.notesTextView.text = checklistItem.notes;
     
 }
 

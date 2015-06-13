@@ -178,7 +178,7 @@
 
         }
     else if
-        ([segue.identifier isEqualToString:@"showReportDetail"]) {
+        ([segue.identifier isEqualToString:@"showReport"]) {
             NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
             
           DetailViewController *destViewController = segue.destinationViewController;
@@ -294,8 +294,7 @@
     
     ChecklistItem *item = [self.checklist.items objectAtIndex:indexPath.row];
     
-    [self performSegueWithIdentifier:@"showReportDetail" sender:item];
-    
+    [self performSegueWithIdentifier:@"showReport" sender:self];
 }
 
 ///A swipe motion across a cell does not cause the display of a Delete button unless the table view's data source implements the tableView:commitEditingStyle:forRowAtIndexPath: method.
@@ -315,9 +314,9 @@
         [self refreshTable:nil];
     }];
     
-    [self.checklist.items removeObjectAtIndex:indexPath.row];
-    NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
-    [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationLeft];
+   // [self.checklist.items removeObjectAtIndex:indexPath.row];
+  //  NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
+  //  [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationLeft];
   
 }
 
@@ -383,7 +382,7 @@
 
 {
     
-    [self performSegueWithIdentifier:@"AddItem" sender:self];
+    //[self performSegueWithIdentifier:@"AddItem" sender:self];
 
     [self.refreshControl endRefreshing];
     

@@ -63,7 +63,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="SoS-az-9E5" kind="push" identifier="showReportDetail" id="2g3-qF-8Vs"/>
+                                    <segue destination="SoS-az-9E5" kind="push" identifier="showReport" id="2g3-qF-8Vs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -797,9 +797,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="lxl-ww-7gG"/>
         <segue reference="55R-AG-pA4"/>
         <segue reference="q5t-Ma-XzW"/>
-        <segue reference="lxl-ww-7gG"/>
-        <segue reference="5dz-5a-S3R"/>
+        <segue reference="F4Z-Ya-IAM"/>
     </inferredMetricsTieBreakers>
 </document>

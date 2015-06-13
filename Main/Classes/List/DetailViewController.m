@@ -17,7 +17,7 @@
 @synthesize ItemNameLabel;
 @synthesize notesTextView;
 @synthesize checklistItem;
-
+//@synthesize delegate;
 
 
 
@@ -58,14 +58,14 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
-
+- (void)BackButtonPressed:(id)sender
+{
+    
+}
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)cancel:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 @end

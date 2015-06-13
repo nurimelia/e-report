@@ -286,12 +286,12 @@
 
 ///when the user tap on the particular cell, we display the item.
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ChecklistItem *item = [self.checklist.items objectAtIndex:indexPath.row];
     
     [self performSegueWithIdentifier:@"showReport" sender:self];
-}
+}*/
 
 ///A swipe motion across a cell does not cause the display of a Delete button unless the table view's data source implements the tableView:commitEditingStyle:forRowAtIndexPath: method.
 

@@ -18,8 +18,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *ItemNameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *notesTextView;
 
-
-
 @property (nonatomic, strong) ChecklistItem *checklistItem; //*checklistToEdit;
 
+
+
+- (IBAction)done;
 @end

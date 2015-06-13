@@ -15,7 +15,6 @@
 @property (nonatomic, strong) NSString *LabName;
 @property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic, strong) NSString *notes;
-//@property (nonatomic, copy) NSString *iconName;
 @property (nonatomic, strong) PFFile *LabImage; // image of lab
 
 - (int)countUncheckedItems;

@@ -27,7 +27,6 @@
         self.text = [aDecoder decodeObjectForKey:@"Text"];
         self.notes = [aDecoder decodeObjectForKey:@"Notes"];
         self.item = [aDecoder decodeObjectForKey:@"Item"];
-       // self.numberPlate = [aDecoder decodeObjectForKey:@"NumberPlate"];
         self.serviceFrequency = [aDecoder decodeObjectForKey:@"ServiceFrequency"];
         self.checked = [aDecoder decodeBoolForKey:@"Checked"];
         self.dueDate = [aDecoder decodeObjectForKey:@"DueDate"];
@@ -44,7 +43,6 @@
     [aCoder encodeObject:self.text forKey:@"Text"];
     [aCoder encodeObject:self.notes forKey:@"Notes"];
     [aCoder encodeObject:self.item forKey:@"Item"];
-   // [aCoder encodeObject:self.numberPlate forKey:@"NumberPlate"];
     [aCoder encodeObject:self.serviceFrequency forKey:@"ServiceFrequency"];
     [aCoder encodeBool:self.checked forKey:@"Checked"];
     [aCoder encodeObject:self.dueDate forKey:@"DueDate"];
@@ -99,9 +97,6 @@
         localNotification.fireDate = self.nextServiceDate;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         
-       // NSString *numberPlate2 = [NSString stringWithFormat:@"%@ %@ is due for Maintenance!", item ? item: @"", numberPlate ? numberPlate: @""];
-        
-      //  localNotification.alertBody = numberPlate2;
         localNotification.soundName = UILocalNotificationDefaultSoundName;
         localNotification.userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:self.itemId] forKey:@"ItemID"];
                 

@@ -290,7 +290,11 @@
 {
     ChecklistItem *item = [self.checklist.items objectAtIndex:indexPath.row];
     
+<<<<<<< HEAD
+    [self performSegueWithIdentifier:@"showReportDetail" sender:item];
+=======
     [self performSegueWithIdentifier:@"showReport" sender:self];
+>>>>>>> 70099c498396db97a26ea4706ee95acf643d5632
 }
 
 ///A swipe motion across a cell does not cause the display of a Delete button unless the table view's data source implements the tableView:commitEditingStyle:forRowAtIndexPath: method.
